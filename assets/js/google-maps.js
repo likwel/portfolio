@@ -57,6 +57,7 @@ function initMap() {
 /*--------------*/
 
 var index = 0;
+let dots = document.querySelectorAll(".dot");
 dots[index].classList.add("active");
 
 
