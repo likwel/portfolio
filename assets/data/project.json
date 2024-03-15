@@ -1,0 +1,105 @@
+[
+    {
+        "id" : 1,
+        "title": "Tsaratantana",
+        "description": "Commercial management software, sales management, purchase, customer, supplier, invoice, order, accounting, stock and location for products.",
+        "lastPrice":300,
+        "newPrice": 250,
+        "link": "#",
+        "category": "Web Site, Apps",
+        "technology": ["PHP", "JavaScript", "MySQL","HTML5","CSS3","Bootstrap","SQL"],
+        "caractere" :{
+            "label1": "",
+            "label2" :"",
+            "label3" :"",
+            "label4" :""
+        },
+        "images":["assets/img/work/tsaratantana/1.png","assets/img/work/tsaratantana/2.png","assets/img/work/tsaratantana/3.png","assets/img/work/tsaratantana/4.png","assets/img/work/tsaratantana/5.png"]
+    },
+    {
+        "id" : 2,
+        "title": "Project Management",
+        "description": "Project management software, Manage your task planning.",
+        "lastPrice":250,
+        "newPrice": 200,
+        "link": "#",
+        "category": "Web Site",
+        "technology": ["Node.js", "JavaScript","PostgreSQL","Bootstrap","HTML5","CSS3"],
+        "caractere" :{
+            "label1": "",
+            "label2" :"",
+            "label3" :"",
+            "label4" :""
+        },
+        "images":["assets/img/work/projet/1.png","assets/img/work/projet/2.png","assets/img/work/projet/3.png"]
+    },
+    {
+        "id" : 3,
+        "title": "ConsoMyZone",
+        "description": "Data visualization, resto, golf, station service, ferme, marché.",
+        "lastPrice":250,
+        "newPrice": 200,
+        "link": "www.consomyzone.com",
+        "category": "Web Site",
+        "technology": ["PHP","Symfony","JavaScript","MySQL","SQL","HTML5","CSS3","Bootstrap"],
+        "caractere" :{
+            "label1": "",
+            "label2" :"",
+            "label3" :"",
+            "label4" :""
+        },
+        "images":["assets/img/work/cmz/1.png","assets/img/work/cmz/2.png","assets/img/work/cmz/3.png"]
+    },
+    {
+        "id" : 4,
+        "title": "GPS Tracking",
+        "description": "Data, satellite, Gps tracking, flotte.",
+        "lastPrice":250,
+        "newPrice": 200,
+        "link": "#",
+        "category": "Web Site",
+        "technology": ["Java","PostgreSQL","Spring Boot","HTML5","CSS3"],
+        "caractere" :{
+            "label1": "",
+            "label2" :"",
+            "label3" :"",
+            "label4" :""
+        },
+        "images":["assets/img/work/gps/0.png","assets/img/work/gps/1.png","assets/img/work/gps/2.png","assets/img/work/gps/3.png","assets/img/work/gps/4.png"]
+    },
+    {
+        "id" : 5,
+        "title": "Vrom",
+        "description": "Social Network, chat service, messaging service",
+        "lastPrice":250,
+        "newPrice": 200,
+        "link": "#",
+        "category": "Network media, chat service",
+        "technology": ["Node.js","JavaScript","MySQL","HTML5","CSS3"],
+        "caractere" :{
+            "label1": "",
+            "label2" :"",
+            "label3" :"",
+            "label4" :""
+        },
+        "images":["assets/img/work/vrom/1.png","assets/img/work/vrom/2.png","assets/img/work/vrom/3.png"]
+    },
+    {
+        "id" : 6,
+        "title": "LaboStat",
+        "description": "Data center, statistics, marital status, digital election.",
+        "lastPrice":250,
+        "newPrice": 200,
+        "link": "#",
+        "category": "Dashboard, Statistics, Digital",
+        "technology": ["Node.js","PostgreSQL","JavaScript","SQL","HTML5","CSS3","Bootstrap"],
+        "caractere" :{
+            "label1": "",
+            "label2" :"",
+            "label3" :"",
+            "label4" :""
+        },
+        "images":["assets/img/work/labostat/0.png","assets/img/work/labostat/1.png","assets/img/work/labostat/2.png","assets/img/work/labostat/3.png","assets/img/work/labostat/4.png"]
+    }
+    
+]
