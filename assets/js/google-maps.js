@@ -12,10 +12,10 @@ function initMap() {
     //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     // }).addTo(map);
 
-    var tiles = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.{ext}', {
+    var tiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
         minZoom: 0,
         maxZoom: 20,
-        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; contributors',
+        attribution: '&copy; <a href="https://server.arcgisonline.com" target="_blank">World Street Map</a> &copy; contributors',
         ext: 'png'
     });
 
