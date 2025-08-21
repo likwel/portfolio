@@ -100,6 +100,40 @@
             "label4" :""
         },
         "images":["assets/img/work/labostat/0.png","assets/img/work/labostat/1.png","assets/img/work/labostat/2.png","assets/img/work/labostat/3.png","assets/img/work/labostat/4.png"]
+    },
+    {
+        "id" : 7,
+        "title": "SmartShop",
+        "description": "Site e-commerce configurable, avec systeme de paiement.",
+        "lastPrice":250,
+        "newPrice": 200,
+        "link": "#",
+        "category": "E-commerce",
+        "technology": ["Node.js","PostgreSQL","JavaScript","SQL","HTML5","CSS3","Bootstrap"],
+        "caractere" :{
+            "label1": "",
+            "label2" :"",
+            "label3" :"",
+            "label4" :""
+        },
+        "images":["assets/img/work/labostat/0.png","assets/img/work/labostat/1.png","assets/img/work/labostat/2.png","assets/img/work/labostat/3.png","assets/img/work/labostat/4.png"]
+    },
+    {
+        "id" : 8,
+        "title": "Prévision de vente v2.0",
+        "description": "Data visualisation, data processing et data prediction.",
+        "lastPrice":250,
+        "newPrice": 200,
+        "link": "#",
+        "category": "Dashboard, Statistics",
+        "technology": ["Node.js","PostgreSQL","JavaScript","SQL","HTML5","CSS3","Bootstrap"],
+        "caractere" :{
+            "label1": "",
+            "label2" :"",
+            "label3" :"",
+            "label4" :""
+        },
+        "images":["assets/img/work/labostat/0.png","assets/img/work/labostat/1.png","assets/img/work/labostat/2.png","assets/img/work/labostat/3.png","assets/img/work/labostat/4.png"]
     }
     
 ]

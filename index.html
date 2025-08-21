@@ -1,1084 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <title>Elie Fenohasina - Portfolio</title>
-
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-
-  <link rel="stylesheet" type="text/css" href="assets/css/themify-icons.css">
-
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-
-  <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
-
-  <link rel="stylesheet" type="text/css" href="assets/vendor/owl-carousel/owl.carousel.css">
-
-  <!-- <link rel="stylesheet" type="text/css" href="assets/vendor/perfect-scrollbar/css/perfect-scrollbar.css"> -->
-
-  <link rel="stylesheet" type="text/css" href="assets/vendor/nice-select/css/nice-select.css">
-
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fancybox/css/jquery.fancybox.min.css">
-
-  <link rel="stylesheet" type="text/css" href="assets/css/virtual.css">
-
-  <link rel="stylesheet" type="text/css" href="assets/css/topbar.virtual.css">
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Elie Andriatsitohaina</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        
+    </style>
 </head>
 
-<body class="theme-red">
-
-  <!-- Back to top button -->
-  <div class="btn-back_to_top">
-    <span class="ti-arrow-up"></span>
-  </div>
-
-  <!-- Setting button -->
-  <div class="config">
-    <div class="template-config">
-      <!-- Settings -->
-      <div class="d-block">
-        <button class="btn btn-fab btn-sm" id="sideel" title="Settings"><span class="ti-settings"></span></button>
-      </div>
-      <!-- Puschase -->
-      <!-- <div class="d-block">
-        <a href="https://macodeid.com/projects/virtual-folio/" class="btn btn-fab btn-sm" title="Get this template"
-          data-toggle="tooltip" data-placement="left"><span class="ti-download"></span></a>
-      </div> -->
-      <!-- Help -->
-      <div class="d-block">
-        <a href="#" class="btn btn-fab btn-sm" title="Help" data-toggle="tooltip" data-placement="left"><span
-            class="ti-help"></span></a>
-      </div>
-    </div>
-    <div class="set-menu">
-      <p>Choose the favorite color</p>
-      <div class="color-bar" data-toggle="selected">
-        <span class="color-item bg-theme-red selected" data-class="theme-red"></span>
-        <span class="color-item bg-theme-blue" data-class="theme-blue"></span>
-        <span class="color-item bg-theme-green" data-class="theme-green"></span>
-        <span class="color-item bg-theme-orange" data-class="theme-orange"></span>
-        <span class="color-item bg-theme-purple" data-class="theme-purple"></span>
-      </div>
-      <!-- <select class="custom-select d-block my-2" id="change-page">
-        <option value="">Choose Page</option>
-        <option value="index">Topbar</option>
-        <option value="blog-topbar">Blog (Topbar)</option>
-        <option value="index-2">Minibar</option>
-        <option value="blog-minibar">Blog (Minibar)</option>
-      </select> -->
-    </div>
-  </div>
-
-  <div class="vg-page page-home" id="home" style="background-image: url(assets/img/insert-image-html.jpg);background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;">
-    <!-- Navbar -->
-    <div class="navbar navbar-expand-lg navbar-dark sticky" data-offset="500">
-      <div class="container">
-        <a href="" class="navbar-brand">Portfolio</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#main-navbar" aria-expanded="true">
-          <span class="ti-menu"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a href="#home" class="nav-link" data-animate="scrolling">Home</a>
+<body class="light-theme">
+    <header class="nav-center">
+        <ul class="navbar">
+            <li><span id="theme-toggleIcon"><i class="fa-solid fa-moon"></i></span><a href="#" class="name"> Elie A.</a>
             </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link" data-animate="scrolling">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="#portfolio" class="nav-link" data-animate="scrolling">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link" data-animate="scrolling">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://elie-fenohasina.onrender.com/" target="_blank" class="nav-link" data-animate="scrolling">Portfolio</a>
-            </li>
-          </ul>
-          <ul class="nav ml-auto">
-            <li class="nav-item">
-              <button class="btn btn-fab btn-theme no-shadow">En</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> <!-- End Navbar -->
-    <!-- Caption header -->
-    <div class="caption-header text-center wow zoomInDown">
-      <h5 class="fw-normal">Hello world!</h5>
-      <h1 class="fw-light mb-4">I'm <b class="fg-theme">Andriatsitohaina</b> Elie</h1>
-      <div class="badge">Data Engineer & Web Developper </div>
-    </div> <!-- End Caption header -->
-    <div class="floating-button"><span class="ti-mouse"></span></div>
-  </div>
-
-  <div class="vg-page page-about" id="about">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-lg-4 py-3">
-          <div class="img-place wow fadeInUp">
-            <img src="assets/img/_MG_4758_edit_2.jpg" alt=""
-              style="border:5px solid;box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;">
-          </div>
-        </div>
-        <div class="col-lg-6 offset-lg-1 wow fadeInRight">
-          <h1 class="fw-light">Andriatsitohaina Elie</h1>
-          <h5 class="fg-theme mb-3">Data Engineer & Web Developper</h5>
-          <p class="text-muted">I am passionate about the IT field such as data engineering, data science, data analysis
-            and web development.</p>
-          <ul class="theme-list">
-            <li><b>From:</b> Madagascar</li>
-            <li><b>Lives In:</b> Antananarivo, Madagascar</li>
-            <li><b>Age:</b> 29</li>
-            <li><b>Gender:</b> Male</li>
-          </ul>
-          <a href="assets/data/CV_ANDRIATSITOHAINA_ELIE.pdf" class="btn btn-theme-outline" download>Download my CV</a>
-        </div>
-      </div>
-    </div>
-    <div class="container py-5">
-      <h1 class="text-center fw-normal wow fadeIn">My Skills</h1>
-      <div class="row py-3">
-        <div class="col-md-6">
-          <div class="px-lg-3">
-            <h4 class="wow fadeInUp">Coding skills</h4>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">JavaScript | VanillaJS | NodeJS</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 86%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">86%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">PHP | Symfony</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">80%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">HTML | CSS | Bootstrap</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">100%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Phyton | Flask</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">90%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Java | Spring Boot | Hibernate</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">85%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="px-lg-3">
-            <h4 class="wow fadeInUp">Technical Skills</h4>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Data engineering</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 92%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">92%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Data analysis | Excel | Power BI</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 92%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">92%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Web Scraping</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">99%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Web Development</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">87%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Machine Learning | IA</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0"
-                  aria-valuemax="100">75%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container pt-5">
-      <div class="row">
-        <div class="col-md-6 wow fadeInRight">
-          <h2 class="fw-normal">Education</h2>
-          <ul class="timeline mt-4 pr-md-5">
-            <li>
-              <div class="title">2020</div>
-              <div class="details">
-                <h5>Computer science engineer</h5>
-                <small class="fg-theme">University of Antananarivo | ESPA</small>
-                <p>Implementation of a sales forecasting tool based on Machine learning | Web development | Data
-                  modelization</p>
-              </div>
-            </li>
-            <li>
-              <div class="title">2017</div>
-              <div class="details">
-                <h5>Computer science degree</h5>
-                <small class="fg-theme">University of Antananarivo | ESPA</small>
-                <p>Web development and network course of CISCO.</p>
-              </div>
-            </li>
-            <li>
-              <div class="title">2013</div>
-              <div class="details">
-                <h5>Scientific secondary school diploma</h5>
-                <small class="fg-theme">General education high school Ambatomanoina</small>
-                <p>Scientific secondary school diploma with mention.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-6 wow fadeInRight" data-wow-delay="200ms">
-          <h2 class="fw-normal">Experience</h2>
-          <ul class="timeline mt-4 pr-md-5">
-            <li>
-              <div class="title">Août 2022 - Current</div>
-              <div class="details">
-                <h5>Data Engineer | Web Developper</h5>
-                <small class="fg-theme"><a href="https://geomadagascar.com/" target="_blank">Géomadagascar</a></small>
-                <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p> -->
-                <div style="margin-left:10px;">
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Implementation of the data architecture and infrastructure (Data structure)
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Web Scraping and data analysis - Java/JavaScript (Data scraping)
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Development of a scraping tool - Java (Data dev)
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Development of a data visualization tool - Leaflet JavaScript (Data viz)
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Web Development - Symfony/JavaScript
-
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="title">Mai 2021 - Juillet 2022</div>
-              <div class="details">
-                <h5>Data Analyst</h5>
-                <small class="fg-theme"><a href="https://mgbi.mg/" target="_blank">MGBI - Madagascar Business
-                    Intelligence</a></small>
-                <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p> -->
-                <div style="margin-left:10px;">
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  PostgreSQL and SQL Server database administration and management
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Data analysis and processing with Excel, Power BI, SQL and Python
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  ERP management and customer training mainly Odoo and EBP
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Data integration on the ERP platform (Odoo and EBP)
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="title">Novembre 2020 - Avril 2021</div>
-              <div class="details">
-                <h5>Versatile technician</h5>
-                <small class="fg-theme"><a href="https://secutech.mg/" target="_blank"> Sécutech</a></small>
-                <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p> -->
-                <div style="margin-left:10px;">
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  GPS installation and intervention in automobiles and motorcycles
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Installation and intervention of gate security system and surveillance camera
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Computer network installation and configuration
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="title">2020 - 2022</div>
-              <div class="details">
-                <h5>Computer Science Teacher</h5>
-                <small class="fg-theme"><a href="#" target="_blank"> Institut Supérieur d'Ingénierie Technologie et
-                    Management</a></small>
-                <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p> -->
-                <div style="margin-left:10px;">
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Database
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Java and application
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Web and mobile development
-                  <br>
-                  <svg class="svg-list-7BC7CF" fill="currentColor" viewBox="0 0 12 13" width="1em" height="1em"
-                    class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1kpxq89 xsmyaan" title="Compte vérifié">
-                    <title>Haut niveau</title>
-                    <g fill-rule="evenodd" transform="translate(-98 -917)">
-                      <path
-                        d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708m3.078 2.295-.589-1.149.588-1.15a.633.633 0 0 0-.219-.82l-1.085-.7-.065-1.287a.627.627 0 0 0-.6-.603l-1.29-.066-.703-1.087a.636.636 0 0 0-.82-.217l-1.148.588-1.15-.588a.631.631 0 0 0-.82.22l-.701 1.085-1.289.065a.626.626 0 0 0-.6.6l-.066 1.29-1.088.702a.634.634 0 0 0-.216.82l.588 1.149-.588 1.15a.632.632 0 0 0 .219.819l1.085.701.065 1.286c.014.33.274.59.6.604l1.29.065.703 1.088c.177.27.53.362.82.216l1.148-.588 1.15.589a.629.629 0 0 0 .82-.22l.701-1.085 1.286-.064a.627.627 0 0 0 .604-.601l.065-1.29 1.088-.703a.633.633 0 0 0 .216-.819">
-                      </path>
-                    </g>
-                  </svg>
-                  Machine Learning
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="vg-page page-service">
-    <div class="container">
-      <div class="text-center wow fadeInUp">
-        <div class="badge badge-subhead">Service</div>
-      </div>
-      <h1 class="fw-normal text-center wow fadeInUp">What can i do?</h1>
-      <div class="row mt-5">
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-server"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">Data engineering</h4>
-              <p>I can work in Big Data : data scraping, data warehouse, data analysis and data integration and
-                visualization.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-world"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">Freelance</h4>
-              <p>I am available to work remotely, open to all projects of data or/and web development.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-stats-up"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">Sales and rental</h4>
-              <p>We have a commercial management application, we can collaborate with your company.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-desktop"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">Web Development</h4>
-              <p>I can create your own website or your company website with successful satisfaction.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="vg-page page-funfact" style="background-image: url(assets/img/bg_banner.jpg);">
-    <div class="container">
-      <div class="row section-counter">
-        <div class="col-md-6 col-lg-3 py-4 wow fadeIn">
-          <h1 class="number" data-number="2">2</h1>
-          <span>Clients</span>
-        </div>
-        <div class="col-md-6 col-lg-3 py-4 wow fadeIn">
-          <h1 class="number" data-number="5">5</h1>
-          <span>Project Compleate</span>
-        </div>
-        <div class="col-md-6 col-lg-3 py-4 wow fadeIn">
-          <h1 class="number" data-number="3">3</h1>
-          <span>Project Ongoing</span>
-        </div>
-        <div class="col-md-6 col-lg-3 py-4 wow fadeIn">
-          <h1 class="number" data-number="100">100%</h1>
-          <span>Client Satisfaction</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio page -->
-  <div class="vg-page page-portfolio" id="portfolio">
-    <div class="container">
-      <div class="text-center wow fadeInUp">
-        <div class="badge badge-subhead">Projects</div>
-      </div>
-      <h1 class="text-center fw-normal wow fadeInUp">See my work</h1>
-      <div class="filterable-button py-3 wow fadeInUp" data-toggle="selected">
-        <button class="btn btn-theme-outline selected" data-filter="*">All</button>
-        <button class="btn btn-theme-outline" data-filter=".apps">Apps</button>
-        <button class="btn btn-theme-outline" data-filter=".template">Web</button>
-        <button class="btn btn-theme-outline" data-filter=".ios">Apk</button>
-        <button class="btn btn-theme-outline" data-filter=".ui-ux">Data</button>
-        <button class="btn btn-theme-outline" data-filter=".graphic">Stat</button>
-        <!-- <button class="btn btn-theme-outline" data-filter=".wireframes">Wireframes</button> -->
-      </div>
-
-      <div class="gridder my-3">
-
-        <div class="grid-item apps wow zoomIn">
-          <div class="img-place " data-src="assets/img/work/tsaratantana/2.png" data-fancybox
-            data-caption="<h5 class='fg-theme'>Tsaratantana</h5> <p>Commercial management</p>">
-            <img src="assets/img/work/tsaratantana/2.png" alt="">
-            <div class="img-caption">
-              <h5 class="fg-theme">Tsaratantana</h5>
-              <p>Commercial management 
-                <a data-projectid="1" class="btn btn-theme-outline" onclick="showDetailProject(this)" style="padding: 0px 4px !important;margin: auto;"> Voir détail</a>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item template wireframes wow zoomIn">
-          <div class="img-place" data-src="assets/img/work/projet/2.png" data-fancybox
-            data-caption="<h5 class='fg-theme'>Agile KANBAN</h5> <p>Task Management</p>">
-            <img src="assets/img/work/projet/2.png" alt="">
-            <div class="img-caption">
-              <h5 class="fg-theme">Agile KANBAN</h5>
-              <p>Task Management <a href="#" data-projectid="2" class="btn btn-theme-outline" onclick="showDetailProject(this)" style="padding: 0px 4px !important;margin: auto;">Voir détail</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item apps ios wow zoomIn">
-          <div class="img-place" data-src="assets/img/work/cmz/1.png" data-fancybox
-            data-caption="<h5 class='fg-theme'>ConsoMyZone</h5> <p>Data visualisation</p>">
-            <img src="assets/img/work/cmz/1.png" alt="">
-            <div class="img-caption">
-              <h5 class="fg-theme">ConsoMyZone</h5>
-              <p>Data visualisation <a href="#" data-projectid="3" class="btn btn-theme-outline" onclick="showDetailProject(this)" style="padding: 0px 4px !important;margin: auto;">Voir détail</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item ui-ux wow zoomIn">
-          <div class="img-place" data-src="assets/img/work/gps/4.png" data-fancybox
-            data-caption="<h5 class='fg-theme'>GPS Tracking</h5> <p>Géolocalisation</p>">
-            <img src="assets/img/work/gps/4.png" alt="">
-            <div class="img-caption">
-              <h5 class="fg-theme">GPS Tracking</h5>
-              <p>Géolocalisation <a href="#" data-projectid="4" class="btn btn-theme-outline" onclick="showDetailProject(this)" style="padding: 0px 4px !important;margin: auto;">Voir détail</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item apps graphic wow zoomIn">
-          <div class="img-place" data-src="assets/img/work/vrom/1.png" data-fancybox
-            data-caption="<h5 class='fg-theme'>Vrom chat</h5> <p>Social media</p>">
-            <img src="assets/img/work/vrom/1.png" alt="">
-            <div class="img-caption">
-              <h5 class="fg-theme">Vrom chat</h5>
-              <p>Chat message and video <a href="#" data-projectid="5" class="btn btn-theme-outline" onclick="showDetailProject(this)" style="padding: 0px 4px !important;margin: auto;">Voir détail</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item graphic ui-ux wireframes wow zoomIn">
-          <div class="img-place" data-src="assets/img/work/labostat/0.png" data-fancybox
-            data-caption="<h5 class='fg-theme'>LaboStat</h5> <p>Data, office, statistics</p>">
-            <img src="assets/img/work/labostat/0.png" alt="">
-            <div class="img-caption">
-              <h5 class="fg-theme">LaboStat</h5>
-              <p>Data, statistics <a href="#" data-projectid="6" class="btn btn-theme-outline" onclick="showDetailProject(this)" style="padding: 0px 4px !important;margin: auto;">Voir détail</a></p>
-            </div>
-          </div>
-        </div>
-      </div> <!-- End gridder -->
-      <div class="text-center wow fadeInUp">
-        <a target="_blank" href="https://github.com/likwel" class="btn btn-theme">Load More</a>
-      </div>
-    </div>
-  </div> <!-- End Portfolio page -->
-
-  <!-- Testimonial -->
-  <!-- <div class="vg-page page-testimonial">
-    <div class="container">
-      <h1 class="text-center fw-normal wow fadeInUp">What Clients are Saying</h1>
-      <div class="row justify-content-center mt-5 wow fadeInUp">
-        <div class="col-md-9">
-          <div class="owl-carousel testi-carousel">
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="img-place">
-                    <img src="assets/img/testimonials/testimonials_1.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="caption">
-                    <div class="testi-content">There are many variations of passages of Lorem Ipsum available, but the majority have suffered</div>
-                    <div class="testi-info">
-                      <div class="thumb-profile">
-                        <img src="assets/img/testimonials/testimonials_1.jpg" alt="">
-                      </div>
-                      <div class="tagline">
-                        <h5 class="mb-0">Satria Nugraha</h5>
-                        <span class="text-muted">CEO Nutshell</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="img-place">
-                    <img src="assets/img/testimonials/testimonials_2.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="caption">
-                    <div class="testi-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe natus expedita ab facilis ut, animi explicabo amet. Voluptatibus possimus iste enim, doloremque, fugiat accusamus nisi optio fugit ratione expedita harum?</div>
-                    <div class="testi-info">
-                      <div class="thumb-profile">
-                        <img src="assets/img/testimonials/testimonials_2.jpg" alt="">
-                      </div>
-                      <div class="tagline">
-                        <h5 class="mb-0">Selena Arrini</h5>
-                        <span class="text-muted">CEO BigTree</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- End testimonial -->
-
-  <!-- Client -->
-  <div class="text-center wow fadeInUp">
-    <div class="badge badge-subhead">Our technology</div>
-  </div>
-  <div class="vg-page page-client">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="https://logos-marques.com/wp-content/uploads/2021/03/Java-Logo.png" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="https://www.php.net//images/logos/new-php-logo.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/CSS3_and_HTML5_logos_and_wordmarks.svg"
-              alt="">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Javascript-shield.png" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="https://symfony.com/logos/symfony_white_03.png" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End client -->
-
-  <!-- Blog -->
-  <!-- <div class="vg-page page-blog" id="blog">
-    <div class="container">
-      <div class="text-center">
-        <div class="badge badge-subhead wow fadeInUp">Blog</div>
-      </div>
-      <h1 class="text-center fw-normal wow fadeInUp">Latest Post</h1>
-      <div class="row post-grid">
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="assets/img/work/work-9.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category"><span class="ti-user"></span> Technology</a>
-              <a href="#" class="post-title">Invision design forward fund</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="assets/img/work/work-6.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category"><span class="ti-user"></span> Business</a>
-              <a href="#" class="post-title">Announcing a plan for small teams</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="assets/img/work/work-1.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category"> <span class="ti-user"></span> Design</a>
-              <a href="#" class="post-title">5 basic tips for illustrating</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 text-center py-3 wow fadeInUp">
-          <a href="blog-fullbar.html" class="btn btn-theme">See All Post</a>
-        </div>
-      </div>
-    </div>
-  </div>  -->
-
-  <!-- End blog -->
-  <!-- Contact -->
-  <div class="vg-page page-contact" id="contact">
-    <div class="container-fluid">
-      <div class="text-center wow fadeInUp">
-        <div class="badge badge-subhead">Contact</div>
-      </div>
-      <h1 class="text-center fw-normal wow fadeInUp">Get in touch</h1>
-      <div class="row py-5">
-        <div class="col-lg-7 px-0 pr-lg-3 wow zoomIn">
-          <div class="vg-maps">
-            <div id="google-maps" style="width: 100%; height: 100%;border-radius: 15px;margin-left:5px;"></div>
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <form class="vg-contact-form">
-            <div class="form-row">
-              <div class="col-12 mt-3 wow fadeInUp">
-                <input class="form-control" type="text" name="Name" placeholder="Your Name">
-              </div>
-              <div class="col-6 mt-3 wow fadeInUp">
-                <input class="form-control" type="text" name="Email" placeholder="Email Address">
-              </div>
-              <div class="col-6 mt-3 wow fadeInUp">
-                <input class="form-control" type="text" name="Subject" placeholder="Subject">
-              </div>
-              <div class="col-12 mt-3 wow fadeInUp">
-                <textarea class="form-control" name="Message" rows="6" placeholder="Enter message here.."></textarea>
-              </div>
-              <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1">Send Message</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End Contact -->
-
-  <!-- Footer -->
-  <div class="vg-footer">
-    <h1 class="text-center">Andriatsitohaina Elie</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 py-3">
-          <div class="footer-info">
-            <p>Where to find me</p>
-            <hr class="divider">
-            <p class="fs-large fg-white">Lot II E3Y – Mausolée <br>- 101 Antananarivo - <br>- Madagascar -</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 py-3">
-          <div class="float-lg-right">
-            <p>Follow me</p>
-            <hr class="divider">
-            <ul class="list-unstyled">
-              <li><a href="https://github.com/likwel">Github</a></li>
-              <li><a href="https://web.facebook.com/profile.php?id=100009201733216">Facebook</a></li>
-              <li><a href="https://www.upwork.com/freelancers/andriatsitohainae">Upwork</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 py-3">
-          <div class="float-lg-right">
-            <p>Contact me</p>
-            <hr class="divider">
-            <ul class="list-unstyled">
-              <li>eliefenohasina@gmail.com</li>
-              <li>+261 43 236 01</li>
-              <li>+236 85 234 79</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-center mt-3">
-        <div class="col-12 mb-3">
-          <h3 class="fw-normal text-center">Subscribe</h3>
-        </div>
-        <div class="col-lg-6">
-          <form class="mb-3">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Email address">
-              <input type="submit" class="btn btn-theme no-shadow" value="Subscribe">
-            </div>
-          </form>
-        </div>
-        <div class="col-12">
-          <p class="text-center mb-0 mt-4">Copyright &copy;2024. All right reserved.</p>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End footer -->
-
-  <div class="modal hidden" id="detail-project" style="display: none;">
-
-    <i class="fas fa-window-close"></i>
-    <!--Slider-->
-    <div class="sld-img">
-      <h2 class="pr-title">Tsaratantana</h2>
-      <div id="slider" class="">
-        
-        
-      </div>
-      <div id="dots-con">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      </div>
-    </div>
-
-    <div class="descri">
-      <div class="portfolio-info">
-        <h3 class="badge badge-subhead">Project information</h3>
-        <ul>
-          <li><i class="ti-check-box"></i> <strong> Category</strong> : <b class="category"></b></li>
-          <li><i class="ti-check-box"></i> <strong> Old price</strong> : <b class="oldPrice">ASU Company</b></li>
-          <li><i class="ti-check-box"></i> <strong> New price</strong> : <b class="newPrice">ASU Company</b></li>
-          <li><i class="ti-check-box"></i> <strong> Project date</strong> : <b class="date-projet"></b> March, 2020</li>
-          <li><i class="ti-check-box"></i> <strong> Project URL</strong> : <a href="#" target="_blank" class="product-link">www.example.com</a></li>
-          <li><i class="ti-check-box"></i> <strong> Technology</strong> : <div class="tech-label">www.example.com</div></li>
+            <li class="ligne-vertical"></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li class="ligne-vertical"></li>
+            <li><button id="btn" class="hireMe">Hire me</button></li>
         </ul>
+    </header>
+    <ul>+261 34 852 34 79 / +261 32 43 236 01</ul>
+    <ul><a href="mailto:eliefenohasina@gmail.com">eliefenohasina@gmail.com</a></ul>
+    <main class="main d-none" id="home">
+        <div class="left-section">
+            <h1>Your Software & Data Engineer - Elie Andriatsitohaina</h1>
+            <p>I specialize in web development, software engineering, and data engineering.</p>
+            <div class="buttons">
+                <button class="hireMe">Hire me</button>
+                <button class="button2 btn-download" href="CV_ANDRIATSITOHAINA_ELIE.pdf" download> <i
+                        class="fa-solid fa-download"></i> Download my CV</button>
+            </div>
+            <div class="experience">
+                <div class="experience-item">
+                    <h2><strong>4 years</strong></h2>
+                    <p>Experiences</p>
+                </div>
+                <div class="experience-item">
+                    <h2><strong>Open to work</strong></h2>
+                    <p>Availability</p>
+                </div>
+                <div class="experience-item">
+                    <h2><strong>98%</strong></h2>
+                    <p>Satisfaction</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <img src="_MG_4758_edit-removebg-preview.png" alt="Elie Andriatsitohaina">
+            <div class="overlay left"><i class="fas fa-circle"></i> Software Engineer</div>
+            <div class="overlay bottom-left"><i class="fas fa-circle"></i> Web Development</div>
+            <div class="overlay center"><i class="fas fa-circle"></i> Data Engineer</div>
+        </div>
+    </main>
 
-        <strong>Description : </strong>
+    <main class="main d-none" id="services">
+        <div class="left-section-">
+            <h1>Services</h1>
+            <p>Explore my areas of expertise :</p>
+            <div class="experience services">
+                <div class="experience-item">
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Development</h2>
+                    <p>I can create your website or your company's site with guaranteed satisfaction.</p>
+                </div>
+                <div class="experience-item">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h2>Software Development</h2>
+                    <p>I develop custom software to meet your business needs.</p>
+                </div>
+                <div class="experience-item">
+                    <i class="fa-solid fa-database"></i>
+                    <h2>Data Analysis</h2>
+                    <p>I can analyze your data to provide insights and improve your processes.</p>
+                </div>
+                <div class="experience-item">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h2>Data Engineering</h2>
+                    <p>I work with Big Data, perform data scraping, and handle data integration.</p>
+                </div>
+                <div class="experience-item">
+                    <i class="fa-solid fa-search"></i>
+                    <h2>Web Scraping</h2>
+                    <p>I can scrape data from the web for analysis or integration purposes.</p>
+                </div>
+                <div class="experience-item">
+                    <i class="fa-solid fa-users-cog"></i>
+                    <h2>Consulting</h2>
+                    <p>I offer consulting services to help you optimize your software architecture and development
+                        strategies.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <main class="main d-none" id="projects">
+        <!-- Section Projets -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h1>Mes Projets</h1>
+                <p>Explore my project of expertise :</p>
+                <div class="experience">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/1.png"
+                                alt="Projet Tsaratantana" />
+                        </div>
+                        <h3 class="project-title">Tsaratantana Commerciale</h3>
+                        <p class="project-description">Gestion commerciale - Symfony 7.0</p>
+                        <button class="project-btn">Voir le projet</button>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/3.png"
+                                alt="Projet Tsaratantana" />
+                        </div>
+                        <h3 class="project-title">Commune Tsaratantana</h3>
+                        <p class="project-description">Gestion d'état civil - Node.js, Express.js</p>
+                        <button class="project-btn">Voir le projet</button>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/work/projet/2.png"
+                                alt="Projet Agile Kanban" />
+                        </div>
+                        <h3 class="project-title">Agile Kanban</h3>
+                        <p class="project-description">Gestion de projet - Node.js, Expres.js</p>
+                        <button class="project-btn">Voir le projet</button>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/work/gps/2.png"
+                                alt="Projet GPS Tracking" />
+                        </div>
+                        <h3 class="project-title">GPS Tracking</h3>
+                        <p class="project-description">Gestion de flotte - Java, Spring Boot</p>
+                        <button class="project-btn">Voir le projet</button>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/4.png"
+                                alt="Projet PDV" />
+                        </div>
+                        <h3 class="project-title">Prévision de Vente (PDV) 2.0</h3>
+                        <p class="project-description">Prévision de vente - Python/Streamlit</p>
+                        <button class="project-btn">Voir le projet</button>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/2.png"
+                                alt="Projet GPS" />
+                        </div>
+                        <h3 class="project-title">SmartShop</h3>
+                        <p class="project-description">E-commerce</p>
+                        <button class="project-btn">Voir le projet</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <p class="product-description">
-          full-description
-        </p>
-        <button class="btn btn-theme-outline"><i class="ti-shopping-cart"></i> Acheter</button>
-        <button class="btn btn-theme-outline" onclick="closeDetailProject()"><i class="ti-close"></i> Fermer</button>
-      </div>
+    </main>
+    <main id="about">
+        <nav class="tab-nav">
+            <a class="tab-link active" data-tab="experience">
+                <h1>Professional Experience</h1>
+            </a>
+            <a class="tab-link" data-tab="skills">
+                <h1>My Skills</h1>
+            </a>
+        </nav>
+
+        <section id="experience" class="tab-content active">
+            <p>Explore my experience expertise :</p>
+            <div class="experience-container">
+
+                <div class="experience-card">
+                    <h3>Web Developer & Data Engineer</h3>
+                    <p class="company">Geomadagascar | Present (approximately 3 years)</p>
+                    <p class="desc">Developing web applications and data management using Spring Boot, Symfony, Python,
+                        and JavaScript.</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Data Analyst</h3>
+                    <p class="company">MGBI | 1 year & 3 months</p>
+                    <p class="desc">Data analysis, ERP management, and data integration with Python, SQL, Power BI, and
+                        Excel.</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Electronics & IT Technician</h3>
+                    <p class="company">Secutech | 6 months</p>
+                    <p class="desc">Installation and maintenance of electronic and IT equipment.</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Computer & Electronics Instructor</h3>
+                    <p class="company">ISITM | part time</p>
+                    <p class="desc">Teaching students in programming and applied electronics.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="tab-content">
+            <p>Explore my technical expertise :</p>
+            <div class="skills-container">
+
+                <div class="skill-card">
+                    <i class="fab fa-java"></i>
+                    <h3>Java & Spring Boot</h3>
+                    <p class="desc">Web scraping and backend development.</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-symfony"></i>
+                    <h3>Symfony</h3>
+                    <p class="desc">Web development and software engineering.</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-node-js"></i>
+                    <h3>Node.js</h3>
+                    <p class="desc">Web development and server-side applications.</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <p class="desc">Data analysis and data science.</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-js-square"></i>
+                    <h3>JavaScript</h3>
+                    <p class="desc">User interface management and front-end development.</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>SQL</h3>
+                    <p class="desc">Database management (MySQL, PostgreSQL).</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-bootstrap"></i>
+                    <h3>Bootstrap</h3>
+                    <p class="desc">Pre-styled CSS framework for responsive design.</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Agile & Scrum</h3>
+                    <p class="desc">Project management methodologies for team collaboration.</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>API Development</h3>
+                    <p class="desc">Designing and integrating REST & GraphQL APIs.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h2>Send an Email</h2>
+            <form id="emailForm">
+                <div class="form-group">
+                    <label for="emailSubject">Subject</label><br>
+                    <input type="text" id="emailSubject" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailAddress">Your E-mail</label><br>
+                    <input type="email" id="emailAddress" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailContent">Message Content</label><br>
+                    <textarea id="emailContent" class="input-field" rows="4" required></textarea>
+                </div>
+                <button type="reset" class="reset-btn">Annuler</button>
+                <button type="submit" class="submit-btn" onclick="alert('This feature is not available. This is just a static page. Please reach out directly using the contact details provided.'); document.querySelector('.reset-btn').click()">Send</button>
+            </form>
+        </div>
     </div>
-    
 
+    <!-- <button id="theme-toggle">Changer de thème</button> -->
 
-  </div>
-
-
-  <script src="assets/js/jquery-3.5.1.min.js"></script>
-
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-  <script src="assets/vendor/owl-carousel/owl.carousel.min.js"></script>
-
-  <script src="assets/vendor/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-
-  <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
-
-  <script src="assets/vendor/nice-select/js/jquery.nice-select.min.js"></script>
-
-  <script src="assets/vendor/fancybox/js/jquery.fancybox.min.js"></script>
-
-  <script src="assets/vendor/wow/wow.min.js"></script>
-
-  <script src="assets/vendor/animateNumber/jquery.animateNumber.min.js"></script>
-
-  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-
-  <script src="assets/js/google-maps.js"></script>
-
-  <script src="assets/js/topbar-virtual.js"></script>
-
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-  <script>
-
-
-    function showDetailProject(e) {
-
-      let id = e.getAttribute("data-projectid");
-
-      document.querySelector("#detail-project").style = "display:flex;"
-      document.querySelector("body").style.overflow = "hidden"
-
-
-      fetch('/assets/data/project.json')
-        .then((response) => response.json())
-        .then((data) => {
-
-          for (let json of data) {
-            if (json.id == id) {
-
-              let imgs_select = ""
-
-              let dots =""
-
-              let bgs = ["dodgerBlue","coral","crimson","#6edf10"]
-
-              const randomBG = bgs[Math.floor(Math.random() * bgs.length)];
-
-              let i=0;
-              for (let img of json.images) {
-                if(i==0){
-                  imgs_select += `
-                            <div class="slide active" style="background:${randomBG};">
-                                <img src="${img}" alt="">
-                            </div>
-                          `
-                  dots+=`<span class="dot active"></span>`
-                }else{
-                  imgs_select += `
-                            <div class="slide" style="background:${randomBG};">
-                                <img src="${img}" alt="">
-                            </div>
-                          `
-
-                  dots+=`<span class="dot"></span>`
-                }
-
-                i++;
-                
-              }
-
-              let techs = ""
-
-              for(let tech of json.technology){
-                techs+=`
-                <button class="btn btn-theme-outline" style="padding:2px !important;">${tech}</button>
-                `
-              }
-
-              document.querySelector(".pr-title").textContent= json.title
-              document.querySelector(".category").textContent= json.category
-              document.querySelector(".product-link").setAttribute("href", json.link)
-              document.querySelector(".product-link").textContent = json.link
-              document.querySelector(".oldPrice").textContent= "€" +json.lastPrice
-              document.querySelector(".newPrice").textContent= "€" +json.newPrice
-              document.querySelector(".date-projet").innerHTML="<i class='ti-timer'></i> "+ new Date().toISOString().split('T')[0].split(" ")[0];
-              document.querySelector(".product-description").textContent= json.description
-
-              document.querySelector("#slider").innerHTML= imgs_select 
-              document.querySelector("#dots-con").innerHTML= dots 
-              document.querySelector(".tech-label").innerHTML= techs 
-
-
-              document.querySelector("#slider").innerHTML+=`
-              <span class="controls customPreviousBtn" onclick="prevSlide()" id="left-arrow"><i class="ti-angle-double-left" aria-hidden="true"></i>
-              </span>
-              <span class="controls customNextBtn" id="right-arrow" onclick="nextSlide()"><i class="ti-angle-double-right" aria-hidden="true"></i>
-              </span>
-              `
-
-              setInterval(nextSlide, 3000)
-
-
+    <script>
+        // Fonction pour basculer entre les thèmes
+        document.getElementById('theme-toggleIcon').addEventListener('click', function (e) {
+            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('light-theme');
+            // Changer l'icône en fonction du thème
+            const themeIcon = document.getElementById('theme-toggleIcon');
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.innerHTML = '<i class="fa-solid fa-lightbulb"></i>'; // Icône du soleil pour le mode clair
+            } else {
+                themeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>'; // Icône de la lune pour le mode sombre
             }
-          }
 
-
+            // e.target.querySelector("i").classList.toggle("fa-solid fa-lightbulb")
         });
 
-    }
+        // Fonction pour activer le lien en fonction du hash dans l'URL
+        function activateNavLink() {
+            // Supprimer la classe active de tous les liens
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.classList.remove('active');
+            });
 
-    function closeDetailProject() {
-      document.querySelector("#detail-project").style = "display:none;"
-      document.querySelector("body").style.overflow = "auto";
+            // Ajouter la classe active au lien correspondant au hash dans l'URL
+            const currentHash = window.location.hash;
+            const activeLink = document.querySelector(`.navbar a[href="${currentHash}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            } else {
+                document.querySelector(`.navbar a[href="#home"]`).classList.add('active');
+            }
+            document.querySelectorAll("main").forEach(link => {
+                link.classList.add('d-none');
+            })
+            currentHash ? document.querySelector(currentHash).classList.remove('d-none') : document.querySelector("#home").classList.remove('d-none')
 
-    }
-  </script>
+            const tabs = document.querySelectorAll(".tab-link");
+            const contents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    tabs.forEach(t => t.classList.remove("active"));
+                    contents.forEach(c => c.classList.remove("active"));
+
+                    this.classList.add("active");
+                    document.getElementById(this.dataset.tab).classList.add("active");
+                });
+            });
+
+        }
+
+        // Activer le lien lors du chargement de la page
+        window.addEventListener('load', activateNavLink);
+
+        // Activer le lien lors du changement de hash dans l'URL
+        window.addEventListener('hashchange', activateNavLink);
+
+        document.querySelector(".btn-download").addEventListener("click", () => {
+            window.open("CV_ANDRIATSITOHAINA_ELIE.pdf", "_blank");
+        })
+
+        // Récupérer les éléments
+        const openModalBtns = document.querySelectorAll(".hireMe"); // Assurez-vous que vous avez plusieurs boutons avec cette classe
+        const closeModalBtn = document.getElementById("closeModalBtn");
+        const emailModal = document.getElementById("emailModal");
+        const emailForm = document.getElementById("emailForm");
+
+        // Ouvrir le modal lors du clic sur un bouton avec la classe "hireMe"
+        openModalBtns.forEach((openModalBtn) => {
+            openModalBtn.addEventListener("click", function () {
+                emailModal.style.display = "flex";
+            });
+        });
+
+        // Fermer le modal lors du clic sur le bouton de fermeture
+        closeModalBtn.addEventListener("click", function () {
+            emailModal.style.display = "none";
+        });
+
+        // Fermer le modal en cliquant à l'extérieur de la fenêtre modale
+        window.addEventListener("click", function (event) {
+            // if (event.target === emailModal) {
+            //     emailModal.style.display = "none";
+            // }
+        });
+
+        document.querySelector(".reset-btn").addEventListener("click", function(event){
+                emailModal.style.display = "none";
+        })
+
+        // Gestion de l'envoi de l'email
+        emailForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let subject = document.getElementById("emailSubject").value;
+            let recipient = document.getElementById("emailAddress").value;
+            let content = document.getElementById("emailContent").value;
+
+            if (subject && recipient && content) {
+                // Ouvrir le client de messagerie
+                let mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(content)}`;
+                window.location.href = mailtoLink;
+
+                // Fermer le modal après l'envoi
+                emailModal.style.display = "none";
+            } else {
+                alert("Veuillez remplir tous les champs !");
+            }
+        });
+
+
+
+    </script>
 </body>
 
 </html>
