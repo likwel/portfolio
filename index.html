@@ -48,8 +48,8 @@
             <p>I specialize in web development, software engineering, and data engineering.</p>
             <div class="buttons">
                 <button class="hireMe">Hire me</button>
-                <button class="button2 btn-download" href="data/CV_ANDRIATSITOHAINA_ELIE.pdf" download> <i
-                        class="fa-solid fa-download"></i> Download my CV</button>
+                <button class="button2 btn-download" download><a target="_blank" href="assets/data/CV_ANDRIATSITOHAINA_ELIE.pdf"> <i
+                        class="fa-solid fa-download"></i> Download my CV</a></button>
             </div>
             <div class="experience">
                 <div class="experience-item">
@@ -403,7 +403,8 @@
         window.addEventListener('hashchange', activateNavLink);
 
         document.querySelector(".btn-download").addEventListener("click", () => {
-            window.open("data/CV_ANDRIATSITOHAINA_ELIE.pdf", "_blank");
+
+            // window.open("data/CV_ANDRIATSITOHAINA_ELIE.pdf", "_blank");
         })
 
         // Récupérer les éléments

@@ -777,7 +777,7 @@ button:hover {
     border: 1px solid #ccc !important;
     margin-bottom: 1rem;
 }
-.buttons .links a{
+.buttons .links a, .btn-download a{
     text-decoration: none;
     color: #77B5FE;
 }
