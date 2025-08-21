@@ -128,13 +128,13 @@ button {
     color: #121212;
 }
 
-.light-theme button {
-    background-color: #121212;
-    border: 1px solid #cccccc;
-    color: #ffffff;
+.light-theme button, .light-theme a.project-btn {
+    background-color: #121212 !important;
+    border: 1px solid #cccccc !important;
+    color: #ffffff !important;
 }
 
-.light-theme button:hover {
+.light-theme button:hover, .light-theme a.project-btn:hover {
     background-color: #555555;
 }
 
@@ -496,6 +496,7 @@ main {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-bottom: 1rem;
+    text-decoration: none;
 }
 
 .project-btn:hover {
