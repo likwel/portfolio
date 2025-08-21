@@ -358,10 +358,17 @@ main {
     .project-card {
         width: 98% !important;
     }
+    .buttons .links{
+        margin-bottom: 0 !important;
+    }
 }
 
 /* Styles pour les très petits écrans (mobiles) */
 @media (max-width: 480px) {
+
+    .buttons .links{
+        margin-bottom: 0 !important;
+    }
 
     /* Agrandit les titres et les espaces */
     .left-section h1 {
@@ -757,4 +764,20 @@ button:hover {
 }
 .skill-card .fab{
     font-size: 28px;
+}
+.light-theme .buttons .links{
+    background-color: transparent !important;
+    color: black !important;
+    margin-bottom: 1rem;
+}
+
+.dark-theme .buttons .links{
+    background-color: transparent !important;
+    color: white !important;
+    border: 1px solid #ccc !important;
+    margin-bottom: 1rem;
+}
+.buttons .links a{
+    text-decoration: none;
+    color: #77B5FE;
 }
