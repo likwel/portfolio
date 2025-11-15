@@ -368,6 +368,8 @@ main {
 
     .buttons .links{
         margin-bottom: 0 !important;
+        margin-left: 1px !important;
+        margin-right: 1px !important;
     }
 
     /* Agrandit les titres et les espaces */
