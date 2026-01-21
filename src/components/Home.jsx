@@ -56,7 +56,12 @@ export default function Home({ setOpen }) {
 
           <div className="buttons">
             <button className="hireMe" onClick={() => setOpen(true)}>
-              Hire me
+             <DuotoneIcon 
+                icon={faEnvelope} 
+                    size={'text-sm'} 
+                    backActive={false} 
+                    className="mobile-icon" 
+                  /> <span className="ml-3">Hire me</span>
             </button>
 
             <a

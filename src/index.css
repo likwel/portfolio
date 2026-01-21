@@ -330,7 +330,7 @@ main {
     /* Agrandir les boutons */
     .buttons button {
         width: 100%;
-        margin-top: 10px;
+        /* margin-top: 10px; */
     }
 
     .navbar {
@@ -380,6 +380,10 @@ main {
         margin-left: 2rem !important;
         margin-right: 2rem !important;
         width: 90% !important;
+    }
+
+    .hideCollapse{
+        
     }
 }
 
@@ -825,6 +829,16 @@ button:hover {
     text-decoration: none;
     color: #77B5FE;
 }
+.btn-download{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    /* font-size: 1.2rem !important; */
+}
+.hireMe div, .hireMe span{
+    font-size: 1.2rem !important;
+}
+
 .max-w-75{
     max-width: 75rem !important;
 }
