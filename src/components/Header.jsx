@@ -12,12 +12,15 @@ import {
   faUser, 
   faEnvelope,
   faGraduationCap,
-  faLightbulb
+  faLightbulb,
+  faLanguage
 } from "@fortawesome/free-solid-svg-icons";
+
 import DuotoneIcon from "./DuotoneIcon";
 
 export default function Header({ setSection, setOpen }) {
   const [darkMode, setDarkMode] = useState(false);
+  const [language, setLanguage] = useState('en'); // 'fr' ou 'en'
 
   // Charger le thème au démarrage
   useEffect(() => {
@@ -40,6 +43,10 @@ export default function Header({ setSection, setOpen }) {
     }
   };
 
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'fr' ? 'en' : 'fr');
+  };
+
   return (
     <header className="nav-center">
       <ul className="navbar">
@@ -57,6 +64,40 @@ export default function Header({ setSection, setOpen }) {
           </button>
         </li>
         <li className="ligne-vertical"></li> */}
+
+        <li>
+          <a 
+            id="language-toggle" 
+            onClick={toggleLanguage}
+            className="cursor-pointer flex items-center gap-2"
+            aria-label="Toggle language"
+          >
+            {language === 'fr' ? (
+              // Drapeau français
+              <svg className="w-7 h-5" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#ED2939" width="900" height="600"/>
+                <rect fill="#fff" width="600" height="600"/>
+                <rect fill="#002395" width="300" height="600"/>
+              </svg>
+            ) : (
+              // Drapeau britannique
+              <svg className="w-7 h-5" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                <clipPath id="t">
+                  <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/>
+                </clipPath>
+                <path d="M0,0 v30 h60 v-30 z" fill="#00247d"/>
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+                <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#t)" stroke="#cf142b" strokeWidth="4"/>
+                <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+                <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" strokeWidth="6"/>
+              </svg>
+            )}
+            <span className="text-xs font-semibold nav-text">
+              {language === 'fr' ? 'FR' : 'EN'}
+            </span>
+          </a>
+        </li>
+        <li className="ligne-vertical"></li>
         
         <li>
           <a href="#home">
