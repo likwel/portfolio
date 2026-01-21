@@ -1,0 +1,991 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 18px;
+}
+
+#about {
+    display: block;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0;
+    gap: 20px;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.navbar li {
+    display: inline;
+    align-self: center;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a.active {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    border-bottom: 2px solid black;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#theme-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Thème sombre */
+.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-theme .nav-center .navbar .active {
+    border-bottom: 1px solid #ffffff;
+}
+
+.dark-theme .navbar {
+    background-color: #1c1c1c;
+    border: 1px solid #333333;
+}
+
+.dark-theme .navbar a {
+    color: #f1f1f1;
+}
+
+.dark-theme button {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.dark-theme button:hover {
+    background-color: #555555;
+}
+
+.dark-theme .experience-card,
+.dark-theme .skill-card,
+.dark-theme .project-card,
+.dark-theme .modal-content {
+    background: #121212;
+    border: 1px solid #ccc;
+    color: #cccccc;
+}
+.dark-theme .input-field{
+    background-color: #121212;
+    color: #cccccc;
+}
+
+/* Thème clair */
+.light-theme {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.light-theme .navbar {
+    background-color: #f1f1f1 !important;
+    border: 1px solid #cccccc !important;
+}
+
+.light-theme .navbar a {
+    color: #121212;
+}
+
+.light-theme button, .light-theme a.project-btn {
+    background-color: #121212 !important;
+    border: 1px solid #cccccc !important;
+    color: #ffffff !important;
+}
+
+.light-theme a.button2 {
+    background-color: #121212 !important;
+    border: 1px solid #cccccc !important;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #77B5FE !important;
+}
+
+.light-theme button:hover, .light-theme a.project-btn:hover {
+    background-color: #555555;
+}
+
+.ligne-vertical {
+    width: 1px;
+    height: 5vh;
+    background-color: #555555;
+    margin: 0 20px;
+}
+
+.name {
+    font-size: large;
+    color: #121212;
+    font-weight: bolder;
+    /* margin-left: 1rem; */
+    margin-right: 0;
+}
+
+.button2 {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}
+
+/* Main content styles */
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Left section (text) */
+.left-section {
+    width: 50%;
+    text-align: left;
+}
+
+.left-section h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.left-section p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.left-section .buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.left-section .buttons button {
+    width: 48%;
+}
+
+.left-section .experience {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.left-section .experience div {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Style pour les éléments de l'expérience */
+.experience {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.experience-item {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+}
+
+.experience-item h2 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.experience-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Right section (image) */
+.right-section {
+    align-content: center;
+    width: 40%;
+    position: relative;
+    /* border: 1px solid #cccccc; */
+}
+
+.right-section img {
+    width: 100%;
+    /* height: auto; */
+    border-radius: 8px;
+    object-fit: cover;
+    height: 100%;
+}
+
+.right-section .overlay {
+    position: absolute;
+    color: #121212;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: 1px solid #cccccc;
+    background-color: #f1f1f1;
+    padding: 0.5rem;
+}
+
+.right-section .overlay.left {
+    top: 10px;
+    left: -20px;
+}
+
+.right-section .overlay.bottom-left {
+    bottom: 10px;
+    left: -20px;
+}
+
+.right-section .overlay.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+.right-section .overlay.center {
+    top: 50%;
+    left: 70%;
+    min-width: 37%;
+}
+
+.main {
+    margin: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+
+    /* Déplace la section droite en dessous de la section gauche */
+    .main {
+        flex-direction: column;
+        align-items: center;
+        width: 98%;
+        padding: 0;
+        margin: 0.5rem !important;
+    }
+
+    /* Réduit la largeur des sections */
+    .left-section,
+    .right-section {
+        width: 100%;
+    }
+
+    /* Ajuste les éléments de l'expérience pour les rendre verticaux */
+    .experience {
+        /* grid-template-columns: 1fr; */
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .left-section {
+        text-align: center;
+    }
+
+    /* Agrandir les boutons */
+    .buttons button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        gap: 10px;
+        width: 90%;
+    }
+
+    .nav-center {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+
+    .right-section {
+        margin-top: 1rem;
+    }
+
+    .ligne-vertical {
+        display: none !important;
+        /* Cache les lignes verticales dans la navbar */
+    }
+
+    /* Taille du texte */
+    .left-section h1 {
+        font-size: 2rem;
+    }
+
+    .left-section p {
+        font-size: 1rem;
+    }
+
+    #theme-toggleIcon {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-card {
+        width: 98% !important;
+    }
+    .buttons .links{
+        margin-bottom: 0 !important;
+        margin-left: 2rem !important;
+        margin-right: 2rem !important;
+        width: 90% !important;
+    }
+}
+
+/* Styles pour les très petits écrans (mobiles) */
+@media (max-width: 480px) {
+
+    .buttons .links{
+        margin-bottom: 0 !important;
+        margin-left: 2rem !important;
+        margin-right: 2rem !important;
+    }
+
+    /* Agrandit les titres et les espaces */
+    .left-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .left-section p {
+        font-size: 0.9rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        width: 90%;
+        margin: auto;
+    }
+
+    .main {
+        margin: 0.5rem;
+    }
+
+    .right-section {
+        margin-top: 1rem;
+    }
+
+    /* Réduit l'espace entre les éléments dans la section expérience */
+    .experience-item {
+        padding: 8px;
+    }
+
+    /* Modifie les tailles des boutons */
+    .buttons button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #theme-toggleIcon {
+        position: relative;
+        left: auto;
+    }
+}
+
+#theme-toggleIcon {
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem;
+    padding: 0 0.25rem;
+}
+
+.d-none {
+    display: none !important;
+    /* visibility: hidden; */
+}
+
+/* Style pour la section projets */
+/* Container */
+
+.projects {
+    width: 100%;
+}
+
+.projects .container {
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+    text-align: center;
+}
+
+/* Title */
+.projects .section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* Grid for Projects - Alignement Horizontal */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Project Card */
+.project-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    /* Spécifie une largeur fixe pour chaque carte de projet */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image in Project */
+.project-image {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect to enlarge image */
+.project-image:hover img {
+    transform: scale(1.1);
+}
+
+/* Project Title and Description */
+.project-title {
+    font-size: 22px;
+    font-weight: 600;
+    /* margin: 15px 0; */
+}
+
+.project-description {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Project Button */
+.project-btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+
+.project-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Hover effect on project card */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* General */
+#about {
+    /* max-width: 1000px; */
+    /* margin: auto; */
+    text-align: center;
+}
+
+/* Navigation Tabs */
+.tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.tab-link {
+    cursor: pointer;
+    padding: 0px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #007BFF;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.tab-link.active {
+    color: #0056b3;
+    border-bottom: 3px solid #0056b3;
+}
+
+/* Hide inactive tabs */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Experience Section */
+#experience {
+    text-align: center;
+}
+
+#experience h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Experience container */
+.experience-container {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+/* Experience card */
+.experience-card {
+    background: linear-gradient(135deg, #f1f1f1, #cccccc);
+    color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover animation */
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Titles */
+.experience-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Company */
+.experience-card .company {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Description */
+.experience-card .desc {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Skills Section */
+#skills {
+    text-align: center;
+}
+
+#skills h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#skills p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Skills container */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Skill card */
+.skill-card {
+    background: linear-gradient(135deg, #f1f1f1, #cccccc);
+    color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Titles */
+.skill-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.skill-card h3.xp {
+    margin-bottom: 0 !important;
+}
+
+/* Description */
+.skill-card .desc {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Modal - Hidden by Default */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black with transparency */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 400px;
+    text-align: center;
+}
+
+/* Close Button */
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+/* Change color when hovering over the close button */
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Form Inputs */
+input,
+textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Submit Button */
+button {
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.input-field{
+    width: 95%;
+}
+.form-group label{
+    text-align: left;
+}
+.skill-card .fab{
+    font-size: 28px;
+}
+
+.light-theme .buttons, .dark-theme .buttons{
+    margin-bottom: 1rem;
+}
+.light-theme .buttons .links{
+    background-color: transparent !important;
+    color: black;
+    /* margin-bottom: 1rem; */
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.dark-theme .buttons .links{
+    background-color: transparent !important;
+    color: white ;
+    border: 1px solid #ccc !important;
+    /* margin-bottom: 1rem; */
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.links.contact{
+    color: #555 !important;
+}
+
+
+.links.network{
+    color: #77B5FE !important;
+}
+
+.buttons .links a, .btn-download a{
+    text-decoration: none;
+    color: #77B5FE;
+}
+.max-w-75{
+    max-width: 75rem !important;
+}
+.space-between{
+    justify-content: space-between;
+}
+.ml-3{
+    margin-left: 0.75rem;
+}
+.fs-20px{
+    font-size: 20px;
+}
+
+.collapse-menu{
+    /* padding: 0.5rem 1rem; */
+    font-family: 'Courier New', Courier, monospace;
+    color: #2563eb !important;
+    font-weight: bold;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
+    transition: all 0.3s ease;
+    animation: slideIn 0.6s ease-out;
+    cursor: pointer;
+}
+
+.collapse-menu div, .collapse-menu svg{
+    color: #2563eb !important;
+}
+
+.my-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  color: #2563eb;
+  padding: 0.5rem 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  animation: slideIn 0.6s ease-out;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.my-name:hover {
+  border-color: cornflowerblue;
+  box-shadow: 0 4px 12px rgba(100, 149, 237, 0.15);
+  transform: translateY(-2px);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(100, 149, 237, 0.15);
+  }
+  50% {
+    box-shadow: 0 6px 16px rgba(100, 149, 237, 0.25);
+  }
+}
+
+.my-name .icon {
+  font-size: 30px;
+  color: cornflowerblue;
+  font-weight: bold;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+.my-name:hover .icon {
+  animation: bounceHover 0.5s ease infinite;
+}
+
+@keyframes bounceHover {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.navbar a,
+.navbar button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mobile-icon {
+    display: none;
+}
+
+.nav-text {
+    display: inline;
+}
+
+/* Mode responsive */
+@media (max-width: 768px) {
+    .mobile-icon {
+        display: inline-block;
+    }
+    
+    .nav-text {
+        display: none;
+    }
+    
+    .ligne-vertical {
+        display: none;
+    }
+    
+    .navbar {
+        gap: 0.5rem;
+    }
+    
+    .navbar a,
+    .navbar button {
+        padding: 0.5rem;
+        justify-content: center;
+    }
+    
+    .name .nav-text {
+        display: inline; /* Garde le nom visible */
+    }
+    .grid-cols-1{
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Très petit écran - cache aussi le nom */
+@media (max-width: 480px) {
+    .name .nav-text {
+        display: none;
+    }
+}
+.grid-cols-1{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.w-100{
+    width: 100%;
+}
