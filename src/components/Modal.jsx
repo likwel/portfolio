@@ -4,26 +4,46 @@ import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import DuotoneIcon from "./DuotoneIcon";
 
 export default function Modal({ setOpen }) {
+  const [formData, setFormData] = useState({
+    email: "",
+    subject: "",
+    message: ""
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ email: "", subject: "", message: "" });
+    }, 3000);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-5xl mx-4 overflow-hidden">
+    <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-0 md:p-4">
+      <div className="bg-white w-full h-full md:h-auto md:rounded-lg shadow-xl md:max-w-5xl overflow-y-auto">
         
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col lg:flex-row min-h-full">
           
           {/* COLONNE 1: CONTACT INFO */}
-          <div className="w-full md:w-1/2 p-6 border-r">
+          <div className="w-full lg:w-1/2 p-4 md:p-8 lg:border-r border-b lg:border-b-0">
             <h2 className="text-2xl font-bold mb-4">Contact Info</h2>
 
             <div className="space-y-4">
               <div className="space-y-2">
                 <h3 className="text-sm font-semibold text-gray-600 mb-2">Phone Numbers</h3>
                 
-                <a href="tel:+261348523479" className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50">
+                <a href="tel:+261348523479" className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 transition-all hover:shadow-md hover:scale-105">
                   <DuotoneIcon icon={faPhone} size={'text-sm'} />
                   <span>+261 34 85 234 79</span>
                 </a>
 
-                <a href="tel:+261324323601" className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50">
+                <a href="tel:+261324323601" className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 transition-all hover:shadow-md hover:scale-105">
                   <DuotoneIcon icon={faPhone} size={'text-sm'} />
                   <span>+261 32 43 236 01</span>
                 </a>
@@ -32,51 +52,56 @@ export default function Modal({ setOpen }) {
               <div className="space-y-2">
                 <h3 className="text-sm font-semibold text-gray-600 mb-2">Social Networks</h3>
                 
-                
-                <a  href="https://www.linkedin.com/in/elie-fenohasina/"
+                <a href="https://www.linkedin.com/in/elie-fenohasina/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 border rounded-lg hover:bg-blue-50"
+                  className="flex items-center gap-3 p-3 border rounded-lg hover:bg-blue-50 transition-all hover:shadow-md hover:scale-105"
                 >
                   <DuotoneIcon icon={faLinkedin} size={'text-sm'} />
                   <span>Elie Fenohasina</span>
                 </a>
 
-                
-                <a  href="https://github.com/likwel"
+                <a href="https://github.com/likwel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50"
+                  className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 transition-all hover:shadow-md hover:scale-105"
                 >
                   <DuotoneIcon icon={faGithub} size={'text-sm'} />
                   <span>likwel</span>
                 </a>
 
-                
-                <a  href="mailto:eliefenohasina@gmail.com"
-                  className="flex items-center gap-3 p-3 border rounded-lg hover:bg-blue-50"
+                <a href="mailto:eliefenohasina@gmail.com"
+                  className="flex items-center gap-3 p-3 border rounded-lg hover:bg-blue-50 transition-all hover:shadow-md hover:scale-105"
                 >
                   <DuotoneIcon icon={faEnvelope} size={'text-sm'} />
-                  <span>eliefenohasina@gmail.com</span>
+                  <span className="break-all">eliefenohasina@gmail.com</span>
                 </a>
               </div>
             </div>
           </div>
 
           {/* COLONNE 2: SEND MESSAGE */}
-          <div className="w-full md:w-1/2 p-6">
+          <div className="w-full lg:w-1/2 p-4 md:p-8">
             <h2 className="text-2xl font-bold mb-4">Send Message</h2>
             
-            <form className="space-y-4">
+            {submitted && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-4 animate-pulse">
+                Message sent successfully!
+              </div>
+            )}
+            
+            <div className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Your Email
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="your.email@example.com"
-                  className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
+                  className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                 />
               </div>
 
@@ -86,9 +111,11 @@ export default function Modal({ setOpen }) {
                 </label>
                 <input
                   type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   placeholder="What's this about?"
-                  className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
+                  className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                 />
               </div>
 
@@ -97,29 +124,31 @@ export default function Modal({ setOpen }) {
                   Message
                 </label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Your message here..."
                   rows="5"
-                  className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
+                  className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
                 />
               </div>
 
               <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg w-full font-semibold flex items-center justify-center gap-2"
+                onClick={handleSubmit}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg w-full font-semibold flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:scale-105 active:scale-95"
               >
                 <DuotoneIcon icon={faPaperPlane} size={'text-sm'} backActive={false} />
                 Send Message
               </button>
-            </form>
+            </div>
           </div>
         </div>
 
         {/* CLOSE BUTTON */}
-        <div className="border-t p-4">
+        <div className="border-t p-4 md:p-6 bg-gray-50">
           <button
             onClick={() => setOpen(false)}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg w-full font-semibold"
+            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg w-full font-semibold transition-all hover:shadow-md active:scale-95"
           >
             Close
           </button>

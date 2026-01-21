@@ -10,7 +10,7 @@ interface CollapseSectionProps {
 }
 
 export default function CollapseSection({ title, icon, children }: CollapseSectionProps) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="border rounded-xl overflow-hidden bg-white shadow">
