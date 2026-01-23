@@ -16,14 +16,15 @@ body {
 }
 
 .nav-center {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .navbar {
+    width: 100%;
     list-style: none;
     display: flex;
     justify-content: center;
@@ -176,7 +177,7 @@ button {
 main {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 /* Left section (text) */
@@ -272,12 +273,12 @@ main {
 
 .right-section .overlay.left {
     top: 10px;
-    left: -20px;
+    /* left: -20px; */
 }
 
 .right-section .overlay.bottom-left {
     bottom: 10px;
-    left: -20px;
+    /* left: -20px; */
 }
 
 .right-section .overlay.bottom-right {
@@ -287,14 +288,18 @@ main {
 
 .right-section .overlay.center {
     top: 50%;
-    left: 70%;
+    /* left: 70%; */
+    right: 1%;
     min-width: 37%;
 }
 
 .main {
-    margin: 1rem 2.5rem;
+    /* margin: 1rem 2.5rem; */
     display: flex;
     justify-content: space-between;
+    /* padding: 20px; */
+}
+.p-20px{
     padding: 20px;
 }
 
@@ -305,9 +310,9 @@ main {
     .main {
         flex-direction: column;
         align-items: center;
-        width: 98%;
+        width: 100%;
         padding: 0;
-        margin: 0.5rem !important;
+        /* margin: 0.5rem !important; */
     }
 
     /* Réduit la largeur des sections */
@@ -336,7 +341,7 @@ main {
     .navbar {
         flex-direction: row;
         gap: 10px;
-        width: 90%;
+        width: 100%;
     }
 
     .nav-center {
@@ -373,7 +378,7 @@ main {
     }
 
     .project-card {
-        width: 98% !important;
+        width: 100% !important;
     }
     .buttons .links{
         margin-bottom: 0 !important;
@@ -408,7 +413,7 @@ main {
     .navbar {
         flex-direction: column;
         gap: 10px;
-        width: 90%;
+        width: 100%;
         margin: auto;
     }
 
@@ -681,7 +686,7 @@ main {
 
 /* Skill card */
 .skill-card {
-    background: linear-gradient(135deg, #f1f1f1, #cccccc);
+    /* background: linear-gradient(135deg, #f1f1f1, #cccccc); */
     color: #121212;
     padding: 20px;
     border-radius: 10px;
@@ -1002,4 +1007,19 @@ button:hover {
 }
 .w-100{
     width: 100%;
+}
+
+.right-section img {
+    width: 100%;
+    max-width: 420px;   /* taille max sur desktop */
+    height: auto;
+    object-fit: contain;
+}
+.title-portfolio{
+    margin-top: 1rem;
+}
+
+.experience-item:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }

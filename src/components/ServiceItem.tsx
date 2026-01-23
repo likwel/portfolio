@@ -9,7 +9,7 @@ interface ServiceItemProps {
 
 export default function ServiceItem({ icon, title, description }: ServiceItemProps) {
   return (
-    <div className="experience-item">
+    <div className="bg-gray-50 hover:bg-gray-100 transition-all duration-300  transition-colors shadow-sm hover:shadow-lg experience-item">
       <FontAwesomeIcon icon={icon} className="text-blue-600 text-3xl mb-2" />
       <h2 className="text-xl font-semibold mb-1">{title}</h2>
       <p className="text-gray-600">{description}</p>

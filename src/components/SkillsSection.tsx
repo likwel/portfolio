@@ -27,7 +27,7 @@ export default function SkillsSection() {
                 <h1 className="text-3xl font-bold mb-2 text-center">My Skills</h1>
                 <p className="text-center text-gray-700 mb-8">Explore my areas of expertise:</p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
                     {skills.map((skill, idx) => (
                         <div 
                             key={idx} 

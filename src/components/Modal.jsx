@@ -26,7 +26,7 @@ export default function Modal({ setOpen }) {
 
   return (
     <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-0 md:p-4">
-      <div className="bg-white w-full h-full md:h-auto md:rounded-lg shadow-xl md:max-w-5xl overflow-y-auto">
+      <div className="relative pt-4 bg-white w-full h-full md:h-auto md:rounded-lg shadow-xl md:max-w-5xl overflow-y-auto">
         
         <div className="flex flex-col lg:flex-row min-h-full">
           
@@ -35,7 +35,7 @@ export default function Modal({ setOpen }) {
             <h2 className="text-2xl font-bold mb-4">Contact Info</h2>
 
             <div className="space-y-4">
-              <div className="space-y-2">
+              <div className="space-y-2 flex flex-col gap-2 items-start">
                 <h3 className="text-sm font-semibold text-gray-600 mb-2">Phone Numbers</h3>
                 
                 <a href="tel:+261348523479" className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 transition-all hover:shadow-md hover:scale-105">
@@ -49,7 +49,7 @@ export default function Modal({ setOpen }) {
                 </a>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2b flex flex-col gap-2 items-start">
                 <h3 className="text-sm font-semibold text-gray-600 mb-2">Social Networks</h3>
                 
                 <a href="https://www.linkedin.com/in/elie-fenohasina/"
@@ -58,7 +58,7 @@ export default function Modal({ setOpen }) {
                   className="flex items-center gap-3 p-3 border rounded-lg hover:bg-blue-50 transition-all hover:shadow-md hover:scale-105"
                 >
                   <DuotoneIcon icon={faLinkedin} size={'text-sm'} />
-                  <span>Elie Fenohasina</span>
+                  <span>Elie Fenohasina ANDRIATSITOHAINA</span>
                 </a>
 
                 <a href="https://github.com/likwel"
@@ -67,7 +67,7 @@ export default function Modal({ setOpen }) {
                   className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 transition-all hover:shadow-md hover:scale-105"
                 >
                   <DuotoneIcon icon={faGithub} size={'text-sm'} />
-                  <span>likwel</span>
+                  <span>https://github.com/likwel</span>
                 </a>
 
                 <a href="mailto:eliefenohasina@gmail.com"
@@ -91,7 +91,7 @@ export default function Modal({ setOpen }) {
             )}
             
             <div className="space-y-4">
-              <div>
+              <div className="flex flex-col items-start">
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Your Email
                 </label>
@@ -105,7 +105,7 @@ export default function Modal({ setOpen }) {
                 />
               </div>
 
-              <div>
+              <div className="flex flex-col items-start">
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Subject
                 </label>
@@ -119,7 +119,7 @@ export default function Modal({ setOpen }) {
                 />
               </div>
 
-              <div>
+              <div className="flex flex-col items-start">
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Message
                 </label>
@@ -145,14 +145,12 @@ export default function Modal({ setOpen }) {
         </div>
 
         {/* CLOSE BUTTON */}
-        <div className="border-t p-4 md:p-6 bg-gray-50">
           <button
             onClick={() => setOpen(false)}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg w-full font-semibold transition-all hover:shadow-md active:scale-95"
+            className="absolute top-4 right-4 z-50 bg-gray-200 hover:bg-gray-300 text-gray-800 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:shadow-md active:scale-95"
           >
-            Close
+            ✕
           </button>
-        </div>
       </div>
     </div>
   );

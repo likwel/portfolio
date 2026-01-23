@@ -48,7 +48,7 @@ export default function ExperienceSection() {
                 <h1 className="text-3xl font-bold mb-2 text-center">My Professional Experiences</h1>
                 <p className="text-center text-gray-700 mb-6">Explore my experiences:</p>
 
-                <div className="space-y-4">
+                <div className="space-y-4 p-4">
                     {experiences.map((exp, index) => (
                         <div key={index} className="skill-card border rounded-lg p-5 bg-gray-50 hover:bg-gray-100 transition-all duration-300  transition-colors shadow-sm p-4">
                             {/* Date et Titre sur la même ligne */}

@@ -116,7 +116,7 @@ export default function Projects() {
           <h1 className="text-3xl font-bold mb-2 text-center">My personal Projets</h1>
           <p className="text-center text-gray-700 mb-6">Explore my project of expertise :</p>
 
-          <div className="lg:p-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6 experience">
+          <div className="lg:p-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 experience">
             {personalProjects.map((project, index) => (
               <div key={index} className="bg-gray-50 rounded-lg shadow hover:shadow-lg overflow-hidden project-card">
                 <div 

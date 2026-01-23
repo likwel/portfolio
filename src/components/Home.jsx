@@ -6,7 +6,7 @@ import DuotoneIcon from "./DuotoneIcon";
 
 export default function Home({ setOpen }) {
   return (
-    <section>
+    <section className="p-20px">
 
       {/* CONTACT BUTTONS */}
       <div className="buttons hidden">
@@ -51,9 +51,10 @@ export default function Home({ setOpen }) {
             Elie Fenohasina ANDRIATSITOHAINA
             <span className="icon">›</span>
           </h2>
-          <h1>Fullstack Developper & Data Engineer</h1>
-          <p>I specialize in web development, software engineering, and data engineering.</p>
-
+          <div className="title-portfolio">
+            <h1>Fullstack Developper & Data Engineer</h1>
+            <p>I specialize in web development, software engineering, and data engineering.</p>
+          </div>
           <div className="buttons">
             <button className="hireMe" onClick={() => setOpen(true)}>
              <DuotoneIcon 
