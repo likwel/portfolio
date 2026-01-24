@@ -137,7 +137,7 @@ export default function Modal({ setOpen }) {
                 onClick={handleSubmit}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg w-full font-semibold flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:scale-105 active:scale-95"
               >
-                <DuotoneIcon icon={faPaperPlane} size={'text-sm'} backActive={false} />
+                <DuotoneIcon icon={faPaperPlane} size={'text-sm'} backActive={false} fgColor={'text-white'}/>
                 Send Message
               </button>
             </div>

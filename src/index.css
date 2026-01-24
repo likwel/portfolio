@@ -8,7 +8,7 @@ body {
     text-align: center;
     font-family: 'JetBrains Mono', monospace;
     transition: background-color 0.3s, color 0.3s;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 #about {
@@ -135,22 +135,26 @@ button {
 }
 
 .light-theme button, .light-theme a.project-btn {
-    background-color: #121212 !important;
-    border: 1px solid #cccccc !important;
-    color: #ffffff !important;
+    /* background-color: #121212; */
+    background-color: #007b8b;
+    /* opacity: .5; */
+    border: 1px solid #cccccc;
+    color: #fff;
+    border-radius: .75rem;
+    padding: .5rem 1rem;
 }
 
 .light-theme a.button2 {
-    background-color: #121212 !important;
-    border: 1px solid #cccccc !important;
+    background-color: #121212;
+    border: 1px solid #cccccc;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     text-decoration: none;
-    color: #77B5FE !important;
+    color: #77B5FE;
 }
 
 .light-theme button:hover, .light-theme a.project-btn:hover {
-    background-color: #555555;
+    background-color: #026673;
 }
 
 .ligne-vertical {
@@ -526,7 +530,7 @@ main {
 
 /* Project Button */
 .project-btn {
-    background-color: #007BFF;
+    /* background-color: #007BFF; */
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -841,7 +845,7 @@ button:hover {
     /* font-size: 1.2rem !important; */
 }
 .hireMe div, .hireMe span{
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
 }
 
 .max-w-75{
@@ -860,7 +864,7 @@ button:hover {
 .collapse-menu{
     /* padding: 0.5rem 1rem; */
     font-family: 'Courier New', Courier, monospace;
-    color: #2563eb !important;
+    color: #007b8b !important;
     font-weight: bold;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
@@ -870,7 +874,7 @@ button:hover {
 }
 
 .collapse-menu div, .collapse-menu svg{
-    color: #2563eb !important;
+    color: #007b8b !important;
 }
 
 .my-name {
@@ -879,7 +883,7 @@ button:hover {
   justify-content: space-between;
   border: 1px solid #e0e0e0;
   border-radius: 0.5rem;
-  color: #2563eb;
+  color: #007b8b;
   padding: 0.5rem 1rem;
   font-family: 'Courier New', Courier, monospace;
   font-size: 25px;
@@ -903,8 +907,8 @@ button:hover {
 }
 
 .my-name:hover {
-  border-color: cornflowerblue;
-  box-shadow: 0 4px 12px rgba(100, 149, 237, 0.15);
+  border-color: #007b8b;
+  box-shadow: 0 4px 12px #007b8b;
   transform: translateY(-2px);
   animation: pulse 1.5s infinite;
 }
@@ -920,7 +924,7 @@ button:hover {
 
 .my-name .icon {
   font-size: 30px;
-  color: cornflowerblue;
+  color: #007b8b;
   font-weight: bold;
   margin-left: 1rem;
   transition: transform 0.3s ease;
@@ -1022,4 +1026,47 @@ button:hover {
 .experience-item:hover{
     transform: translateY(-10px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.right-20{
+    right: 5rem;
+}
+
+.choose-chat{
+    background-color: #007BFF;
+}
+.fgColorTheme{
+    color: #007b8b;
+}
+
+.bgColorTheme{
+    color: #007b8b;
+}
+
+.min-w-15{
+    min-width: 15%;
+}
+.date-badge{
+    background-color: #007b8b;
+    padding: .25rem;
+    color: white;
+}
+.date-badge svg{
+    padding-left: .5rem;
+}
+.date-badge span{
+    padding-right: .5rem;
+}
+.p-1{
+    padding: .25rem;
+}
+
+.badge-skill{
+    background-color: #007b8b;
+    padding: .25rem;
+    color: white;
+}
+
+.bg-lightblue{
+    background-color: lightblue;
 }

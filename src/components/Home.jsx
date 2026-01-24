@@ -8,50 +8,14 @@ export default function Home({ setOpen }) {
   return (
     <section className="p-20px">
 
-      {/* CONTACT BUTTONS */}
-      <div className="buttons hidden">
-        <button className="button2 links contact">
-          <DuotoneIcon icon={faPhone} size={'text-sm'} />  +261 34 85 234 79
-        </button>
-
-        <button className="button2 links contact">
-          <DuotoneIcon icon={faPhone} size={'text-sm'} /> +261 32 43 236 01
-        </button>
-      </div>
-
-      <div className="buttons hidden">
-        <button
-          className="button2 links network"
-          target="_blank"
-          href="https://www.linkedin.com/in/elie-fenohasina/"
-        >
-          <DuotoneIcon icon={faLinkedin} size={'text-sm'} /> Elie Fenohasina
-        </button>
-
-        <button
-          className="button2 links network"
-          target="_blank"
-          href="https://github.com/likwel"
-        >
-          <DuotoneIcon icon={faGithub} size={'text-sm'} /> likwel
-        </button>
-
-        <button
-          className="button2 links network"
-          href="mailto:eliefenohasina@gmail.com"
-        >
-          <DuotoneIcon icon={faEnvelope} size={'text-sm'} /> eliefenohasina@gmail.com
-        </button>
-      </div>
-
       {/* MAIN */}
       <div className="main" id="home">
         <div className="left-section">
           <h2 className="my-name" onClick={() => setOpen(true)}>
-            Elie Fenohasina ANDRIATSITOHAINA
+            ANDRIATSITOHAINA ELIE FENOHASINA
             <span className="icon">›</span>
           </h2>
-          <div className="title-portfolio">
+          <div className="title-portfolio p-3">
             <h1>Fullstack Developper & Data Engineer</h1>
             <p>I specialize in web development, software engineering, and data engineering.</p>
           </div>
@@ -62,7 +26,8 @@ export default function Home({ setOpen }) {
                     size={'text-sm'} 
                     backActive={false} 
                     className="mobile-icon" 
-                  /> <span className="ml-3">Hire me</span>
+                    fgColor={'text-white'}
+                  /> <span className="ml-3">Contact me</span>
             </button>
 
             <a

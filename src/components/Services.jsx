@@ -29,9 +29,9 @@ const services = [
   },
   {
     icon: faUsersCog,
-    title: "Technical Consulting",
-    description: "Expert guidance on software architecture, technology stack selection, and best development practices to optimize your digital projects.",
-  },
+    title: "CRM Configuration",
+    description: "Customized CRM setup, user role management, workflow automation, and system optimization to streamline customer relationship management.",
+  }
 ];
 
 export default function Services() {

@@ -49,7 +49,7 @@ export default function Header({ setSection, setOpen }) {
 
   return (
     <header className="nav-center">
-      <ul className="navbar">
+      <ul className="navbar flex-row">
         {/* <li>
           <button 
             id="theme-toggleIcon" 
@@ -92,7 +92,7 @@ export default function Header({ setSection, setOpen }) {
                 <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" strokeWidth="6"/>
               </svg>
             )}
-            <span className="text-xs font-semibold nav-text">
+            <span className="text-sm font-semibold nav-text">
               {language === 'fr' ? 'FR' : 'EN'}
             </span>
           </a>
@@ -147,8 +147,9 @@ export default function Header({ setSection, setOpen }) {
               size={'text-sm'} 
               backActive={false} 
               className="mobile-icon" 
+              fgColor={'text-white'}
             />
-            <span className="nav-text">Hire me</span>
+            <span className="nav-text">Contact me</span>
           </button>
         </li>
       </ul>

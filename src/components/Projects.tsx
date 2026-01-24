@@ -9,6 +9,7 @@ import im8 from "../assets/projects/8.png";
 import plus from "../assets/projects/plus.jpg";
 import cmz from "../assets/projects/cmz.PNG";
 import scrap from "../assets/projects/scap.jpeg";
+import geomada from "../assets/projects/geomada.PNG";
 
 import { useState } from "react";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -18,82 +19,107 @@ interface Project {
   title: string;
   description: string;
   image: string;
+  category: string;
   link?: string;
 }
-
 const personalProjects: Project[] = [
+  // Personal Projects
   {
     title: "WorldFeeds",
     description:
-      "FullStack NextJS 15.5 - WorldFeeds est un agrégateur d'actualités internationales qui centralise en temps réel les flux RSS des plus grands médias mondiaux.",
+      "FullStack NextJS 15.5 - WorldFeeds is an international news aggregator that centralizes RSS feeds from the world's major media outlets in real time.",
     image: im5,
     link: "https://worldfeeds.vercel.app/",
+    category: "Personal Projects",
   },
   {
     title: "Factura.mg",
     description:
-      "Symfony 7.0 - Gestion commerciale – Suivi des ventes, clients et stocks, optimisation des processus commerciaux et amélioration de la performance de l’entreprise.",
+      "Symfony 7.0 - Commercial management system: tracking sales, clients, and stock, optimizing business processes, and improving company performance.",
     image: im1,
     link: "https://tsaratantana.alwaysdata.net/",
+    category: "Personal Projects",
   },
   {
     title: "Commune Tsaratantana",
     description:
-      "Node.js, Express.js - Gestion d’état civil – Enregistrement des données administratives des citoyens, création et la mise à jour des actes d’état civil pour une gestion centralisée.",
+      "Node.js, Express.js - Civil status management: recording administrative citizen data and creating/updating civil status documents for centralized management.",
     image: im3,
     link: "https://commune-tsaratantana.onrender.com/",
+    category: "Personal Projects",
   },
   {
     title: "Agile Kanban",
     description:
-      "Node.js, Expres.js - Gestion de projet Agile (Kanban) – Planification et suivi des tâches en flux continu, priorisation des fonctionnalités, collaboration efficace des équipes et adaptation rapide aux changements.",
+      "Node.js, Express.js - Agile project management (Kanban): continuous task tracking, feature prioritization, team collaboration, and rapid adaptation to changes.",
     image: im7,
+    category: "Personal Projects",
   },
   {
     title: "GPS Tracking",
     description:
-      "Java, Spring Boot - Gestion de flotte en temps réel et suivi des véhicules ou équipements en direct, avec visualisation des positions.",
+      "Java, Spring Boot - Real-time fleet management and vehicle/equipment tracking with live position visualization.",
     image: im8,
+    category: "Personal Projects",
   },
   {
-    title: "Prévision de Vente (PDV) 2.0",
+    title: "Sales Forecast (PDV) 2.0",
     description:
-      "Python/Streamlit – Prédiction et classification de valeurs à partir de données historiques, temporelles ou non.",
+      "Python / Streamlit – Predicting and classifying values from historical data, both time series and tabular datasets.",
     image: im4,
+    category: "Personal Projects",
   },
   {
     title: "SmartShop",
     description:
-      "Symfony 7.3 avec EasyAdmin – E-commerce personnalisable avec une interface d’administration optimisée.",
+      "Symfony 7.3 with EasyAdmin – Customizable e-commerce with optimized admin interface.",
     image: im2,
+    category: "Personal Projects",
   },
   {
     title: "Talkio",
     description:
-      "NestJS + NextJS – Platforme de messagerie et gestion de projet/tâche avancée.",
+      "NestJS + NextJS – Messaging platform with advanced project/task management.",
     image: im6,
+    category: "Personal Projects",
   },
+
+  // Company Projects
   {
-    title: "Voir plus",
+    title: "ConsoMyZone - Company Project",
     description:
-      "Plusieurs projet sont déjà dans mon répo git.",
-    image: plus,
-    link : 'https://github.com/likwel'
-  },
-  {
-    title: "ConsoMyZone - Projet de société",
-    description:
-      "Symfony 6 / JavaScript - Data visualisation avec intégration de Map. Recherche avancé, FastAPI, NodeJS.",
+      "Symfony 6 / JavaScript - Data visualization with map integration, advanced search, FastAPI, NodeJS.",
     image: cmz,
     link: "https://consomyzone.com/",
+    category: "Company Projects",
   },
   {
-    title: "Web Scrapper - Projet de société",
+    title: "Web Scraper - Company Project",
     description:
-      "Java Spring Boot - Outil data scraping interne.",
+      "Java Spring Boot - Internal data scraping tool for company operations.",
     image: scrap,
+    category: "Company Projects",
   },
+
+  // See More
+  {
+    title: "See More",
+    description: "Several projects are already in my GitHub repository.",
+    image: plus,
+    link: "https://github.com/likwel",
+    category: "Personal Projects",
+  },
+
+  {
+    title: "Company Website",
+    description: "Corporate website presenting the company, its services, and its expertise.",
+    image: geomada,
+    link: "https://www.geomadagascar.com/",
+    category: "Company Projects",
+  },
+
 ];
+
 
 export default function Projects() {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,52 +139,80 @@ export default function Projects() {
     <>
       <main id="projects" className="bg-white py-10">
         <div className="mx-auto">
-          <h1 className="text-3xl font-bold mb-2 text-center">My personal Projets</h1>
-          <p className="text-center text-gray-700 mb-6">Explore my project of expertise :</p>
+          <h1 className="text-3xl font-bold mb-2 text-center">
+            My Personal Projects
+          </h1>
+          <p className="text-center text-gray-700 mb-6">
+            Explore my project of expertise :
+          </p>
 
-          <div className="lg:p-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 experience">
-            {personalProjects.map((project, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg shadow hover:shadow-lg overflow-hidden project-card">
-                <div 
-                  className="h-48 overflow-hidden project-image"
-                  onClick={() => handleImageClick(project.image)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-lg project-title">{project.title}</h3>
-                  <p className="text-gray-600 mt-2 project-description">{project.description}</p>
-                  {project.link ? (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      className="inline-block mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition project-btn"
+          {Object.entries(
+            personalProjects.reduce((acc, project) => {
+              (acc[project.category] = acc[project.category] || []).push(project);
+              return acc;
+            }, {} as Record<string, Project[]>)
+          ).map(([category, categoryProjects], idx) => (
+            <div key={idx} className="mb-10">
+              {/* Titre de catégorie */}
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4 badge-skill">
+                {category}
+              </h2>
+
+              {/* Grid des projets */}
+              <div className="lg:p-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 experience">
+                {categoryProjects.map((project, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 rounded-lg shadow hover:shadow-lg overflow-hidden project-card"
+                  >
+                    <div
+                      className="h-48 overflow-hidden project-image"
+                      onClick={() => handleImageClick(project.image)}
+                      style={{ cursor: "pointer" }}
                     >
-                      See the project
-                    </a>
-                  ) : (
-                    <button
-                      onClick={() => alert("Not deploy")}
-                      className="inline-block mt-3 px-4 py-2 bg-gray-400 text-white rounded cursor-not-allowed"
-                    >
-                      See the project
-                    </button>
-                  )}
-                </div>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    <div className="p-4">
+                      <h3 className="font-semibold text-lg project-title">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 mt-2 project-description">
+                        {project.description}
+                      </p>
+
+                      {project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          className="inline-block mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition project-btn"
+                        >
+                          See the project
+                        </a>
+                      ) : (
+                        <button
+                          onClick={() => alert("Not deploy")}
+                          className="inline-block mt-3 px-4 py-2 bg-gray-400 text-white rounded cursor-not-allowed"
+                        >
+                          See the project
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </main>
 
-      {/* MODAL IMAGE EN GRAND */}
+      {/* MODAL IMAGE */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
           onClick={closeModal}
         >
@@ -166,7 +220,7 @@ export default function Projects() {
             <button
               onClick={closeModal}
               className="absolute -top-12 right-0 text-white hover:text-gray-300"
-              style={{ fontSize: '2rem' }}
+              style={{ fontSize: "1rem" }}
             >
               <FontAwesomeIcon icon={faTimes} />
             </button>
@@ -182,4 +236,5 @@ export default function Projects() {
       )}
     </>
   );
+
 }

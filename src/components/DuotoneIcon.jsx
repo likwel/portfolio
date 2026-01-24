@@ -2,8 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function DuotoneIcon({
   icon,
-  bgColor = "text-blue-200",
-  fgColor = "text-blue-600",
+  // bgColor = "text-blue-200",
+  // fgColor = "text-blue-600",
+  bgColor = "bgColorTheme",
+  fgColor = "fgColorTheme",
   size = "text-3xl",
   backActive = true,
 }) {
@@ -13,7 +15,7 @@ export default function DuotoneIcon({
       {backActive && (
         <FontAwesomeIcon
           icon={icon}
-          className={`${bgColor} text-3xl absolute opacity-30`}
+          className={`${bgColor} text-2xl absolute opacity-10`}
         />
       )}
 

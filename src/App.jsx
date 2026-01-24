@@ -8,12 +8,17 @@ import ExperienceSection from './components/ExperienceSection';
 import Education from './components/Education';
 import Modal from './components/Modal';
 import CollapseSection from './components/CollapseSection';
+import FloatingActions from './components/FloatingActions';
 import { useState } from 'react';
 import { faCode, faProjectDiagram, faUser, faGraduationCap, faLightbulb, faBriefcase } from "@fortawesome/free-solid-svg-icons";
+
+import ContactChoiceModal from "./components/ContactChoiceModal";
 
 export default function App() {
   const [section, setSection] = useState('home');
   const [open, setOpen] = useState(false);
+  const [openMessage, setOpenMessage] = useState(false);
+  const [openChat, setOpenChat] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 p-4">
@@ -43,6 +48,10 @@ export default function App() {
           <CollapseSection title="Projects" icon={faProjectDiagram}>
             <Projects />
           </CollapseSection>
+
+          <FloatingActions onMessageClick={() => setOpenMessage(true)} />
+
+          <ContactChoiceModal isOpen={openMessage} onClose={() => setOpenMessage(false)} />
 
         </div>
 
