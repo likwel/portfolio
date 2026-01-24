@@ -98,8 +98,6 @@ export default function Header({ setSection, setOpen }) {
           </a>
         </li>
         <li className="ligne-vertical"></li>
-
-        {/* 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 */}
         
         <li>
           <a href="#home">
