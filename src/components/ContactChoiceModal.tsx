@@ -85,11 +85,11 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
     
     setTimeout(() => {
       const responses = [
-        "Merci pour votre message ! Comment puis-je vous aider aujourd'hui ?",
-        "C'est une excellente question ! Je suis là pour vous assister.",
-        "Je comprends votre demande. Voulez-vous plus d'informations ?",
-        `Intéressant ! Concernant "${userMessage}", je peux vous aider avec ça.`,
-        "Je suis ravi de pouvoir vous aider. Que souhaitez-vous savoir de plus ?",
+        "Thank you for your message! How can I help you today?",
+        "That's an excellent question! I'm here to assist you.",
+        "I understand your request. Would you like more information?",
+        `Interesting! Regarding "${userMessage}", I can help you with that.`,
+        "I'm happy to help you. What else would you like to know?",
       ];
       
       const randomResponse = responses[Math.floor(Math.random() * responses.length)];
@@ -117,7 +117,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
     } else if (activeTab === "whatsapp") {
       window.open(`https://wa.me/261348523479?text=${encodeURIComponent(message)}`, "_blank");
     } else if (activeTab === "discord") {
-      window.open("https://discord.com/users/nantenaina101", "_blank");
+      window.open("https://discord.com//channels/@me/1014430541589786664", "_blank");
     } else if (activeTab === "mail") {
       window.location.href = `mailto:eliefenohasina@gmail.com?subject=Contact&body=${encodeURIComponent(message)}`;
     }
@@ -136,7 +136,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
       />
       
       {/* Modal */}
-      <div className="border rounded-lg fixed bottom-5 right-20 md:right-20 z-50 w-[calc(100%-2.5rem)] md:w-96 bg-gray-600 rounded-xl shadow-2xl flex flex-col overflow-hidden animate-slideIn">
+      <div className="border rounded-lg fixed bottom-5 right-20 md:right-20 z-50 w-[calc(100%-2.5rem)] md:w-96 bg-gray-600 rounded-xl shadow-2xl flex flex-col overflow-hidden animate-slideIn chat-open">
         
         {/* Header with gradient */}
         <div className={`bg-lightblue bg-gradient-to-r ${
@@ -146,7 +146,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
           'from-red-500 to-red-600'
         } px-4 py-3 text-white`}>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-semibold text-lg flex items-center gap-2 w-full text-blue-600">
+            <h3 className="font-semibold text-lg flex items-center gap-2 w-full text-gray-700">
               {currentTab?.icon}
               Contact me via
             </h3>
@@ -160,14 +160,14 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
           </div>
           
           {/* Tabs */}
-          <div className="mt-3 flex gap-3 overflow-x-auto pb-1 scrollbar-hide justify-between items-center">
+          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-hide justify-between items-center">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`w-full text-center flex flex-col items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+                className={`btn-tab w-full text-center flex flex-col items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
                   activeTab === tab.id
-                    ? "bg-white text-gray-800 shadow-md"
+                    ? "bg-white text-gray-800 shadow-md active-tab"
                     : "bg-white/20 text-white hover:bg-white/30"
                 }`}
               >
@@ -187,9 +187,9 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
                   <div className="bg-blue-100 p-4 rounded-full mb-3">
                     <RobotIcon />
                   </div>
-                  <p className="text-gray-600 font-medium">Bonjour ! 👋</p>
+                  <p className="text-gray-600 font-medium">Hello ! 👋</p>
                   <p className="text-gray-400 text-sm mt-1">
-                    Posez-moi vos questions, je suis là pour vous aider.
+                    Ask me your questions, I’m here to help you.
                   </p>
                 </div>
               ) : (
@@ -242,9 +242,9 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
                 Contact me via {currentTab?.label}
               </p>
               <p className="text-gray-500 text-sm">
-                {activeTab === "whatsapp" && "Écrivez votre message et cliquez sur le bouton pour ouvrir WhatsApp"}
-                {activeTab === "discord" && "Rejoignez notre serveur Discord pour discuter en temps réel"}
-                {activeTab === "mail" && "Envoyez-nous un email, nous vous répondrons rapidement"}
+                {activeTab === "whatsapp" && "Write your message and click the button to open WhatsApp"}
+                {activeTab === "discord" && "Join our Discord server to chat in real-time"}
+                {activeTab === "mail" && "Send us an email, we will reply promptly"}
               </p>
             </div>
           )}
@@ -257,7 +257,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
               ref={inputRef}
               type="text"
               className="w-full flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              placeholder={activeTab === "ia" ? "Tapez votre message..." : "Votre message (optionnel)"}
+              placeholder={activeTab === "ia" ? "Type your message..." : "Your message (optional)"}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}

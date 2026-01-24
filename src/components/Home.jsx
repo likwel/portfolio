@@ -41,17 +41,17 @@ export default function Home({ setOpen }) {
           </div>
 
           <div className="experience">
-            <div className="experience-item">
+            <div className="experience-item cursor-pointer">
               <h2><strong>4 years</strong></h2>
               <p>Experiences</p>
             </div>
 
-            <div className="experience-item">
+            <div className="experience-item cursor-pointer">
               <h2><strong>Open to work</strong></h2>
               <p>Availability</p>
             </div>
 
-            <div className="experience-item">
+            <div className="experience-item cursor-pointer">
               <h2><strong>98%</strong></h2>
               <p>Satisfaction</p>
             </div>

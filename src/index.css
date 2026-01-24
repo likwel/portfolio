@@ -394,6 +394,10 @@ main {
     .hideCollapse{
         
     }
+
+    .chat-open{
+        max-width: 100%;
+    }
 }
 
 /* Styles pour les très petits écrans (mobiles) */
@@ -415,10 +419,11 @@ main {
     }
 
     .navbar {
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: 10px;
         width: 100%;
         margin: auto;
+        padding: .25rem;
     }
 
     .main {
@@ -998,6 +1003,13 @@ button:hover {
     .grid-cols-1{
         grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
     }
+    .flex-list-task{
+        flex-direction: column;
+        width: 100%;
+    }
+    .flex-list-task li{
+        width: 100%;
+    }
 }
 
 /* Très petit écran - cache aussi le nom */
@@ -1024,7 +1036,7 @@ button:hover {
 }
 
 .experience-item:hover{
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -1069,4 +1081,27 @@ button:hover {
 
 .bg-lightblue{
     background-color: lightblue;
+}
+
+.chat-open{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: .5rem;
+    max-width: 350px;
+}
+
+.chat-open div{
+     border-radius: .5rem;
+}
+.btn-tab{
+    padding: .25rem !important;
+}
+
+.active-tab{
+    background-color:#bbf7d0 !important;
+    color: #007b8b !important;
+}
+.bg-red{
+    padding: .25rem !important;
+    color: red !important;
+    background-color: white !important;
 }

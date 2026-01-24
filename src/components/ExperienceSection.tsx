@@ -72,7 +72,7 @@ export default function ExperienceSection() {
                     {experiences.map((exp, index) => (
                         <div key={index} className="skill-card border rounded-lg p-5 bg-gray-50 hover:bg-gray-100 transition-all duration-300  transition-colors shadow-sm p-4">
                             {/* Date et Titre sur la même ligne */}
-                            <div className="flex items-center gap-3 mb-2">
+                            <div className="flex items-center gap-3 mb-2 flex-list-task">
                                 <div className="flex items-center gap-2 text-sm bg-white px-3 py-1 rounded-full date-badge">
                                     <FontAwesomeIcon icon={faCalendar} className="text-white px-2"/>
                                     <span className="font-medium">{exp.startDate} - {exp.endDate} </span>
@@ -95,7 +95,7 @@ export default function ExperienceSection() {
 
                             {/* Description avec icône */}
                             <div className="flex gap-2 mb-3 ml-1 p-3">
-                                <ul className="list-disc pl-5 mt-2 space-y-1 text-left self-start flex items-center justify-center gap-2">
+                                <ul className="list-disc pl-5 mt-2 space-y-1 text-left self-start flex items-center justify-center gap-2 flex-list-task">
                                     {exp.desc.map((item, i) => (
                                         <li key={i} className="text-gray-700 text-left border p-1">
                                         {item}
