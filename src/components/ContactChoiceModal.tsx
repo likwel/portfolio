@@ -45,7 +45,7 @@ const CloseIcon = () => (
 const SendIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="w-5 h-5 text-white"   // ajoute text-white pour la couleur
+    className="w-5 h-5 text-white"
     fill="currentColor"
     viewBox="0 0 24 24"
   >
@@ -58,8 +58,177 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [error, setError] = useState<string>("");
   const chatEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // 📋 VOTRE CV COMPLET EN JSON
+  const cvData = {
+    "personal_info": {
+      "full_name": "Elie Fenohasina Andriatsitohaina",
+      "title": "Web Developer / Data Engineer",
+      "portfolio": "https://elie-fenohasina.onrender.com",
+      "github": "https://github.com/likwel"
+    },
+    "profile": "Passionate web developer with strong experience in backend, data analysis, data engineering, and web technologies.",
+    "languages": [
+      { "language": "French", "level": "Good" },
+      { "language": "English", "level": "Intermediate" },
+      { "language": "Malagasy", "level": "Very good" }
+    ],
+    "technical_skills": {
+      "backend": [
+        "Symfony",
+        "NestJS",
+        "ExpressJS",
+        "Java Spring Boot",
+        "Flask"
+      ],
+      "frontend": [
+        "Next.js",
+        "React.js",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "jQuery"
+      ],
+      "databases": [
+        "MySQL",
+        "PostgreSQL",
+        "SQL Server"
+      ],
+      "data_and_ai": [
+        "Python",
+        "Machine Learning",
+        "Data Analysis",
+        "Data Engineering"
+      ],
+      "tools_and_methods": [
+        "Git",
+        "Agile Scrum",
+        "SOLID principles",
+        "REST APIs",
+        "Web Scraping"
+      ]
+    },
+    "experience": [
+      {
+        "company": "GEOMADAGASCAR",
+        "position": "Web Developer, Data engineer",
+        "start_date": "August 2022",
+        "end_date": "Present",
+        "missions": [
+          "Web and microservices development using Symfony, NestJS, and Python",
+          "Database management with PostgreSQL",
+          "Web scraping tools development using Java Spring Boot",
+          "Data pipeline and automatisation"
+        ]
+      },
+      {
+        "company": "MGBI – Madagascar Business Intelligence",
+        "position": "Data Analyst",
+        "start_date": "May 2021",
+        "end_date": "July 2022",
+        "missions": [
+          "PostgreSQL and SQL Server database administration",
+          "ERP management (Odoo, EBP)",
+          "Data analysis using Excel, Power BI, Power Query, SQL, and Python"
+        ]
+      },
+      {
+        "company": "SECUTECH",
+        "position": "Technician",
+        "start_date": "November 2020",
+        "end_date": "April 2021",
+        "missions": [
+          "GPS and IP camera installation",
+          "Network configuration and maintenance"
+        ]
+      },
+      {
+        "company": "ISITM – Institut Supérieur",
+        "position": "Computer Science Instructor",
+        "start_date": "January 2020",
+        "end_date": "March 2020",
+        "missions": [
+          "Teaching databases, algorithms, Java, and Machine Learning"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master II (Engineering Degree)",
+        "institution": "Ecole Supérieure Polytechnique d'Antananarivo",
+        "period": "2018 – 2020",
+        "specialization": "Applied Computer Science – Data and Modeling"
+      },
+      {
+        "degree": "Bachelor's Degree",
+        "institution": "Ecole Supérieure Polytechnique d'Antananarivo",
+        "period": "2014 – 2017",
+        "specialization": "Applied Computer Science – Computer Networks"
+      }
+    ],
+    "soft_skills": [
+      "Logical and creative thinking",
+      "Teamwork",
+      "Analytical mindset",
+      "Autonomous",
+      "Responsible",
+      "Passionate",
+      "Dynamic"
+    ],
+    "interests": [
+      "Art",
+      "Music",
+      "Video games",
+      "Walking",
+      "Programming",
+      "Football"
+    ]
+  };
+
+  // 🤖 Créer le prompt système avec votre CV
+  const getSystemPrompt = () => {
+    return `You are an AI assistant representing ${cvData.personal_info.full_name}, a ${cvData.personal_info.title}.
+
+COMPLETE CV INFORMATION:
+${JSON.stringify(cvData, null, 2)}
+
+IMPORTANT INSTRUCTIONS:
+1. Answer questions about ${cvData.personal_info.full_name} using the CV data above
+2. Be professional, friendly, and enthusiastic about his skills and experience
+3. When asked about skills, highlight relevant backend (Symfony, NestJS, Spring Boot) and frontend (React, Next.js) technologies
+4. Mention his current position at GEOMADAGASCAR where he works since August 2022
+5. If asked about data analysis, mention his previous experience at MGBI and his Master's degree in Data and Modeling
+6. Encourage visitors to:
+   - View his portfolio: https://elie-fenohasina.onrender.com
+   - Check his GitHub: https://github.com/likwel
+   - Contact via WhatsApp: +261348523479
+   - Send email: eliefenohasina@gmail.com
+7. Respond in the user's language (French, English, or Malagasy)
+8. Be concise but informative - aim for 2-4 sentences unless more detail is requested
+9. If information is not in the CV, politely say so and suggest contacting him directly
+
+KEY STRENGTHS TO HIGHLIGHT:
+- Full-stack development (Symfony, NestJS, React, Next.js)
+- Data analysis and machine learning expertise
+- Database management (PostgreSQL, MySQL, SQL Server)
+- 4+ years of professional experience
+- Teaching experience (Machine Learning, Databases, Java)
+- Bilingual: French and English
+
+COMMON QUESTIONS YOU MIGHT RECEIVE:
+- "What are his main skills?"
+- "What is his experience?"
+- "Has he worked with [technology]?"
+- "What projects has he done?"
+- "How can I contact him?"
+- "Does he speak English/French?"
+- "Where is he based?"
+
+Be natural, engaging, and helpful!`;
+  };
 
   useEffect(() => {
     if (isOpen && activeTab === "ia") {
@@ -74,33 +243,73 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
   if (!isOpen) return null;
 
   const tabs = [
-    { id: "ia", label: "IA Chat", icon: <RobotIcon />, color: "blue" },
+    { id: "ia", label: "AgentIA", icon: <RobotIcon />, color: "blue" },
     { id: "whatsapp", label: "WhatsApp", icon: <WhatsAppIcon />, color: "green" },
     { id: "discord", label: "Discord", icon: <DiscordIcon />, color: "indigo" },
     { id: "mail", label: "Email", icon: <EmailIcon />, color: "red" },
   ];
 
-  const simulateIAResponse = (userMessage: string) => {
+  const callGroqAPI = async (userMessage: string) => {
     setIsTyping(true);
-    
-    setTimeout(() => {
-      const responses = [
-        "Thank you for your message! How can I help you today?",
-        "That's an excellent question! I'm here to assist you.",
-        "I understand your request. Would you like more information?",
-        `Interesting! Regarding "${userMessage}", I can help you with that.`,
-        "I'm happy to help you. What else would you like to know?",
+    setError("");
+
+    try {
+      const GROQ_API_KEY = import.meta.env.VITE_GROQ_TOKEN;
+      
+      // Construire l'historique de conversation
+      const conversationHistory = [
+        {
+          role: "system",
+          content: getSystemPrompt()
+        },
+        ...chatHistory.map(msg => ({
+          role: msg.sender === "user" ? "user" : "assistant",
+          content: msg.text
+        })),
+        {
+          role: "user",
+          content: userMessage
+        }
       ];
       
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      
+      const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${GROQ_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "llama-3.3-70b-versatile",
+          messages: conversationHistory,
+          temperature: 0.7,
+          max_tokens: 800,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const aiResponse = data.choices[0]?.message?.content || "Sorry, I couldn't generate a response.";
+
       setChatHistory(prev => [...prev, {
-        text: randomResponse,
+        text: aiResponse,
         sender: "ia",
         timestamp: new Date()
       }]);
+    } catch (err) {
+      console.error("API Error:", err);
+      setError("Connection error. Please check your API key.");
+      
+      setChatHistory(prev => [...prev, {
+        text: "Sorry, I'm experiencing technical difficulties. Feel free to contact me directly via WhatsApp, Discord, or Email!",
+        sender: "ia",
+        timestamp: new Date()
+      }]);
+    } finally {
       setIsTyping(false);
-    }, 1000 + Math.random() * 1000);
+    }
   };
 
   const handleSend = () => {
@@ -113,7 +322,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
         timestamp: new Date()
       };
       setChatHistory([...chatHistory, newMessage]);
-      simulateIAResponse(message);
+      callGroqAPI(message);
     } else if (activeTab === "whatsapp") {
       window.open(`https://wa.me/261348523479?text=${encodeURIComponent(message)}`, "_blank");
     } else if (activeTab === "discord") {
@@ -136,7 +345,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
       />
       
       {/* Modal */}
-      <div className="border rounded-lg fixed bottom-5 right-20 md:right-20 z-50 w-[calc(100%-2.5rem)] md:w-96 bg-gray-600 rounded-xl shadow-2xl flex flex-col overflow-hidden animate-slideIn chat-open">
+      <div className="border rounded-lg fixed bottom-5 right-20 md:right-20 z-50 w-[calc(100%-2.5rem)] md:w-96 bg-gray-600 rounded-xl shadow-2xl flex flex-col overflow-hidden animate-slideIn chat-open max-h-60vh">
         
         {/* Header with gradient */}
         <div className={`bg-lightblue bg-gradient-to-r ${
@@ -153,7 +362,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
             <button 
               onClick={onClose} 
               className="hover:bg-white/20 rounded-xl transition-all mb-2 bg-red"
-              aria-label="Fermer"
+              aria-label="Close"
             >
               <CloseIcon />
             </button>
@@ -187,10 +396,15 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
                   <div className="bg-blue-100 p-4 rounded-full mb-3">
                     <RobotIcon />
                   </div>
-                  <p className="text-gray-600 font-medium">Hello ! 👋</p>
-                  <p className="text-gray-400 text-sm mt-1">
-                    Ask me your questions, I’m here to help you.
+                  <p className="text-gray-600 font-medium">Hello! 👋</p>
+                  <p className="text-gray-400 text-sm mt-1 px-4">
+                    I'm Elie's AI assistant. Ask me about his skills, experience, or projects!
                   </p>
+                  {/* <div className="mt-3 flex flex-wrap gap-2 justify-center px-4">
+                    <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Symfony</span>
+                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">React.js</span>
+                    <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Data Analysis</span>
+                  </div> */}
                 </div>
               ) : (
                 <>
@@ -206,9 +420,9 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
                             : "bg-white text-gray-800 shadow-sm rounded-bl-sm"
                         }`}
                       >
-                        <p className="text-sm">{msg.text}</p>
+                        <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
                         <p className={`text-xs mt-1 ${msg.sender === "user" ? "text-blue-200" : "text-gray-400"}`}>
-                          {msg.timestamp.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                          {msg.timestamp.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
                         </p>
                       </div>
                     </div>
@@ -223,6 +437,12 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></div>
                         </div>
                       </div>
+                    </div>
+                  )}
+                  
+                  {error && (
+                    <div className="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded text-sm">
+                      {error}
                     </div>
                   )}
                 </>
@@ -257,7 +477,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
               ref={inputRef}
               type="text"
               className="w-full flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              placeholder={activeTab === "ia" ? "Type your message..." : "Your message (optional)"}
+              placeholder={activeTab === "ia" ? "Ask me anything..." : "Your message (optional)"}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
@@ -274,16 +494,11 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
                   ? "bg-indigo-600 hover:bg-indigo-700"
                   : "bg-red-600 hover:bg-red-700"
               } text-white p-2 rounded-full transition-all transform hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:transform-none shadow-md`}
-              aria-label="Envoyer"
+              aria-label="Send"
             >
               <SendIcon />
             </button>
           </div>
-          {/* {activeTab !== "ia" && (
-            <p className="text-xs text-gray-400 mt-2 text-center">
-              Cliquez sur ✈️ pour ouvrir {currentTab?.label}
-            </p>
-          )} */}
         </div>
       </div>
 

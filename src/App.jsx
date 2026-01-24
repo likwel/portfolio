@@ -28,7 +28,7 @@ export default function App() {
       {section === 'home' && <Home setOpen={setOpen} />}
 
       {/* Les autres dans un collapse */}
-      <div className="mx-auto space-y-4 p-4">
+      <div className="mx-auto space-y-4 p-4 px-20px">
           <CollapseSection title="Services" icon={faCode}>
             <Services />
           </CollapseSection>

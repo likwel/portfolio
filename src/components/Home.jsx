@@ -1,6 +1,6 @@
 import elieImg from "../assets/images/elie.png";
 import cv from "../assets/CV_ANDRIATSITOHAINA_ELIE.pdf";
-import { faCode, faDatabase, faCloud, faPhone, faMoon, faCircle, faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faDatabase, faCloud, faPhone, faMoon, faCircle, faDownload, faEnvelope, faBriefcase, faUserTie, faClock, faSmile, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import DuotoneIcon from "./DuotoneIcon";
 
@@ -36,23 +36,23 @@ export default function Home({ setOpen }) {
               target="_blank"
               download
             >
-              <DuotoneIcon icon={faDownload} size={'text-sm'} backActive={false}/> Download my CV
+              <DuotoneIcon icon={faDownload} size={'text-sm'} backActive={true}/> Download my CV
             </a>
           </div>
 
           <div className="experience">
             <div className="experience-item cursor-pointer">
-              <h2><strong>4 years</strong></h2>
+              <h2><DuotoneIcon icon={faClock} size={'text-sm'} /> <strong>4 years</strong></h2>
               <p>Experiences</p>
             </div>
 
             <div className="experience-item cursor-pointer">
-              <h2><strong>Open to work</strong></h2>
+              <h2><DuotoneIcon icon={faCircle} size={'text-sm'} /> <strong>Open to work</strong></h2>
               <p>Availability</p>
             </div>
 
             <div className="experience-item cursor-pointer">
-              <h2><strong>98%</strong></h2>
+              <h2><DuotoneIcon icon={faStar} size={'text-sm'} /> <strong>98%</strong></h2>
               <p>Satisfaction</p>
             </div>
           </div>

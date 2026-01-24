@@ -219,8 +219,8 @@ main {
 }
 
 .left-section .experience div {
-    padding: 10px;
-    border: 1px solid #ccc;
+    /* padding: 10px;
+    border: 1px solid #ccc; */
     text-align: center;
 }
 
@@ -398,8 +398,34 @@ main {
     .chat-open{
         max-width: 100%;
     }
-}
 
+    .p-20px {
+        padding: 0;
+    }
+
+    .px-20px{
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .nav-center {
+        padding-bottom: 1rem;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .ligne-vertical{
+        margin: 0 !important;
+    }
+}
+@media (max-width: 1000px) {
+    .ligne-vertical{
+        margin: 0 !important;
+        display: none !important;
+    }
+    .nav-text.untile{
+        display: none !important;
+    }
+}
 /* Styles pour les très petits écrans (mobiles) */
 @media (max-width: 480px) {
 
@@ -426,8 +452,19 @@ main {
         padding: .25rem;
     }
 
-    .main {
-        margin: 0.5rem;
+    .p-20px {
+        padding: 0;
+    }
+
+    .px-20px{
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .nav-center {
+        padding-bottom: 1rem;
+        padding-right: 0;
+        padding-left: 0;
     }
 
     .right-section {
@@ -1010,6 +1047,9 @@ button:hover {
     .flex-list-task li{
         width: 100%;
     }
+    .max-h-60vh{
+        max-height: 90vh !important;
+    }
 }
 
 /* Très petit écran - cache aussi le nom */
@@ -1104,4 +1144,7 @@ button:hover {
     padding: .25rem !important;
     color: red !important;
     background-color: white !important;
+}
+.max-h-60vh{
+    max-height: 60vh;
 }

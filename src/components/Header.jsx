@@ -92,17 +92,19 @@ export default function Header({ setSection, setOpen }) {
                 <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" strokeWidth="6"/>
               </svg>
             )}
-            <span className="text-sm font-semibold nav-text">
+            <span className="text-sm font-semibold nav-text untile">
               {language === 'fr' ? 'FR' : 'EN'}
             </span>
           </a>
         </li>
         <li className="ligne-vertical"></li>
+
+        {/* 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 */}
         
         <li>
           <a href="#home">
             <DuotoneIcon icon={faUser} size={'text-sm'} className="mobile-icon" />
-            <span className="nav-text">About</span>
+            <span className="nav-text">Home</span>
           </a>
         </li>
         
@@ -149,7 +151,7 @@ export default function Header({ setSection, setOpen }) {
               className="mobile-icon" 
               fgColor={'text-white'}
             />
-            <span className="nav-text">Contact me</span>
+            <span className="nav-text untile">Contact me</span>
           </button>
         </li>
       </ul>
