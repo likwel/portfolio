@@ -326,7 +326,7 @@ Be natural, engaging, and helpful!`;
     } else if (activeTab === "whatsapp") {
       window.open(`https://wa.me/261348523479?text=${encodeURIComponent(message)}`, "_blank");
     } else if (activeTab === "discord") {
-      window.open("https://discord.com//channels/@me/1014430541589786664", "_blank");
+      window.open("https://discord.com/channels/@me/1014430541589786664", "_blank");
     } else if (activeTab === "mail") {
       window.location.href = `mailto:eliefenohasina@gmail.com?subject=Contact&body=${encodeURIComponent(message)}`;
     }
