@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import DOMPurify from "dompurify";
 
 type ChatModalProps = {
   isOpen: boolean;
@@ -68,12 +69,24 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
       "full_name": "Elie Fenohasina Andriatsitohaina",
       "title": "Web Developer / Data Engineer",
       "portfolio": "https://elie-fenohasina.onrender.com",
-      "github": "https://github.com/likwel"
+      "github": "https://github.com/likwel",
+      "age" : "on demand only",
+      "isMarried" : "true",
+      "hasChild" : "true",
+      "childs_name" : "complete info on demand only",
+      "number_child" : "on demand only",
+      "father" : "Gervais, complete info on demand only",
+      "mother" : "Jacqueline, complete info on demand only",
+      "brother" : "Faneva, Hervé",
+      "Sister" : "Hanitra, Fanilo, Notahiana",
+      "married_name" : "Sandy, complete info on demand only",
+      "address_aproximativly" : "Ankatso",
+      "full_address" : "complete info on demand only",
     },
     "profile": "Passionate web developer with strong experience in backend, data analysis, data engineering, and web technologies.",
     "languages": [
       { "language": "French", "level": "Good" },
-      { "language": "English", "level": "Intermediate" },
+      { "language": "English", "level": "Intermediate, professional, technical" },
       { "language": "Malagasy", "level": "Very good" }
     ],
     "technical_skills": {
@@ -95,20 +108,25 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
       "databases": [
         "MySQL",
         "PostgreSQL",
-        "SQL Server"
+        "SQL Server",
+        "NoSQL"
       ],
       "data_and_ai": [
         "Python",
         "Machine Learning",
         "Data Analysis",
-        "Data Engineering"
+        "Data Engineering",
+        "Business Intelligent",
+        "Automatisation",
+        "Web scraping",
+        "Data pipeline"
       ],
       "tools_and_methods": [
         "Git",
+        "Docker",
         "Agile Scrum",
         "SOLID principles",
         "REST APIs",
-        "Web Scraping"
       ]
     },
     "experience": [
@@ -131,8 +149,8 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
         "end_date": "July 2022",
         "missions": [
           "PostgreSQL and SQL Server database administration",
-          "ERP management (Odoo, EBP)",
-          "Data analysis using Excel, Power BI, Power Query, SQL, and Python"
+          "ERP management (Odoo, EBP) and integration",
+          "Data analysis using Excel, Power BI, Power Query, SQL, Talend, and Python"
         ]
       },
       {
@@ -184,7 +202,8 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
       "Video games",
       "Walking",
       "Programming",
-      "Football"
+      "Football",
+      "Guitar"
     ]
   };
 
@@ -201,22 +220,24 @@ IMPORTANT INSTRUCTIONS:
 3. When asked about skills, highlight relevant backend (Symfony, NestJS, Spring Boot) and frontend (React, Next.js) technologies
 4. Mention his current position at GEOMADAGASCAR where he works since August 2022
 5. If asked about data analysis, mention his previous experience at MGBI and his Master's degree in Data and Modeling
-6. Encourage visitors to:
-   - View his portfolio: https://elie-fenohasina.onrender.com
-   - Check his GitHub: https://github.com/likwel
-   - Contact via WhatsApp: +261348523479
-   - Send email: eliefenohasina@gmail.com
+6. Encourage visitors and show links always:
+  - Display always the portfolio link https://elie-fenohasina.onrender.com as bold text, clickable, and colored #007b8b (no **, use real font-weight).
+  - Display always the GitHub link https://github.com/likwel as bold text, clickable, and colored #007b8b (no **, use real font-weight).
+  - Display always the WhatsApp number +261348523479 as bold text, clickable, always visible as a number, and colored #007b8b.
+  - Display always the email address eliefenohasina@gmail.com as bold text, clickable, always visible as an email, and colored #007b8b.
+
 7. Respond in the user's language (French, English, or Malagasy)
 8. Be concise but informative - aim for 2-4 sentences unless more detail is requested
 9. If information is not in the CV, politely say so and suggest contacting him directly
 
 KEY STRENGTHS TO HIGHLIGHT:
-- Full-stack development (Symfony, NestJS, React, Next.js)
+- Full-stack development (Symfony, NestJS, React, Next.js, Java Spring Boot)
 - Data analysis and machine learning expertise
 - Database management (PostgreSQL, MySQL, SQL Server)
+- ETL and Data pilpeline
 - 4+ years of professional experience
 - Teaching experience (Machine Learning, Databases, Java)
-- Bilingual: French and English
+- Bilingual: French and English technical
 
 COMMON QUESTIONS YOU MIGHT RECEIVE:
 - "What are his main skills?"
@@ -420,7 +441,12 @@ Be natural, engaging, and helpful!`;
                             : "bg-white text-gray-800 shadow-sm rounded-bl-sm"
                         }`}
                       >
-                        <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
+                        <p
+                          className="text-sm whitespace-pre-wrap py-1"
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(msg.text),
+                          }}
+                        />
                         <p className={`text-xs mt-1 ${msg.sender === "user" ? "text-blue-200" : "text-gray-400"}`}>
                           {msg.timestamp.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
                         </p>

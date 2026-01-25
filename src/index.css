@@ -1050,6 +1050,10 @@ button:hover {
     .max-h-60vh{
         max-height: 90vh !important;
     }
+
+    .my-name .icon{
+        margin-left: 0 !important;
+    }
 }
 
 /* Très petit écran - cache aussi le nom */
@@ -1147,4 +1151,9 @@ button:hover {
 }
 .max-h-60vh{
     max-height: 60vh;
+}
+.custom-play div{
+    border: 1px solid;
+    border-radius: 1rem;
+    padding: .75rem;
 }
