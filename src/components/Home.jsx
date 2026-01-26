@@ -4,8 +4,9 @@ import icon from "../assets/images/favicon.png";
 import cv from "../assets/CV_ANDRIATSITOHAINA_ELIE.pdf";
 import presentation_en from "../assets/presentation_en.mp3";
 import presentation_fr from "../assets/presentation_fr.mp3";
+import { PopupWidget, PopupModal } from "react-calendly";
 
-import { faPlay, faPause, faCode, faDatabase, faCloud, faPhone, faMoon, faCircle, faDownload, faEnvelope, faBriefcase, faUserTie, faClock, faSmile, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faCalendarDays, faCalendarPlus, faCalendarCheck, faCode, faDatabase, faCloud, faPhone, faMoon, faCircle, faDownload, faEnvelope, faBriefcase, faUserTie, faClock, faSmile, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import DuotoneIcon from "./DuotoneIcon";
 
@@ -19,6 +20,8 @@ export const PlayIcon = () => (
 export default function Home({ setOpen }) {
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [openCalendly, setOpenCalendly] = useState(false);
+
   const audioRef = useRef(null);
 
   const toggleAudio = () => {
@@ -71,13 +74,13 @@ export default function Home({ setOpen }) {
             <p>I specialize in web development, software engineering, and data engineering.</p>
           </div>
           <div className="buttons">
-            <button className="flex gap-2 justify-center items-center hireMe" onClick={() => setOpen(true)}>
+            <button className="flex gap-2 justify-center items-center hireMe"  onClick={() => setOpenCalendly(true)}>
               <DuotoneIcon
-                icon={faEnvelope}
-                size={'text-sm'}
+                icon={faCalendarDays}
+                size={'text-xl'}
                 className="mobile-icon"
                 fgColor={'text-white'}
-              /> <span className="">Contact me</span>
+              /> <span className="">Schedule a meeting</span>
             </button>
 
             <a
@@ -127,6 +130,21 @@ export default function Home({ setOpen }) {
           </div>
         </div>
       </div>
+
+      {/* <PopupWidget
+        url="https://calendly.com/eliefenohasina/30min"
+        rootElement={document.getElementById("root")}
+        text="Schedule a call"
+        textColor="#ffffff"
+        color="#007b8b"
+      /> */}
+
+      <PopupModal
+        url="https://calendly.com/eliefenohasina/30min"
+        rootElement={document.getElementById("root")}
+        open={openCalendly}
+        onModalClose={() => setOpenCalendly(false)}
+      />
 
     </section>
   );
