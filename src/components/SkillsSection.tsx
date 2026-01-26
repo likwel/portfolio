@@ -1,6 +1,6 @@
 import React from "react";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { faJava, faNodeJs, faPython, faJsSquare, faGitAlt, faReact, faAngular, faBootstrap, faCss3Alt } from "@fortawesome/free-brands-svg-icons";
+import { faJava, faNodeJs, faPython, faJsSquare, faGitAlt, faReact, faAngular, faBootstrap, faCss3Alt, faDocker } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase, faCode, faTasks, faServer, faChartLine} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -21,6 +21,13 @@ const skills: Skill[] = [
     { icon: faCode, title: "API Development", desc: "Designing and integrating REST & GraphQL APIs.", category: "Backend" },
     { icon: faServer, title: "DevOps", desc: "CI/CD, deployment automation, and cloud infrastructure management.", category: "DevOps & Management" },
     { icon: faGitAlt, title: "Git", desc: "Version control, branching strategies, and collaborative development.", category: "DevOps & Management" },
+    {
+      icon: faDocker,
+      title: "Docker",
+      desc: "Containerization of applications to ensure consistent, portable, and scalable development environments.",
+      category: "DevOps & Management"
+    },
+
     { icon: faTasks, title: "Agile & Scrum", desc: "Project management methodologies for team collaboration.", category: "DevOps & Management" },
     { icon: faReact, title: "React / Next.js", desc: "Building interactive and performant web applications.", category: "Frontend" },
     { icon: faAngular, title: "Angular", desc: "Developing dynamic single-page applications.", category: "Frontend" },
@@ -54,9 +61,9 @@ export default function SkillsSection() {
                 key={index} 
                 className="skill-card p-5 border border-gray-200 rounded-lg hover:shadow-xl hover:border-blue-400 transition-all duration-300 bg-gray-50"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 justify-center">
                   <div className="flex-1">
-                    <h3 className="font-bold text-lg text-gray-800 mb-2 flex items-center">
+                    <h3 className="font-bold text-lg text-gray-800 mb-2 flex items-center justify-center">
                       <FontAwesomeIcon icon={skill.icon} className="text-5xl fgColorTheme" /> 
                       <span className="ml-3">{skill.title}</span>
                     </h3>

@@ -67,7 +67,7 @@ export default function ContactChoiceModal({ isOpen, onClose }: ChatModalProps) 
   const cvData = {
     "personal_info": {
       "full_name": "Elie Fenohasina Andriatsitohaina",
-      "title": "Web Developer / Data Engineer",
+      "title": "Fullstack Developer / Data Engineer",
       "portfolio": "https://elie-fenohasina.onrender.com",
       "github": "https://github.com/likwel",
       "age" : "on demand only",
