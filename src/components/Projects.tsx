@@ -137,13 +137,13 @@ export default function Projects() {
 
   return (
     <>
-      <main id="projects" className="bg-white py-10">
+      <main id="projects" className="bg-white pt-10 border-1rem">
         <div className="mx-auto">
           <h1 className="text-3xl font-bold mb-2 text-center">
-            My Personal Projects
+            Personal & Side Projects
           </h1>
           <p className="text-center text-gray-700 mb-6">
-            Explore my project of expertise :
+            A selection of projects showcasing my skills.
           </p>
 
           {Object.entries(

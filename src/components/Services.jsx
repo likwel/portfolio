@@ -36,10 +36,10 @@ const services = [
 
 export default function Services() {
   return (
-    <main id="services" className="bg-white py-10 mt-4">
+    <main id="services" className="bg-white pt-10 border-1rem">
       <div className="mx-auto">
         <h1 className="text-3xl font-bold mb-2 text-center">My Services</h1>
-        <p className="text-center text-gray-700 mb-6">Explore my areas of expertise:</p>
+        <p className="text-center text-gray-700 mb-6">Discover the services and solutions I provide.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 experience">
           {services.map((service, idx) => (

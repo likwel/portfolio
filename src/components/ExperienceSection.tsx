@@ -63,12 +63,12 @@ const experiences: Experience[] = [
 
 export default function ExperienceSection() {
     return (
-        <main id="experience" className="bg-white py-10">
+        <main id="experience" className="bg-white pt-10 border-1rem">
             <div className="mx-auto w-100">
-                <h1 className="text-3xl font-bold mb-2 text-center">My Professional Experiences</h1>
-                <p className="text-center text-gray-700 mb-6">Explore my experiences:</p>
+                <h1 className="text-3xl font-bold mb-2 text-center">Professional Experience</h1>
+                <p className="text-center text-gray-700 mb-1rem">Discover my professional background.</p>
 
-                <div className="space-y-4 p-4">
+                <div className="space-y-4 p-4 mt-3">
                     {experiences.map((exp, index) => (
                         <div key={index} className="skill-card border rounded-lg p-5 bg-gray-50 hover:bg-gray-100 transition-all duration-300  transition-colors shadow-sm p-4">
                             {/* Date et Titre sur la même ligne */}

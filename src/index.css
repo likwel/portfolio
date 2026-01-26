@@ -708,16 +708,16 @@ main {
 }
 
 #skills h1 {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+    /* font-size: 32px; */
+    /* font-weight: bold; */
+    /* color: #333; */
+    /* margin-bottom: 20px; */
 }
 
 #skills p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 40px;
+    /* font-size: 18px; */
+    /* color: #666; */
+    /* margin-bottom: 40px; */
 }
 
 /* Skills container */
@@ -1157,3 +1157,21 @@ button:hover {
     border-radius: 1rem;
     padding: .75rem;
 }
+.border-1rem{
+    border-radius: 1rem !important;
+}
+.mb-1rem{
+    margin-bottom: 1rem !important;
+}
+.mb-2rem{
+    margin-bottom: 2rem !important;
+}
+.favicon-img{
+    width: 50px;
+}
+/* .section-main{
+    background-image: url('https://www.hairun-technology.com/_next/static/media/home-mask-left.9fdb9f4d.svg'), url('https://www.hairun-technology.com/_next/static/media/home-mask-right.b433e2ab.svg');
+    background-size: contain, contain;
+    background-position: left 0 top 100px, right 0 top 100px;
+    background-repeat: no-repeat, no-repeat;
+} */

@@ -41,10 +41,10 @@ const skills: Skill[] = [
 
 export default function SkillsSection() {
     return (
-  <main id="skills" className="bg-white py-10">
+  <main id="skills" className="bg-white pt-10 border-1rem">
     <div className="mx-auto">
-      <h1 className="text-3xl font-bold mb-2 text-center">My Skills</h1>
-      <p className="text-center text-gray-700 mb-8">Explore my areas of expertise:</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">Skills & Expertise</h1>
+      <p className="text-center text-gray-700 mb-1rem">A closer look at what I do best.</p>
 
       {Object.entries(
         skills.reduce((acc, skill) => {

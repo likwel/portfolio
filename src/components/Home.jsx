@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import elieImg from "../assets/images/elie.png";
+import icon from "../assets/images/favicon.png";
 import cv from "../assets/CV_ANDRIATSITOHAINA_ELIE.pdf";
 import presentation_en from "../assets/presentation_en.mp3";
 import presentation_fr from "../assets/presentation_fr.mp3";
@@ -33,7 +34,7 @@ export default function Home({ setOpen }) {
   };
 
   return (
-    <section className="p-20px">
+    <section className="p-20px section-main">
 
       {/* MAIN */}
       <div className="main" id="home">
@@ -44,8 +45,12 @@ export default function Home({ setOpen }) {
           </h2> */}
           <audio ref={audioRef} src={presentation_en}/>
 
-          <h2 className="my-name flex items-center gap-4 cursor-pointer flex-list-task" onClick={toggleAudio}>
-            ANDRIATSITOHAINA ELIE FENOHASINA
+          <h2 className="my-name flex items-center gap-4 cursor-pointer flex-list-task" onClick={toggleAudio} style={{ fontFamily: "Audiowide, cursive" }}>
+            {/* <img className="favicon-img"
+              src={icon}
+              alt="Elie Andriatsitohaina"
+            /> */}
+            ANDRIATSITOHAINA Elie Fenohasina
 
             <div className="icon flex flex-col items-center group">
               <div className="group-hover:scale-110 transition custom-play">
@@ -66,39 +71,38 @@ export default function Home({ setOpen }) {
             <p>I specialize in web development, software engineering, and data engineering.</p>
           </div>
           <div className="buttons">
-            <button className="hireMe" onClick={() => setOpen(true)}>
+            <button className="flex gap-2 justify-center items-center hireMe" onClick={() => setOpen(true)}>
               <DuotoneIcon
                 icon={faEnvelope}
                 size={'text-sm'}
-                backActive={false}
                 className="mobile-icon"
                 fgColor={'text-white'}
-              /> <span className="ml-3">Contact me</span>
+              /> <span className="">Contact me</span>
             </button>
 
             <a
-              className="button2 btn-download"
+              className="flex gap-2 justify-center items-center button2 btn-download"
               href={cv}
               target="_blank"
               download
             >
-              <DuotoneIcon icon={faDownload} size={'text-sm'} backActive={true} /> Download my CV
+              <DuotoneIcon icon={faDownload} size={'text-sm'} backActive={true} /> <span>Download my CV</span> 
             </a>
           </div>
 
           <div className="experience">
             <div className="experience-item cursor-pointer">
-              <h2><DuotoneIcon icon={faClock} size={'text-sm'} /> <strong>4 years</strong></h2>
+              <h2 className="flex items-center justify-center gap-2"><DuotoneIcon icon={faClock} size={'text-sm'} /> <strong>4 years</strong></h2>
               <p>Experiences</p>
             </div>
 
             <div className="experience-item cursor-pointer">
-              <h2><DuotoneIcon icon={faCircle} size={'text-sm'} /> <strong>Open to work</strong></h2>
+              <h2 className="flex items-center justify-center gap-2"><DuotoneIcon icon={faCircle} size={'text-sm'} /> <strong>Open to work</strong></h2>
               <p>Availability</p>
             </div>
 
             <div className="experience-item cursor-pointer">
-              <h2><DuotoneIcon icon={faStar} size={'text-sm'} /> <strong>98%</strong></h2>
+              <h2 className="flex items-center justify-center gap-2"><DuotoneIcon icon={faStar} size={'text-sm'} /> <strong>98%</strong></h2>
               <p>Satisfaction</p>
             </div>
           </div>
@@ -110,16 +114,16 @@ export default function Home({ setOpen }) {
             alt="Elie Andriatsitohaina"
           />
 
-          <div className="overlay left">
-            <DuotoneIcon icon={faCircle} size={'text-sm'} /> Software Engineer
+          <div className="flex gap-2 overlay left">
+            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>Software Engineer</div>
           </div>
 
-          <div className="overlay bottom-left">
-            <DuotoneIcon icon={faCircle} size={'text-sm'} /> Web Development
+          <div className="flex gap-2 overlay bottom-left">
+            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>Web Development</div>
           </div>
 
-          <div className="overlay center">
-            <DuotoneIcon icon={faCircle} size={'text-sm'} /> Data Engineer
+          <div className="flex gap-2 overlay center">
+            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>Data Engineer</div>
           </div>
         </div>
       </div>

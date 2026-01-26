@@ -13,7 +13,7 @@ export default function CollapseSection({ title, icon, children }: CollapseSecti
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border rounded-xl overflow-hidden bg-white shadow">
+    <div className="border rounded-xl overflow-hidden bg-white shadow border-1rem">
       {/* Titre toujours visible */}
       <button
         onClick={() => setIsOpen(!isOpen)}
