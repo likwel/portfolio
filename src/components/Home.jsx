@@ -45,7 +45,7 @@ export default function Home({ setOpen }) {
           </h2> */}
           <audio ref={audioRef} src={presentation_en}/>
 
-          <h2 className="my-name flex items-center gap-4 cursor-pointer flex-list-task" onClick={toggleAudio} style={{ fontFamily: "Audiowide, cursive" }}>
+          <h2 className="my-name flex items-center gap-4 cursor-pointer flex-list-task" onClick={toggleAudio}>
             {/* <img className="favicon-img"
               src={icon}
               alt="Elie Andriatsitohaina"
