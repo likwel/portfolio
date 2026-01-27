@@ -214,8 +214,16 @@ export const translations = {
     education: 'Formation',
     projects: 'Projets',
 
+    yourName: 'Votre Nom',
+    emailError: 'Erreur lors de l\'envoi. Veuillez réessayer.',
+    sending: 'Envoi en cours...',
+
   },
   en: {
+    yourName: 'Your Name',
+    emailError: 'Failed to send email. Please try again.',
+    sending: 'Sending...',
+
     home: 'Home',
     services: 'Services',
     projects: 'Projects',

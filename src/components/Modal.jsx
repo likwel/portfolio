@@ -3,23 +3,55 @@ import { faPhone, faEnvelope, faPaperPlane } from "@fortawesome/free-solid-svg-i
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import DuotoneIcon from "./DuotoneIcon";
 import { useLanguage } from '../contexts/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 export default function Modal({ setOpen }) {
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
-    email: "",
+    from_name: "",
+    from_email: "",
     subject: "",
     message: ""
   });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ email: "", subject: "", message: "" });
-    }, 3000);
+    setLoading(true);
+    setError("");
+
+    try {
+      // Envoyer l'email via EmailJS
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.from_name,
+          from_email: formData.from_email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'eliefenohasina@gmail.com' // Votre email
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      console.log('Email sent successfully:', result.text);
+      setSubmitted(true);
+      
+      // Réinitialiser le formulaire après 3 secondes
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ from_name: "", from_email: "", subject: "", message: "" });
+      }, 3000);
+
+    } catch (err) {
+      console.error('Email error:', err);
+      setError(t('emailError') || 'Failed to send email. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -91,23 +123,45 @@ export default function Modal({ setOpen }) {
                 {t('messageSent')}
               </div>
             )}
+
+            {error && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4">
+                {error}
+              </div>
+            )}
             
-            <div className="space-y-4">
-              <div className="flex flex-col items-start">
+            <form onSubmit={handleSubmit} className="space-y-4 max-h-[70vh] overflow-y-auto p-2">
+              <div className="flex flex-col items-start mt-0">
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  {t('yourName')}
+                </label>
+                <input
+                  type="text"
+                  name="from_name"
+                  value={formData.from_name}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  required
+                  className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                />
+              </div>
+
+              <div className="flex flex-col items-start mt-0">
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   {t('yourEmail')}
                 </label>
                 <input
                   type="email"
-                  name="email"
-                  value={formData.email}
+                  name="from_email"
+                  value={formData.from_email}
                   onChange={handleChange}
-                  placeholder={t('emailPlaceholder')}
+                  placeholder="your.email@example.com"
+                  required
                   className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                 />
               </div>
 
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start mt-0">
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   {t('subject')}
                 </label>
@@ -117,11 +171,12 @@ export default function Modal({ setOpen }) {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder={t('subjectPlaceholder')}
+                  required
                   className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                 />
               </div>
 
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start mt-0">
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   {t('message')}
                 </label>
@@ -130,19 +185,30 @@ export default function Modal({ setOpen }) {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder={t('messagePlaceholder')}
-                  rows="5"
+                  rows="3"
+                  required
                   className="border w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
                 />
               </div>
 
               <button
-                onClick={handleSubmit}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg w-full font-semibold flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:scale-105 active:scale-95"
+                type="submit"
+                disabled={loading}
+                className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-6 py-3 rounded-lg w-full font-semibold flex items-center justify-center gap-2 transition-all hover:shadow-lg active:scale-95 disabled:cursor-not-allowed"
               >
-                <DuotoneIcon icon={faPaperPlane} size={'text-sm'} backActive={false} fgColor={'text-white'}/>
-                {t('sendMessageBtn')}
+                {loading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    {t('sending') || 'Sending...'}
+                  </>
+                ) : (
+                  <>
+                    <DuotoneIcon icon={faPaperPlane} size={'text-sm'} backActive={false} fgColor={'text-white'}/>
+                    {t('sendMessageBtn')}
+                  </>
+                )}
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
