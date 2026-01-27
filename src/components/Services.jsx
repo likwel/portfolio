@@ -1,45 +1,50 @@
-import { faCode, faLaptopCode, faDatabase, faNetworkWired, faSearch, faUsersCog } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faLaptopCode, faDatabase, faNetworkWired, faSearch, faUsersCog, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import ServiceItem from "./ServiceItem";
+import { useLanguage } from '../contexts/LanguageContext';
 
-const services = [
-  {
-    icon: faCode,
-    title: "Web Development",
-    description: "Design and development of modern, responsive websites and web applications tailored to your business needs.",
-  },
-  {
-    icon: faLaptopCode,
-    title: "Software Development",
-    description: "Custom software solutions built with cutting-edge technologies to streamline your business operations.",
-  },
-  {
-    icon: faDatabase,
-    title: "Data Analysis",
-    description: "Transform raw data into actionable insights through advanced analytics and visualization techniques.",
-  },
-  {
-    icon: faNetworkWired,
-    title: "Data Engineering",
-    description: "Build robust data pipelines, ETL processes, and scalable architectures for big data management.",
-  },
-  {
-    icon: faSearch,
-    title: "Web Scraping & Automation",
-    description: "Automated data extraction and web scraping solutions to gather valuable information efficiently.",
-  },
-  {
-    icon: faUsersCog,
-    title: "CRM Configuration",
-    description: "Customized CRM setup, user role management, workflow automation, and system optimization to streamline customer relationship management.",
-  }
-];
 
 export default function Services() {
+
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      icon: faCode,
+      title: t('webDevelopmentService'),
+      description: t('webDevelopmentDesc'),
+    },
+    {
+      icon: faLaptopCode,
+      title: t('softwareDevelopment'),
+      description: t('softwareDevelopmentDesc'),
+    },
+    {
+      icon: faDatabase,
+      title: t('dataAnalysis'),
+      description: t('dataAnalysisDesc'),
+    },
+    {
+      icon: faNetworkWired,
+      title: t('dataEngineering'),
+      description: t('dataEngineeringDesc'),
+    },
+    {
+      icon: faSearch,
+      title: t('webScraping'),
+      description: t('webScrapingDesc'),
+    },
+    {
+      icon: faShoppingCart,
+      title: t('ecommerce'),
+      description: t('ecommerceDesc'),
+    }
+  ];
+
   return (
     <main id="services" className="bg-white pt-10 border-1rem">
       <div className="mx-auto">
-        <h1 className="text-3xl font-bold mb-2 text-center">My Services</h1>
-        <p className="text-center text-gray-700 mb-6">Discover the services and solutions I provide.</p>
+        <h1 className="text-3xl font-bold mb-2 text-center">{t('myServices')}</h1>
+        <p className="text-center text-gray-700 mb-6">{t('servicesSubtitle')}</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 experience">
           {services.map((service, idx) => (

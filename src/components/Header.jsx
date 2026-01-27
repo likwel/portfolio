@@ -17,10 +17,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import DuotoneIcon from "./DuotoneIcon";
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Header({ setSection, setOpen }) {
   const [darkMode, setDarkMode] = useState(false);
-  const [language, setLanguage] = useState('en'); // 'fr' ou 'en'
+  const { language, toggleLanguage, t } = useLanguage();
 
   // Charger le thème au démarrage
   useEffect(() => {
@@ -43,28 +44,15 @@ export default function Header({ setSection, setOpen }) {
     }
   };
 
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'fr' ? 'en' : 'fr');
+  // Fonction pour gérer le clic sur un menu
+  const handleMenuClick = (sectionName) => {
+    setSection(sectionName); // Appelle handleSectionFromHeader dans App.jsx
   };
 
   return (
     <header className="nav-center">
       <ul className="navbar flex-row">
-        {/* <li>
-          <button 
-            id="theme-toggleIcon" 
-            onClick={toggleDarkMode}
-            className="cursor-pointer"
-            aria-label="Toggle dark mode"
-          >
-            <DuotoneIcon 
-              icon={darkMode ? faSun : faMoon} 
-              size={'text-sm'} 
-            />
-          </button>
-        </li>
-        <li className="ligne-vertical"></li> */}
-
+        {/* Language Toggle */}
         <li>
           <a 
             id="language-toggle" 
@@ -99,43 +87,75 @@ export default function Header({ setSection, setOpen }) {
         </li>
         <li className="ligne-vertical"></li>
         
+        {/* Navigation Menu Items */}
         <li>
-          <a href="#home">
+          <a 
+            href="#home" 
+            onClick={(e) => { 
+              e.preventDefault(); 
+              handleMenuClick('home'); 
+            }}
+          >
             <DuotoneIcon icon={faUser} size={'text-sm'} className="mobile-icon" />
-            <span className="nav-text">Home</span>
+            <span className="nav-text">{t('home')}</span>
           </a>
         </li>
         
         <li>
-          <a href="#services">
+          <a 
+            href="#services" 
+            onClick={(e) => { 
+              e.preventDefault(); 
+              handleMenuClick('services'); 
+            }}
+          >
             <DuotoneIcon icon={faBriefcase} size={'text-sm'} className="mobile-icon" />
-            <span className="nav-text">Services</span>
+            <span className="nav-text">{t('services')}</span>
           </a>
         </li>
         
         <li>
-          <a href="#projects">
+          <a 
+            href="#projects" 
+            onClick={(e) => { 
+              e.preventDefault(); 
+              handleMenuClick('projects'); 
+            }}
+          >
             <DuotoneIcon icon={faFolderOpen} size={'text-sm'} className="mobile-icon" />
-            <span className="nav-text">Projects</span>
+            <span className="nav-text">{t('projects')}</span>
           </a>
         </li>
 
         <li>
-          <a href="#education">
+          <a 
+            href="#education" 
+            onClick={(e) => { 
+              e.preventDefault(); 
+              handleMenuClick('education'); 
+            }}
+          >
             <DuotoneIcon icon={faGraduationCap} size={'text-sm'} className="mobile-icon" />
-            <span className="nav-text">Education</span>
+            <span className="nav-text">{t('education')}</span>
           </a>
         </li>
         
         <li>
-          <a href="#skills">
+          <a 
+            href="#skills" 
+            onClick={(e) => { 
+              e.preventDefault(); 
+              handleMenuClick('skills'); 
+            }}
+          >
             <DuotoneIcon icon={faLightbulb} size={'text-sm'} className="mobile-icon" />
-            <span className="nav-text">Skills</span>
+            <span className="nav-text">{t('skills')}</span>
           </a>
         </li>
         
         <li className="ligne-vertical"></li>
         
+        {/* Contact Button */}
         <li>
           <button 
             id="btn" 
@@ -149,7 +169,7 @@ export default function Header({ setSection, setOpen }) {
               className="mobile-icon" 
               fgColor={'text-white'}
             />
-            <span className="nav-text untile">Contact me</span>
+            <span className="nav-text untile">{t('contactMe')}</span>
           </button>
         </li>
       </ul>

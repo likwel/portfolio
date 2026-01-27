@@ -9,6 +9,7 @@ import { PopupWidget, PopupModal } from "react-calendly";
 import { faPlay, faPause, faCalendarDays, faCalendarPlus, faCalendarCheck, faCode, faDatabase, faCloud, faPhone, faMoon, faCircle, faDownload, faEnvelope, faBriefcase, faUserTie, faClock, faSmile, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import DuotoneIcon from "./DuotoneIcon";
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Play
 export const PlayIcon = () => (
@@ -21,6 +22,7 @@ export default function Home({ setOpen }) {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [openCalendly, setOpenCalendly] = useState(false);
+  const { language, t } = useLanguage();
 
   const audioRef = useRef(null);
 
@@ -46,7 +48,7 @@ export default function Home({ setOpen }) {
             ANDRIATSITOHAINA ELIE FENOHASINA
             <span className="icon">›</span>
           </h2> */}
-          <audio ref={audioRef} src={presentation_en}/>
+          <audio ref={audioRef} src={language === 'fr' ? presentation_fr : presentation_en}/>
 
           <h2 className="my-name flex items-center gap-4 cursor-pointer flex-list-task" onClick={toggleAudio}>
             {/* <img className="favicon-img"
@@ -64,14 +66,14 @@ export default function Home({ setOpen }) {
                 />
               </div>
               <span className="text-[10px] mt-1 group-hover:text-blue-600 truncate">
-                Presentation
+                {t('presentation')}
               </span>
             </div>
           </h2>
 
           <div className="title-portfolio p-3">
-            <h1>Fullstack Developper & Data Engineer</h1>
-            <p>I specialize in web development, software engineering, and data engineering.</p>
+            <h1>{t('jobTitle')}</h1>
+            <p>{t('jobDescription')}</p>
           </div>
           <div className="buttons">
             <button className="flex gap-2 justify-center items-center hireMe"  onClick={() => setOpenCalendly(true)}>
@@ -80,7 +82,7 @@ export default function Home({ setOpen }) {
                 size={'text-xl'}
                 className="mobile-icon"
                 fgColor={'text-white'}
-              /> <span className="">Schedule a meeting</span>
+              /> <span className="">{t('schedule')}</span>
             </button>
 
             <a
@@ -89,24 +91,24 @@ export default function Home({ setOpen }) {
               target="_blank"
               download
             >
-              <DuotoneIcon icon={faDownload} size={'text-sm'} backActive={true} /> <span>Download my CV</span> 
+              <DuotoneIcon icon={faDownload} size={'text-sm'} backActive={true} /> <span>{t('downloadCV')}</span> 
             </a>
           </div>
 
           <div className="experience">
             <div className="experience-item cursor-pointer">
-              <h2 className="flex items-center justify-center gap-2"><DuotoneIcon icon={faClock} size={'text-sm'} /> <strong>4 years</strong></h2>
-              <p>Experiences</p>
+              <h2 className="flex items-center justify-center gap-2"><DuotoneIcon icon={faClock} size={'text-sm'} /> <strong>4 {t('yearsExperience')}</strong></h2>
+              <p>{t('experiencesLabel')}</p>
             </div>
 
             <div className="experience-item cursor-pointer">
-              <h2 className="flex items-center justify-center gap-2"><DuotoneIcon icon={faCircle} size={'text-sm'} /> <strong>Open to work</strong></h2>
-              <p>Availability</p>
+              <h2 className="flex items-center justify-center gap-2"><DuotoneIcon icon={faCircle} size={'text-sm'} /> <strong>{t('openToWork')}</strong></h2>
+              <p>{t('availability')}</p>
             </div>
 
             <div className="experience-item cursor-pointer">
               <h2 className="flex items-center justify-center gap-2"><DuotoneIcon icon={faStar} size={'text-sm'} /> <strong>98%</strong></h2>
-              <p>Satisfaction</p>
+              <p>{t('satisfaction')}</p>
             </div>
           </div>
         </div>
@@ -118,15 +120,15 @@ export default function Home({ setOpen }) {
           />
 
           <div className="flex gap-2 overlay left">
-            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>Software Engineer</div>
+            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>{t('softwareEngineer')}</div>
           </div>
 
           <div className="flex gap-2 overlay bottom-left">
-            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>Web Development</div>
+            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>{t('webDevelopment')}</div>
           </div>
 
           <div className="flex gap-2 overlay center">
-            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>Data Engineer</div>
+            <DuotoneIcon icon={faCircle} size={'text-sm'} /> <div>{t('dataEngineer')}</div>
           </div>
         </div>
       </div>

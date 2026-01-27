@@ -14,118 +14,101 @@ import geomada from "../assets/projects/geomada.PNG";
 import { useState } from "react";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  link?: string;
-}
-const personalProjects: Project[] = [
-  // Personal Projects
-  {
-    title: "WorldFeeds",
-    description:
-      "FullStack NextJS 15.5 - WorldFeeds is an international news aggregator that centralizes RSS feeds from the world's major media outlets in real time.",
-    image: im5,
-    link: "https://worldfeeds.vercel.app/",
-    category: "Personal Projects",
-  },
-  {
-    title: "Factura.mg",
-    description:
-      "Symfony 7.0 - Commercial management system: tracking sales, clients, and stock, optimizing business processes, and improving company performance.",
-    image: im1,
-    link: "https://tsaratantana.alwaysdata.net/",
-    category: "Personal Projects",
-  },
-  {
-    title: "Commune Tsaratantana",
-    description:
-      "Node.js, Express.js - Civil status management: recording administrative citizen data and creating/updating civil status documents for centralized management.",
-    image: im3,
-    link: "https://commune-tsaratantana.onrender.com/",
-    category: "Personal Projects",
-  },
-  {
-    title: "Agile Kanban",
-    description:
-      "Node.js, Express.js - Agile project management (Kanban): continuous task tracking, feature prioritization, team collaboration, and rapid adaptation to changes.",
-    image: im7,
-    category: "Personal Projects",
-  },
-  {
-    title: "GPS Tracking",
-    description:
-      "Java, Spring Boot - Real-time fleet management and vehicle/equipment tracking with live position visualization.",
-    image: im8,
-    category: "Personal Projects",
-  },
-  {
-    title: "Sales Forecast (PDV) 2.0",
-    description:
-      "Python / Streamlit – Predicting and classifying values from historical data, both time series and tabular datasets.",
-    image: im4,
-    category: "Personal Projects",
-  },
-  {
-    title: "SmartShop",
-    description:
-      "Symfony 7.3 with EasyAdmin – Customizable e-commerce with optimized admin interface.",
-    image: im2,
-    category: "Personal Projects",
-  },
-  {
-    title: "Talkio",
-    description:
-      "NestJS + NextJS – Messaging platform with advanced project/task management.",
-    image: im6,
-    category: "Personal Projects",
-  },
-
-  // Company Projects
-  {
-    title: "ConsoMyZone - Company Project",
-    description:
-      "Symfony 6 / JavaScript - Data visualization with map integration, advanced search, FastAPI, NodeJS.",
-    image: cmz,
-    link: "https://consomyzone.com/",
-    category: "Company Projects",
-  },
-  {
-    title: "Web Scraper - Company Project",
-    description:
-      "Java Spring Boot - Internal data scraping tool for company operations.",
-    image: scrap,
-    category: "Company Projects",
-  },
-
-  // See More
-  {
-    title: "See More",
-    description: "Several projects are already in my GitHub repository.",
-    image: plus,
-    link: "https://github.com/likwel",
-    category: "Personal Projects",
-  },
-
-  {
-    title: "Company Website",
-    description: "Corporate website presenting the company, its services, and its expertise.",
-    image: geomada,
-    link: "https://www.geomadagascar.com/",
-    category: "Company Projects",
-  },
-
-];
-
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Projects() {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
-  const handleImageClick = (image: string) => {
+  const personalProjects = [
+    // Personal Projects
+    {
+      title: "WorldFeeds",
+      description: t('project1Desc'),
+      image: im5,
+      link: "https://worldfeeds.vercel.app/",
+      category: t('categoryPersonal'),
+    },
+    {
+      title: "Factura.mg",
+      description: t('project2Desc'),
+      image: im1,
+      link: "https://tsaratantana.alwaysdata.net/",
+      category: t('categoryPersonal'),
+    },
+    {
+      title: "Commune Tsaratantana",
+      description: t('project3Desc'),
+      image: im3,
+      link: "https://commune-tsaratantana.onrender.com/",
+      category: t('categoryPersonal'),
+    },
+    {
+      title: "Agile Kanban",
+      description: t('project4Desc'),
+      image: im7,
+      category: t('categoryPersonal'),
+    },
+    {
+      title: "GPS Tracking",
+      description: t('project5Desc'),
+      image: im8,
+      category: t('categoryPersonal'),
+    },
+    {
+      title: "Sales Forecast (PDV) 2.0",
+      description: t('project6Desc'),
+      image: im4,
+      category: t('categoryPersonal'),
+    },
+    {
+      title: "SmartShop",
+      description: t('project7Desc'),
+      image: im2,
+      category: t('categoryPersonal'),
+    },
+    {
+      title: "Talkio",
+      description: t('project8Desc'),
+      image: im6,
+      category: t('categoryPersonal'),
+    },
+
+    // Company Projects
+    {
+      title: t('project9Title'),
+      description: t('project9Desc'),
+      image: cmz,
+      link: "https://consomyzone.com/",
+      category: t('categoryCompany'),
+    },
+    {
+      title: t('project10Title'),
+      description: t('project10Desc'),
+      image: scrap,
+      category: t('categoryCompany'),
+    },
+
+    // See More
+    {
+      title: t('seeMore'),
+      description: t('seeMoreDesc'),
+      image: plus,
+      link: "https://github.com/likwel",
+      category: t('categoryPersonal'),
+    },
+
+    {
+      title: t('companyWebsite'),
+      description: t('companyWebsiteDesc'),
+      image: geomada,
+      link: "https://www.geomadagascar.com/",
+      category: t('categoryCompany'),
+    },
+  ];
+
+  const handleImageClick = (image) => {
     setSelectedImage(image);
     setIsOpen(true);
   };
@@ -140,25 +123,23 @@ export default function Projects() {
       <main id="projects" className="bg-white pt-10 border-1rem">
         <div className="mx-auto">
           <h1 className="text-3xl font-bold mb-2 text-center">
-            Personal & Side Projects
+            {t('projectsMainTitle')}
           </h1>
           <p className="text-center text-gray-700 mb-6">
-            A selection of projects showcasing my skills.
+            {t('projectsSubtitle')}
           </p>
 
           {Object.entries(
             personalProjects.reduce((acc, project) => {
               (acc[project.category] = acc[project.category] || []).push(project);
               return acc;
-            }, {} as Record<string, Project[]>)
+            }, {})
           ).map(([category, categoryProjects], idx) => (
             <div key={idx} className="mb-10">
-              {/* Titre de catégorie */}
               <h2 className="text-2xl font-semibold text-gray-800 mb-4 badge-skill">
                 {category}
               </h2>
 
-              {/* Grid des projets */}
               <div className="lg:p-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 experience">
                 {categoryProjects.map((project, index) => (
                   <div
@@ -189,16 +170,17 @@ export default function Projects() {
                         <a
                           href={project.link}
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="inline-block mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition project-btn"
                         >
-                          See the project
+                          {t('seeProject')}
                         </a>
                       ) : (
                         <button
-                          onClick={() => alert("Not deploy")}
+                          onClick={() => alert(t('notDeployed'))}
                           className="inline-block mt-3 px-4 py-2 bg-gray-400 text-white rounded cursor-not-allowed"
                         >
-                          See the project
+                          {t('seeProject')}
                         </button>
                       )}
                     </div>
@@ -236,5 +218,4 @@ export default function Projects() {
       )}
     </>
   );
-
 }
