@@ -28,10 +28,10 @@ export default function Modal({ setOpen }) {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.from_name,
-          from_email: formData.from_email,
+          senderName: formData.from_name,
+          senderEmail: formData.from_email,
           subject: formData.subject,
-          message: formData.message,
+          senderMsg: formData.message,
           to_email: 'eliefenohasina@gmail.com' // Votre email
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
