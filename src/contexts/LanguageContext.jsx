@@ -207,13 +207,6 @@ export const translations = {
     connectionError: 'Erreur de connexion. Veuillez vérifier votre clé API.',
     technicalDifficulties: 'Désolé, je rencontre des difficultés techniques. N\'hésitez pas à me contacter directement via WhatsApp, Discord ou Email !',
 
-    // Français
-    services: 'Services',
-    experiences: 'Expériences',
-    skills: 'Compétences',
-    education: 'Formation',
-    projects: 'Projets',
-
     yourName: 'Votre Nom',
     emailError: 'Erreur lors de l\'envoi. Veuillez réessayer.',
     sending: 'Envoi en cours...',
@@ -419,13 +412,6 @@ export const translations = {
     noResponse: 'Sorry, I couldn\'t generate a response.',
     connectionError: 'Connection error. Please check your API key.',
     technicalDifficulties: 'Sorry, I\'m experiencing technical difficulties. Feel free to contact me directly via WhatsApp, Discord, or Email!',
-
-    // Anglais
-    services: 'Services',
-    experiences: 'Experiences',
-    skills: 'Skills',
-    education: 'Education',
-    projects: 'Projects',
 
   }
 };

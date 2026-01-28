@@ -1054,6 +1054,11 @@ button:hover {
     .my-name .icon{
         margin-left: 0 !important;
     }
+    .chat-open {
+        right: 0 !important;
+        left: 0 !important;
+        min-width: 100% !important;
+    }
 }
 
 /* Très petit écran - cache aussi le nom */
@@ -1134,7 +1139,7 @@ button:hover {
 }
 
 .chat-open div{
-     border-radius: .5rem;
+     /* border-radius: .5rem; */
 }
 .btn-tab{
     padding: .25rem !important;
