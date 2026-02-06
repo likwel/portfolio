@@ -10,6 +10,7 @@ import plus from "../assets/projects/plus.jpg";
 import cmz from "../assets/projects/cmz.PNG";
 import scrap from "../assets/projects/scap.jpeg";
 import geomada from "../assets/projects/geomada.PNG";
+import mailflow from "../assets/projects/mailflow.PNG";
 
 import { useState } from "react";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -72,6 +73,13 @@ export default function Projects() {
       title: "Talkio",
       description: t('project8Desc'),
       image: im6,
+      category: t('categoryPersonal'),
+    },
+
+    {
+      title: "MailFlow",
+      description: t('projectMailDesc'),
+      image: mailflow,
       category: t('categoryPersonal'),
     },
 
