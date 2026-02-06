@@ -417,12 +417,21 @@ export const translations = {
 };
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en');
-
-  useEffect(() => {
+  const [language, setLanguage] = useState(() => {
+    // Vérifier localStorage en premier
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && (savedLanguage === 'fr' || savedLanguage === 'en')) {
-      setLanguage(savedLanguage);
+      return savedLanguage;
+    }
+    
+    // Toujours retourner FR par défaut
+    return 'fr';
+  });
+
+  // Sauvegarder dans localStorage au premier chargement si pas déjà fait
+  useEffect(() => {
+    if (!localStorage.getItem('language')) {
+      localStorage.setItem('language', 'fr');
     }
   }, []);
 
@@ -433,7 +442,7 @@ export const LanguageProvider = ({ children }) => {
   };
 
   const t = (key) => {
-    return translations[language][key] || key;
+    return translations[language]?.[key] || key;
   };
 
   return (
