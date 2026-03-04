@@ -177,7 +177,7 @@ export const translations = {
     edu3Title: 'Baccalauréat en Études Scientifiques',
     edu3Company: 'Lycée d\'enseignement général',
     edu3Desc1: 'Spécialisation : Série D',
-    edu3Desc2: 'Diplômé avec Mention : Mention Assez Bien',
+    edu3Desc2: 'Diplômé avec Mention',
     edu3Desc3: 'Focus sur les mathématiques, la physique et la chimie',
 
     // Modal Contact
@@ -383,7 +383,7 @@ export const translations = {
     edu3Title: 'Baccalaureate in Scientific Studies',
     edu3Company: 'Lycée d\'enseignement général',
     edu3Desc1: 'Specialization: Serie D',
-    edu3Desc2: 'Graduated with Honors: Mention Assez Bien',
+    edu3Desc2: 'Graduated with Honors',
     edu3Desc3: 'Focus on mathematics, physics, and chemistry',
 
 
