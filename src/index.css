@@ -1012,6 +1012,14 @@ button:hover {
 
 /* Mode responsive */
 @media (max-width: 768px) {
+
+    .max-h-\[70vh\] {
+        max-height: 100vh;
+    }
+
+    .mobile-modal{
+        margin-top: 125px !important;
+    }
     .mobile-icon {
         display: inline-block;
     }

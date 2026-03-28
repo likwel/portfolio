@@ -23,8 +23,8 @@ export const translations = {
 
     // Home
     presentation: 'Présentation',
-    jobTitle: 'Développeur Fullstack & Ingénieur Data',
-    jobDescription: 'Je me spécialise dans le développement web, l\'ingénierie logicielle et l\'ingénierie des données.',
+    jobTitle: 'Ingénieur Data & Développeur fullstack',
+    jobDescription: 'Je me spécialise dans l\'ingénierie et traitement des données, ainsi qu’en développement web multiplateforme.',
     downloadCV: 'Télécharger mon CV',
     yearsExperience: 'années',
     experiencesLabel: 'Expériences',
@@ -212,6 +212,13 @@ export const translations = {
     emailError: 'Erreur lors de l\'envoi. Veuillez réessayer.',
     sending: 'Envoi en cours...',
 
+    experiencesSubtitle: "Parcours professionnel",
+    experiencesBadge:    "+4 ans",
+    skillsBadge:         "+15 compétences",
+    educationBadge:      "2 diplômes",
+    projectsBadge:       "+10 projets",
+    servicesBadge:       "+5 services",
+
   },
   en: {
     yourName: 'Your Name',
@@ -229,8 +236,8 @@ export const translations = {
 
     // Home
     presentation: 'Presentation',
-    jobTitle: 'Fullstack Developer & Data Engineer',
-    jobDescription: 'I specialize in web development, software engineering, and data engineering.',
+    jobTitle: 'Data Engineer & Fullstack Developper ',
+    jobDescription: 'I specialize in data engineering and data processing, as well as cross-platform web development.',
     downloadCV: 'Download my CV',
     yearsExperience: 'years',
     experiencesLabel: 'Experiences',
@@ -414,6 +421,13 @@ export const translations = {
     noResponse: 'Sorry, I couldn\'t generate a response.',
     connectionError: 'Connection error. Please check your API key.',
     technicalDifficulties: 'Sorry, I\'m experiencing technical difficulties. Feel free to contact me directly via WhatsApp, Discord, or Email!',
+
+    experiencesSubtitle: "Professional background",
+    experiencesBadge:    "4 years",
+    skillsBadge:         "+15 skills",
+    educationBadge:      "2 degrees",
+    projectsBadge:       "+10 projects",
+    servicesBadge:       "+5 services",
 
   }
 };

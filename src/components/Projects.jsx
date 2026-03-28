@@ -130,7 +130,7 @@ export default function Projects() {
     <>
       <main id="projects" className="bg-white pt-10 border-1rem">
         <div className="mx-auto">
-          <h1 className="text-3xl font-bold mb-2 text-center">
+          <h1 className="text-2xl font-bold mb-2 text-center">
             {t('projectsMainTitle')}
           </h1>
           <p className="text-center text-gray-700 mb-6">

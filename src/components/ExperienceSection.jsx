@@ -68,7 +68,7 @@ export default function ExperienceSection() {
     return (
         <main id="experience" className="bg-white pt-10 border-1rem">
             <div className="mx-auto w-100">
-                <h1 className="text-3xl font-bold mb-2 text-center">{t('professionalExperience')}</h1>
+                <h1 className="text-2xl font-bold mb-2 text-center">{t('professionalExperience')}</h1>
                 <p className="text-center text-gray-700 mb-1rem">{t('experienceSubtitle')}</p>
 
                 <div className="space-y-4 p-4 mt-3">

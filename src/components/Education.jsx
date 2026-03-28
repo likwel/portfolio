@@ -45,7 +45,7 @@ export default function Education() {
   return (
     <main id="experience" className="bg-white pt-10 border-1rem">
       <div className="space-y-4 p-4 border-1rem">
-        <h1 className="text-3xl font-bold text-center">
+        <h1 className="text-2xl font-bold text-center">
           {t('educationTitle')}
         </h1>
         <p className="text-center text-gray-700 mb-2rem">
