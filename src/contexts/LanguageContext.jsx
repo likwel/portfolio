@@ -101,31 +101,33 @@ export const translations = {
     // Categories
     categoryBackend: 'Backend',
     categoryFrontend: 'Frontend',
-    categoryData: 'Data & Base de données',
+    categoryData: 'Ingénierie & Analyse de Données',
     categoryDevOps: 'DevOps & Gestion',
 
     // Skills descriptions
-    skillJavaDesc: 'Web scraping et développement backend.',
-    skillNodeDesc: 'Développement web et applications côté serveur.',
-    skillSymfonyDesc: 'Développement d\'applications web, architecture backend et intégration d\'API.',
-    skillPythonDesc: 'Traitement, analyse et automatisation de données avec Pandas et NumPy.',
-    skillJsDesc: 'Gestion de l\'interface utilisateur et développement front-end.',
-    skillSqlDesc: 'Gestion de bases de données, requêtes, optimisation et modélisation relationnelle.',
-    apiDevelopment: 'Développement d\'API',
-    skillApiDesc: 'Conception et intégration d\'API REST & GraphQL.',
-    skillDevOpsDesc: 'CI/CD, automatisation des déploiements et gestion de l\'infrastructure cloud.',
-    skillGitDesc: 'Contrôle de version, stratégies de branches et développement collaboratif.',
-    skillDockerDesc: 'Conteneurisation d\'applications pour garantir des environnements de développement cohérents, portables et évolutifs.',
-    skillAgileDesc: 'Méthodologies de gestion de projet pour la collaboration d\'équipe.',
-    skillReactDesc: 'Création d\'applications web interactives et performantes.',
-    skillAngularDesc: 'Développement d\'applications dynamiques single-page.',
-    skillBootstrapDesc: 'Design web responsive et composants UI.',
-    skillTailwindDesc: 'Style moderne utility-first pour des mises en page responsive.',
-    etlPipelines: 'ETL & Pipelines de Données',
-    skillEtlDesc: 'Construction et gestion de processus ETL et flux de travail de données automatisés.',
-    dataVisualization: 'Visualisation de Données',
-    skillDataVizDesc: 'Création de tableaux de bord et rapports avec Power BI, Tableau ou bibliothèques Python.',
+    skillJavaDesc: 'Collecte de données web (scraping) et services backend orientés traitement de masse.',
+    skillNodeDesc: 'APIs REST légères et services temps réel pour l\'exposition et le transfert de données.',
+    skillSymfonyDesc: 'Applications web structurées avec intégration d\'APIs et gestion de flux de données.',
+    skillPythonDesc: 'Pipelines de données, orchestration de workflows et automatisation avec Pandas, NumPy et Airflow, FastAPI.',
+    skillJsDesc: 'Interfaces front-end dynamiques pour la consultation et la visualisation de données.',
+    skillSqlDesc: 'Requêtes complexes, optimisation de performances et modélisation de bases de données.',
 
+    apiDevelopment: 'Développement d\'API',
+    skillApiDesc: 'Exposition et consommation de données via des APIs REST & GraphQL robustes.',
+    skillDevOpsDesc: 'CI/CD, déploiement automatisé de pipelines et gestion d\'infrastructure cloud (GCP, AWS).',
+    skillGitDesc: 'Versioning de code, gestion de branches et collaboration sur des projets data.',
+    skillDockerDesc: 'Conteneurisation des pipelines et services pour des environnements reproductibles et scalables.',
+    skillAgileDesc: 'Sprints, livraison itérative et coordination entre équipes data et métier.',
+    skillReactDesc: 'Développement de dashboards et interfaces de monitoring de données.',
+    skillAngularDesc: 'Applications single-page pour la consultation et l\'exploration de données.',
+    skillBootstrapDesc: 'Prototypage rapide d\'interfaces de reporting responsive.',
+    skillTailwindDesc: 'Mise en page moderne et cohérente pour outils internes et dashboards.',
+
+    etlPipelines: 'ETL & Data Pipelines',
+    skillEtlDesc: 'Conception de flux ETL/ELT pour l\'ingestion, la transformation et le chargement de données.',
+
+    dataVisualization: 'Data Viz',
+    skillDataVizDesc: 'Dashboards interactifs et rapports métier avec Power BI, Tableau et Excel avancé.',
 
     // Projects
     projectsMainTitle: 'Projets Personnels & Side Projects',
@@ -148,7 +150,18 @@ export const translations = {
     project9Desc: 'Symfony 6 / JavaScript - Visualisation de données avec intégration cartographique, recherche avancée, FastAPI, NodeJS.',
     project10Title: 'Web Scraper - Projet Entreprise',
     project10Desc: 'Java Spring Boot - Outil interne de scraping de données pour les opérations de l\'entreprise.',
-    projectMailDesc: 'Fullstack NodeJS/ReactJS - Service d’envoi d’emails via API et templates',
+    projectMailDesc: 'Fullstack NodeJS/ReactJS - Service d\'envoi d\'emails via API et templates.',
+
+    // ── Nouveaux projets perso ───────────────────────────────
+    depenzoTitle: 'Depenzo',
+    depenzoDesc: 'Application de gestion financière personnelle : suivi du budget, des dépenses et des revenus avec résumés visuels et analyses des habitudes de consommation.',
+
+    glinkTitle: 'Glink',
+    glinkDesc: 'Service de raccourcissement d\'URL : transformez vos liens longs en URLs courtes et partageables, avec suivi des clics et alias personnalisés.',
+
+    itadImmoTitle: 'ItadImmo',
+    itadImmoDesc: 'Plateforme immobilière malgache pour la recherche de biens et d\'agences, avec filtres avancés et gestion des annonces.',
+
     seeMore: 'Voir Plus',
     seeMoreDesc: 'Plusieurs projets sont déjà dans mon dépôt GitHub.',
     companyWebsite: 'Site Web Entreprise',
@@ -314,30 +327,33 @@ export const translations = {
     // Categories
     categoryBackend: 'Backend',
     categoryFrontend: 'Frontend',
-    categoryData: 'Data & Database',
+    categoryData: 'Data Engineering & Analysis',
     categoryDevOps: 'DevOps & Management',
 
     // Skills descriptions
-    skillJavaDesc: 'Web scraping and backend development.',
-    skillNodeDesc: 'Web development and server-side applications.',
-    skillSymfonyDesc: 'Web application development, backend architecture, and API integration.',
-    skillPythonDesc: 'Data processing, analysis, and automation with Pandas and NumPy.',
-    skillJsDesc: 'UI management and front-end development.',
-    skillSqlDesc: 'Database management, queries, optimization, and relational modeling.',
-    apiDevelopment: 'API Development',
-    skillApiDesc: 'Designing and integrating REST & GraphQL APIs.',
-    skillDevOpsDesc: 'CI/CD, deployment automation, and cloud infrastructure management.',
-    skillGitDesc: 'Version control, branching strategies, and collaborative development.',
-    skillDockerDesc: 'Containerization of applications to ensure consistent, portable, and scalable development environments.',
-    skillAgileDesc: 'Project management methodologies for team collaboration.',
-    skillReactDesc: 'Building interactive and performant web applications.',
-    skillAngularDesc: 'Developing dynamic single-page applications.',
-    skillBootstrapDesc: 'Responsive web design and UI components.',
-    skillTailwindDesc: 'Modern utility-first styling for responsive layouts.',
-    etlPipelines: 'ETL & Data Pipelines',
-    skillEtlDesc: 'Building and managing ETL processes and automated data workflows.',
+    skillJavaDesc:     'Web scraping and backend services for large-scale data processing.',
+    skillNodeDesc:     'Lightweight REST APIs and real-time services for data transfer and exposure.',
+    skillSymfonyDesc:  'Structured backend applications with API integration and data flow management.',
+    skillPythonDesc:   'Data pipelines, workflow orchestration and automation with Pandas, NumPy, Airflow & FastAPI.',
+    skillJsDesc:       'Dynamic front-end interfaces for data consultation and visualization.',
+    skillSqlDesc:      'Complex queries, performance optimization and database modeling.',
+
+    apiDevelopment:    'API Development',
+    skillApiDesc:      'Design and integration of robust REST & GraphQL APIs for data exposure and exchange.',
+    skillDevOpsDesc:   'CI/CD, automated pipeline deployment and cloud infrastructure management (GCP, AWS).',
+    skillGitDesc:      'Code versioning, branch management and collaboration on data projects.',
+    skillDockerDesc:   'Pipeline containerization for reproducible and scalable environments.',
+    skillAgileDesc:    'Iterative project delivery and coordination between data and business teams.',
+    skillReactDesc:    'Interactive dashboards and data monitoring interfaces.',
+    skillAngularDesc:  'Single-page applications for data exploration and consultation.',
+    skillBootstrapDesc:'Rapid prototyping of responsive reporting interfaces.',
+    skillTailwindDesc: 'Modern, consistent styling for internal tools and dashboards.',
+
+    etlPipelines:      'ETL & Data Pipelines',
+    skillEtlDesc:      'Design and management of ETL/ELT workflows for data ingestion, transformation and loading.',
+
     dataVisualization: 'Data Visualization',
-    skillDataVizDesc: 'Creating dashboards and reports using Power BI, Tableau, or Python libraries.',
+    skillDataVizDesc:  'Interactive dashboards and business reports with Power BI, Tableau and advanced Excel.',
 
 
     // Projects
@@ -348,24 +364,35 @@ export const translations = {
     seeProject: 'See the project',
     notDeployed: 'Not deployed',
 
-    // Projects descriptions
-    project1Desc: 'FullStack NextJS 15.5 - WorldFeeds is an international news aggregator that centralizes RSS feeds from the world\'s major media outlets in real time.',
-    project2Desc: 'Symfony 7.0 - Commercial management system: tracking sales, clients, and stock, optimizing business processes, and improving company performance.',
-    project3Desc: 'Node.js, Express.js - Civil status management: recording administrative citizen data and creating/updating civil status documents for centralized management.',
-    project4Desc: 'Node.js, Express.js - Agile project management (Kanban): continuous task tracking, feature prioritization, team collaboration, and rapid adaptation to changes.',
-    project5Desc: 'Java, Spring Boot - Real-time fleet management and vehicle/equipment tracking with live position visualization.',
-    project6Desc: 'Python / Streamlit – Predicting and classifying values from historical data, both time series and tabular datasets.',
-    project7Desc: 'Symfony 7.3 with EasyAdmin – Customizable e-commerce with optimized admin interface.',
-    project8Desc: 'NestJS + NextJS – Messaging platform with advanced project/task management.',
-    project9Title: 'ConsoMyZone - Company Project',
-    project9Desc: 'Symfony 6 / JavaScript - Data visualization with map integration, advanced search, FastAPI, NodeJS.',
-    project10Title: 'Web Scraper - Company Project',
-    project10Desc: 'Java Spring Boot - Internal data scraping tool for company operations.',
-    projectMailDesc: 'Fullstack NodeJS/ReactJS - Email sending service via API and templates',
-    seeMore: 'See More',
-    seeMoreDesc: 'Several projects are already in my GitHub repository.',
-    companyWebsite: 'Company Website',
-    companyWebsiteDesc: 'Corporate website presenting the company, its services, and its expertise.',
+  // Projects descriptions
+  project1Desc: 'FullStack NextJS 15.5 - WorldFeeds is an international news aggregator that centralizes RSS feeds from the world\'s major media outlets in real time.',
+  project2Desc: 'Symfony 7.0 - Commercial management system: tracking sales, clients, and stock, optimizing business processes, and improving company performance.',
+  project3Desc: 'Node.js, Express.js - Civil status management: recording administrative citizen data and creating/updating civil status documents for centralized management.',
+  project4Desc: 'Node.js, Express.js - Agile project management (Kanban): continuous task tracking, feature prioritization, team collaboration, and rapid adaptation to changes.',
+  project5Desc: 'Java, Spring Boot - Real-time fleet management and vehicle/equipment tracking with live position visualization.',
+  project6Desc: 'Python / Streamlit – Predicting and classifying values from historical data, both time series and tabular datasets.',
+  project7Desc: 'Symfony 7.3 with EasyAdmin – Customizable e-commerce with optimized admin interface.',
+  project8Desc: 'NestJS + NextJS – Messaging platform with advanced project/task management.',
+  project9Title: 'ConsoMyZone - Company Project',
+  project9Desc: 'Symfony 6 / JavaScript - Data visualization with map integration, advanced search, FastAPI, NodeJS.',
+  project10Title: 'Web Scraper - Company Project',
+  project10Desc: 'Java Spring Boot - Internal data scraping tool for company operations.',
+  projectMailDesc: 'Fullstack NodeJS/ReactJS - Email sending service via API and templates.',
+
+  // ── Nouveaux projets perso ───────────────────────────────
+  depenzoTitle: 'Depenzo',
+  depenzoDesc: 'Personal finance app for tracking budgets, expenses and income — with visual summaries and spending insights.',
+
+  glinkTitle: 'Glink',
+  glinkDesc: 'URL shortener service: convert long links into short, shareable URLs with click tracking and custom aliases.',
+
+  itadImmoTitle: 'ItadImmo',
+  itadImmoDesc: 'Madagascar real estate platform for searching properties and agencies — with advanced filtering and listing management.',
+
+  seeMore: 'See More',
+  seeMoreDesc: 'Several projects are already in my GitHub repository.',
+  companyWebsite: 'Company Website',
+  companyWebsiteDesc: 'Corporate website presenting the company, its services, and its expertise.',
 
     // Education
     educationTitle: 'Education & Qualifications',

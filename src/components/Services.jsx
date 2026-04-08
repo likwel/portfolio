@@ -9,6 +9,21 @@ export default function Services() {
 
   const services = [
     {
+      icon: faNetworkWired,
+      title: t('dataEngineering'),
+      description: t('dataEngineeringDesc'),
+    },
+    {
+      icon: faDatabase,
+      title: t('dataAnalysis'),
+      description: t('dataAnalysisDesc'),
+    },
+    {
+      icon: faSearch,
+      title: t('webScraping'),
+      description: t('webScrapingDesc'),
+    },
+    {
       icon: faCode,
       title: t('webDevelopmentService'),
       description: t('webDevelopmentDesc'),
@@ -17,21 +32,6 @@ export default function Services() {
       icon: faLaptopCode,
       title: t('softwareDevelopment'),
       description: t('softwareDevelopmentDesc'),
-    },
-    {
-      icon: faDatabase,
-      title: t('dataAnalysis'),
-      description: t('dataAnalysisDesc'),
-    },
-    {
-      icon: faNetworkWired,
-      title: t('dataEngineering'),
-      description: t('dataEngineeringDesc'),
-    },
-    {
-      icon: faSearch,
-      title: t('webScraping'),
-      description: t('webScrapingDesc'),
     },
     {
       icon: faShoppingCart,
