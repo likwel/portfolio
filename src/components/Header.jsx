@@ -127,8 +127,8 @@ export default function Header({ setSection, setOpen, isOpen }) {
     },
     contactBtn: {
       display: "flex", alignItems: "center", gap: 7,
-      padding: "10px 15px", background: "#007b8b", color: "#fff",
-      borderRadius: 8, fontSize: 13, fontWeight: 600,
+      padding: "6px 15px", background: "#026673", color: "#fff",
+      borderRadius: '.75rem', fontSize: 13, fontWeight: 600,
       border: "none", cursor: "pointer", whiteSpace: "nowrap",
     },
     burgerBtn: {
@@ -295,7 +295,7 @@ export default function Header({ setSection, setOpen, isOpen }) {
             <div id="header-sep" style={s.sep} />
 
             {/* Contact */}
-            <button id="header-contact-btn" style={s.contactBtn} onClick={handleContact}>
+            <button id="header-contact-btn" className="btn-primary" style={s.contactBtn} onClick={handleContact}>
               <FontAwesomeIcon icon={faEnvelope} style={{ fontSize: 13 }} />
               {t("contactMe") || "Me contacter"}
             </button>
