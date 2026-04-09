@@ -16,17 +16,11 @@ const SPEED = 70;
 const PAUSE = 1400;
 const ERASE = 35;
 
-/**
- * Parse jobTitle depuis i18n.
- * Ex: "Développeur Fullstack & Ingénieur Data"
- *  → [{ plain: "Développeur ", accent: "Fullstack" },
- *     { plain: "Ingénieur ",   accent: "Data" }]
- */
 function parseJobTitle(jobTitle) {
   return jobTitle.split("&").map((part) => {
     const words = part.trim().split(" ");
-    const accent = words.pop();          // dernier mot = accent
-    const plain  = words.join(" ") + " "; // reste + espace
+    const accent = words.pop();
+    const plain  = words.join(" ") + " ";
     return { plain, accent };
   });
 }
@@ -115,7 +109,7 @@ export default function Home({ setOpen }) {
 
   const badges = [
     { label: t("softwareEngineer") || "Software Engineer", color: "#0F9E78", pos: { top: 80,    left: -50   } },
-    { label: t("dataEngineer")     || "Data Engineer",     color: "#2563eb", pos: { bottom: 250, right: -10} },
+    { label: t("dataEngineer")     || "Data Engineer",     color: "#2563eb", pos: { bottom: 250, right: -10  } },
     { label: t("webDevelopment")   || "Web Development",   color: "#7c3aed", pos: { bottom: 20,  right: -10  } },
   ];
 
@@ -128,7 +122,24 @@ export default function Home({ setOpen }) {
         .btn-primary:hover { background: #0c8a68; }
         .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: #fff; color: #0f172a; border-radius: 8px; font-size: 14px; font-weight: 500; border: 1.5px solid #e2e8f0; cursor: pointer; text-decoration: none; transition: border-color .2s, background .2s; }
         .btn-secondary:hover { border-color: #0F9E78; background: #f0fdf9; }
-        .float-badge { position: absolute; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; z-index: 2; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,.07); }
+
+        /* ── float-badge avec blur ── */
+        .float-badge {
+          position: absolute;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(1px);
+          -webkit-backdrop-filter: blur(1px);
+          border: 1px solid rgba(255, 255, 255, 0.45);
+          border-radius: 10px;
+          padding: 8px 14px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          z-index: 2;
+          white-space: nowrap;
+          box-shadow: 0 4px 16px rgba(0,0,0,.25);
+        }
+
         .float-badge-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
         .float-badge-text { font-size: 14px; color: #0f172a; font-weight: 600; }
         @keyframes wave { from { transform: scaleY(0.4); } to { transform: scaleY(1.2); } }
