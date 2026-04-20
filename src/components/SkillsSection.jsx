@@ -8,12 +8,12 @@ export default function SkillsSection() {
     const { t } = useLanguage();
 
     const skills = [
+        { icon: faDatabase, title: "SQL/T-SQL", desc: t('skillSqlDesc'), category: t('categoryData') },
         { icon: faPython, title: "Python", desc: t('skillPythonDesc'), category: t('categoryData') },
         { icon: faJava, title: "Java & Spring Boot", desc: t('skillJavaDesc'), category: t('categoryBackend') },
         { icon: faNodeJs, title: "Node.js", desc: t('skillNodeDesc'), category: t('categoryBackend') },
         { icon: faCode, title: "Symfony", desc: t('skillSymfonyDesc'), category: t('categoryBackend') },
         { icon: faJsSquare, title: "JavaScript", desc: t('skillJsDesc'), category: t('categoryFrontend') },
-        { icon: faDatabase, title: "SQL/T-SQL", desc: t('skillSqlDesc'), category: t('categoryData') },
         { icon: faCode, title: t('apiDevelopment'), desc: t('skillApiDesc'), category: t('categoryBackend') },
         { icon: faServer, title: "DevOps", desc: t('skillDevOpsDesc'), category: t('categoryDevOps') },
         { icon: faGitAlt, title: "Git", desc: t('skillGitDesc'), category: t('categoryDevOps') },

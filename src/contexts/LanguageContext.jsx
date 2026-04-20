@@ -35,6 +35,7 @@ export const translations = {
     webDevelopment: 'Développement Web',
     dataEngineer: 'Ingénieur Data',
     schedule: 'Planifier une réunion',
+    projectDepenzoDesc : 'Application de gestion budgétaire destinée à un usage personnel, familial et professionnel (entreprise).',
 
     // Services
     myServices: 'Mes Services',
@@ -59,13 +60,13 @@ export const translations = {
     present: 'Présent',
 
     // Experience 1 - Geomadagascar
-    exp1Title: 'Développeur Web & Ingénieur Data',
+    exp1Title: 'Développeur & Data Engineer',
     exp1Start: 'Jan 2022',
-    exp1End: 'Présent',
-    exp1Desc1: 'Concevoir et développer des applications web et des pipelines de données',
-    exp1Desc2: 'Gérer et optimiser les bases de données relationnelles',
-    exp1Desc3: 'Implémenter des solutions backend évolutives avec Symfony et Spring Boot',
-    exp1Desc4: 'Développer des fonctionnalités interactives en JavaScript',
+    exp1End: 'Present',
+    exp1Desc1: 'Conception et mise en place de pipelines de collecte, analyse, traitement et d’intégration de données (ETL/ELT)',
+    exp1Desc2: 'Modélisation, gestion et optimisation de bases de données relationnelles du système développé',
+    exp1Desc3: 'Développement de services backend scalables',
+    exp1Desc4: 'Création d’API REST et de fonctionnalités backend pour applications web',
 
     // Experience 2 - MGBI
     exp2Title: 'Analyste de Données',
@@ -261,6 +262,7 @@ export const translations = {
     webDevelopment: 'Web Development',
     dataEngineer: 'Data Engineer',
     schedule: 'Schedule a meeting',
+    projectDepenzoDesc : 'Budget management application for personal, family, and business use.',
 
     // Services
     myServices: 'My Services',
@@ -285,13 +287,13 @@ export const translations = {
     present: 'Present',
 
     // Experience 1 - Geomadagascar
-    exp1Title: 'Web Developer & Data Engineer',
+    exp1Title: 'Developer & Data Engineer',
     exp1Start: 'Jan 2022',
     exp1End: 'Present',
-    exp1Desc1: 'Design and develop web applications and data pipelines',
-    exp1Desc2: 'Manage and optimize relational databases',
-    exp1Desc3: 'Implement scalable backend solutions using Symfony and Spring Boot',
-    exp1Desc4: 'Develop interactive features using JavaScript',
+    exp1Desc1: 'Design and implementation of data collection, processing, analysis and integration pipelines (ETL/ELT)',
+    exp1Desc2: 'Database modeling, management, and optimization of relational databases for the developed system',
+    exp1Desc3: 'Development of scalable backend services',
+    exp1Desc4: 'Creation of REST APIs and backend features for web applications',
 
     // Experience 2 - MGBI
     exp2Title: 'Data Analyst',

@@ -40,10 +40,10 @@ export default function Projects() {
     { title: "Depenzo",              description: t("depenzoDesc"),        image: depenzo,                                                       category: t("categoryPersonal") },
     { title: "Glink",                description: t("glinkDesc"),          image: glink,                                                         category: t("categoryPersonal") },
     { title: "ItadImmo",             description: t("itadImmoDesc"),       image: itadImmo,                                                      category: t("categoryPersonal") },
-    { title: t("project9Title"),     description: t("project9Desc"),       image: cmz,      link: "https://consomyzone.com/",                    category: t("categoryCompany")  },
-    { title: t("project10Title"),    description: t("project10Desc"),      image: scrap,                                                         category: t("categoryCompany")  },
+    // { title: t("project9Title"),     description: t("project9Desc"),       image: cmz,      link: "https://consomyzone.com/",                    category: t("categoryCompany")  },
+    // { title: t("project10Title"),    description: t("project10Desc"),      image: scrap,                                                         category: t("categoryCompany")  },
     { title: t("seeMore"),           description: t("seeMoreDesc"),        image: plus,     link: "https://github.com/likwel",                   category: t("categoryPersonal") },
-    { title: t("companyWebsite"),    description: t("companyWebsiteDesc"), image: geomada,  link: "https://www.geomadagascar.com/",              category: t("categoryCompany")  },
+    // { title: t("companyWebsite"),    description: t("companyWebsiteDesc"), image: geomada,  link: "https://www.geomadagascar.com/",              category: t("categoryCompany")  },
   ];
 
   useEffect(() => { setAllProjects(personalProjects); }, []);
