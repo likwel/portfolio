@@ -105,7 +105,7 @@ export default function Home({ setOpen }) {
     setIsPlaying(!isPlaying);
   };
 
-  const techStack = ["Python", "Node.js", "Symfony", "React", "TypeScript", "Sring Boot", "SQL/T-SQL", "PostgreSQL", "Docker", "Git"];
+  const techStack = ["Python", "ETL", "SQL", "Node.js", "Symfony", "React", "TypeScript", "Sring Boot", "PostgreSQL", "Power BI", "Talend", "Docker", "Git"];
 
   const badges = [
     { label: t("softwareEngineer") || "Software Engineer", color: "#0F9E78", pos: { top: 80,    left: -50   } },
