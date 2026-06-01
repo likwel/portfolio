@@ -70,7 +70,7 @@ function TypewriterTitle({ color, lines }) {
       fontWeight: 700,
       color: "#0f172a",
       lineHeight: 1.15,
-      letterSpacing: "-0.04em",
+      letterSpacing: "-0.09em",
       margin: 0,
       display: "flex",
       alignItems: "baseline",
