@@ -14,6 +14,7 @@ import mailflow from "../assets/projects/mailflow.PNG";
 import depenzo from "../assets/projects/depenzo.PNG";
 import glink from "../assets/projects/glink.PNG";
 import itadImmo from "../assets/projects/itadimmo.PNG";
+import cyberconnect from "../assets/projects/cyberconnect.PNG";
 
 import { useState, useEffect, useCallback } from "react";
 import { faTimes, faLock, faExpand, faCompress, faChevronLeft, faChevronRight, faUpRightAndDownLeftFromCenter } from "@fortawesome/free-solid-svg-icons";
@@ -40,6 +41,7 @@ export default function Projects() {
     { title: "Depenzo",              description: t("depenzoDesc"),        image: depenzo,                                                       category: t("categoryPersonal") },
     { title: "Glink",                description: t("glinkDesc"),          image: glink,                                                         category: t("categoryPersonal") },
     { title: "ItadImmo",             description: t("itadImmoDesc"),       image: itadImmo,                                                      category: t("categoryPersonal") },
+    { title: "CyberConnect",             description: t("cyberConnectDesc"),       image: cyberconnect,                                                      category: t("categoryPersonal") },
     // { title: t("project9Title"),     description: t("project9Desc"),       image: cmz,      link: "https://consomyzone.com/",                    category: t("categoryCompany")  },
     // { title: t("project10Title"),    description: t("project10Desc"),      image: scrap,                                                         category: t("categoryCompany")  },
     { title: t("seeMore"),           description: t("seeMoreDesc"),        image: plus,     link: "https://github.com/likwel",                   category: t("categoryPersonal") },

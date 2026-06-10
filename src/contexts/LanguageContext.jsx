@@ -24,7 +24,7 @@ export const translations = {
     // Home
     presentation: 'Présentation',
     jobTitle: 'Ingénieur Data & Développeur fullstack',
-    jobDescription: 'Je me spécialise dans l\'ingénierie et traitement des données, ainsi qu’en développement web multiplateforme.',
+    jobDescription: 'Je me spécialise dans le développement web multiplateforme, ainsi qu’en ingénierie et traitement des données',
     downloadCV: 'Télécharger mon CV',
     yearsExperience: 'années',
     experiencesLabel: 'Expériences',
@@ -155,13 +155,16 @@ export const translations = {
 
     // ── Nouveaux projets perso ───────────────────────────────
     depenzoTitle: 'Depenzo',
-    depenzoDesc: 'Application de gestion financière personnelle : suivi du budget, des dépenses et des revenus avec résumés visuels et analyses des habitudes de consommation.',
+    depenzoDesc: 'Fullstack NodeJS/ReactJS – Application de gestion financière personnelle : suivi du budget, des dépenses et des revenus avec résumés visuels et analyses des habitudes de consommation.',
 
     glinkTitle: 'Glink',
-    glinkDesc: 'Service de raccourcissement d\'URL : transformez vos liens longs en URLs courtes et partageables, avec suivi des clics et alias personnalisés.',
+    glinkDesc: 'Fullstack NodeJS/ReactJS – Service de raccourcissement d\'URL : transformez vos liens longs en URLs courtes et partageables, avec suivi des clics et alias personnalisés.',
 
     itadImmoTitle: 'ItadImmo',
-    itadImmoDesc: 'Plateforme immobilière malgache pour la recherche de biens et d\'agences, avec filtres avancés et gestion des annonces.',
+    itadImmoDesc: 'Fullstack NodeJS/ReactJS – Plateforme immobilière malgache pour la recherche de biens et d\'agences, avec filtres avancés et gestion des annonces.',
+
+    cyberConnectTitle: 'CyberConnect',
+    cyberConnectDesc: 'Fullstack NodeJS/ReactJS – Management platform for cyber stations, IT parks, and user sessions, enabling centralized monitoring and administration of resources.',
 
     seeMore: 'Voir Plus',
     seeMoreDesc: 'Plusieurs projets sont déjà dans mon dépôt GitHub.',
@@ -383,13 +386,16 @@ export const translations = {
 
   // ── Nouveaux projets perso ───────────────────────────────
   depenzoTitle: 'Depenzo',
-  depenzoDesc: 'Personal finance app for tracking budgets, expenses and income — with visual summaries and spending insights.',
+  depenzoDesc: 'Fullstack NodeJS/ReactJS – Personal finance app for tracking budgets, expenses and income — with visual summaries and spending insights.',
 
   glinkTitle: 'Glink',
-  glinkDesc: 'URL shortener service: convert long links into short, shareable URLs with click tracking and custom aliases.',
+  glinkDesc: 'Fullstack NodeJS/ReactJS – URL shortener service: convert long links into short, shareable URLs with click tracking and custom aliases.',
 
   itadImmoTitle: 'ItadImmo',
-  itadImmoDesc: 'Madagascar real estate platform for searching properties and agencies — with advanced filtering and listing management.',
+  itadImmoDesc: 'Fullstack NodeJS/ReactJS – Madagascar real estate platform for searching properties and agencies — with advanced filtering and listing management.',
+
+  cyberConnectTitle: 'CyberConnect',
+  cyberConnectDesc: 'Fullstack NodeJS/ReactJS – Plateforme de suivi des postes cyber, parcs informatiques et sessions utilisateurs, permettant le monitoring et l’administration centralisée.',
 
   seeMore: 'See More',
   seeMoreDesc: 'Several projects are already in my GitHub repository.',
