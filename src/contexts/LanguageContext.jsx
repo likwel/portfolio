@@ -23,7 +23,7 @@ export const translations = {
 
     // Home
     presentation: 'Présentation',
-    jobTitle: 'Ingénieur Data & Développeur fullstack',
+    jobTitle: 'Développeur fullstack & Ingénieur Data',
     jobDescription: 'Je me spécialise dans le développement web multiplateforme, ainsi qu’en ingénierie et traitement des données',
     downloadCV: 'Télécharger mon CV',
     yearsExperience: 'années',
@@ -253,8 +253,8 @@ export const translations = {
 
     // Home
     presentation: 'Presentation',
-    jobTitle: 'Data Engineer & Fullstack Developper ',
-    jobDescription: 'I specialize in data engineering and data processing, as well as cross-platform web development.',
+    jobTitle: 'Fullstack Developper & Data Engineer',
+    jobDescription: 'I specialize in cross-platform web development, as well as cross-platform web development.',
     downloadCV: 'Download my CV',
     yearsExperience: 'years',
     experiencesLabel: 'Experiences',

@@ -280,7 +280,7 @@ export default function Home({ setOpen }) {
             borderLeft: `3px solid ${PB}`, paddingLeft: 14,
           }}>
             {t("jobDescription") ||
-              "Je me spécialise en ingénierie et traitement des données, ainsi qu'en développement web multiplateforme."}
+              "Je me spécialise en développement web multiplateforme, ainsi qu'en ingénierie et traitement des données."}
           </p>
 
           {/* CTA */}
