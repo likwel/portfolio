@@ -1,4 +1,4 @@
-import im1 from "../assets/projects/factura.png";
+import im1 from "../assets/projects/factura.PNG";
 import im2 from "../assets/projects/2.png";
 import im3 from "../assets/projects/3.png";
 import im4 from "../assets/projects/4.png";
