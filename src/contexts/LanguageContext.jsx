@@ -140,7 +140,7 @@ export const translations = {
 
     // Projects descriptions
     project1Desc: 'FullStack NextJS 15.5 - WorldFeeds est un agrégateur de nouvelles internationales qui centralise les flux RSS des principaux médias mondiaux en temps réel.',
-    project2Desc: 'Symfony 7.0 - Système de gestion commerciale : suivi des ventes, clients et stock, optimisation des processus métier et amélioration des performances de l\'entreprise.',
+    project2Desc: 'Fullstack NodeJS/ReactJS - Système de gestion commerciale : suivi des ventes, clients et stock, optimisation des processus métier et amélioration des performances de l\'entreprise.',
     project3Desc: 'Node.js, Express.js - Gestion de l\'état civil : enregistrement des données administratives des citoyens et création/mise à jour des documents d\'état civil pour une gestion centralisée.',
     project4Desc: 'Node.js, Express.js - Gestion de projet Agile (Kanban) : suivi continu des tâches, priorisation des fonctionnalités, collaboration d\'équipe et adaptation rapide aux changements.',
     project5Desc: 'Java, Spring Boot - Gestion de flotte en temps réel et suivi des véhicules/équipements avec visualisation de position en direct.',
@@ -371,7 +371,7 @@ export const translations = {
 
   // Projects descriptions
   project1Desc: 'FullStack NextJS 15.5 - WorldFeeds is an international news aggregator that centralizes RSS feeds from the world\'s major media outlets in real time.',
-  project2Desc: 'Symfony 7.0 - Commercial management system: tracking sales, clients, and stock, optimizing business processes, and improving company performance.',
+  project2Desc: 'Fullstack NodeJS/ReactJS - Commercial management system: tracking sales, clients, and stock, optimizing business processes, and improving company performance.',
   project3Desc: 'Node.js, Express.js - Civil status management: recording administrative citizen data and creating/updating civil status documents for centralized management.',
   project4Desc: 'Node.js, Express.js - Agile project management (Kanban): continuous task tracking, feature prioritization, team collaboration, and rapid adaptation to changes.',
   project5Desc: 'Java, Spring Boot - Real-time fleet management and vehicle/equipment tracking with live position visualization.',

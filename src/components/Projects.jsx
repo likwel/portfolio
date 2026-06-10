@@ -1,4 +1,4 @@
-import im1 from "../assets/projects/1.png";
+import im1 from "../assets/projects/factura.png";
 import im2 from "../assets/projects/2.png";
 import im3 from "../assets/projects/3.png";
 import im4 from "../assets/projects/4.png";
@@ -30,7 +30,7 @@ export default function Projects() {
 
   const personalProjects = [
     { title: "WorldFeeds",           description: t("project1Desc"),       image: im5,      link: "https://worldfeeds.vercel.app/",             category: t("categoryPersonal") },
-    { title: "Factura.mg",           description: t("project2Desc"),       image: im1,      link: "https://tsaratantana.alwaysdata.net/",        category: t("categoryPersonal") },
+    { title: "Factura.mg",           description: t("project2Desc"),       image: im1,                                                          category: t("categoryPersonal") },
     { title: "Commune Tsaratantana", description: t("project3Desc"),       image: im3,      link: "https://commune-tsaratantana.onrender.com/",  category: t("categoryPersonal") },
     { title: "Agile Kanban",         description: t("project4Desc"),       image: im7,                                                           category: t("categoryPersonal") },
     { title: "GPS Tracking",         description: t("project5Desc"),       image: im8,                                                           category: t("categoryPersonal") },
