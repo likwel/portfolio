@@ -10,6 +10,7 @@
  *   url          lien de vérification (optionnel)
  *   skills       compétences associées : { fr: [...], en: [...] } (optionnel)
  */
+import cert from "../assets/meal-cert.pdf";
 export const CERTIFICATIONS = [
   {
     name: "Qualitative Data Management and Analysis for Monitoring and Evaluation (M&E)",
@@ -39,7 +40,7 @@ export const CERTIFICATIONS = [
     issuer: "DisasterReady",
     platform: "disasterready.org",
     date: "2024-09",
-    url: "https://elie-fenohasina.onrender.com/assets/data/meal-cert.pdf",
+    url: `${cert}`,
     skills: {
       fr: ["MEAL", "Suivi", "Évaluation", "Redevabilité"],
       en: ["MEAL", "Monitoring", "Evaluation", "Accountability"],
