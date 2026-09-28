@@ -13,7 +13,7 @@
 export const CERTIFICATIONS = [
   {
     name: "Qualitative Data Management and Analysis for Monitoring and Evaluation (M&E)",
-    issuer: "IDEAL · USAID",
+    issuer: "IDEAL · USAID · Humanitarian Leadership Academy",
     platform: "Kaya",
     date: "2026-09",
     credentialId: "5520601211EA",
@@ -35,6 +35,28 @@ export const CERTIFICATIONS = [
     },
   },
   {
+    name: "Suivi, évaluation, redevabilité et apprentissage (MEAL) dans les situations d\'urgence",
+    issuer: "DisasterReady",
+    platform: "disasterready.org",
+    date: "2024-09",
+    url: "https://elie-fenohasina.onrender.com/assets/data/meal-cert.pdf",
+    skills: {
+      fr: ["MEAL", "Suivi", "Évaluation", "Redevabilité"],
+      en: ["MEAL", "Monitoring", "Evaluation", "Accountability"],
+    },
+  },
+  {
+    name: "Préparer et visualiser des données avec Microsoft Power BI",
+    issuer: "Microsoft Fabric, Power BI",
+    platform: "Microsoft Learn",
+    date: "2024-09",
+    url: "https://learn.microsoft.com/fr-fr/users/eliefenohasinaandriatsitohaina-7376/achievements/wml3bbln?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+    skills: {
+      fr: ["Analytique des données", "Visualisation des données", "Power BI", "Microsoft Fabric"],
+      en: ["Data Analytics", "Data Visualization", "Power BI", "Microsoft Fabric"],
+    },
+  },
+  {
     name: "English for Science, Technology, Engineering, and Mathematics (STEM) MOOC",
     issuer: "U.S. Department of State · OPEN",
     platform: "FHI 360",
@@ -45,4 +67,5 @@ export const CERTIFICATIONS = [
       en: ["Professional English", "STEM"],
     },
   },
+  
 ];
