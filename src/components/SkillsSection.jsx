@@ -1,68 +1,92 @@
-import React from "react";
-import { faJava, faNodeJs, faPython, faJsSquare, faGitAlt, faReact, faAngular, faBootstrap, faCss3Alt, faDocker } from "@fortawesome/free-brands-svg-icons";
-import { faDatabase, faCode, faTasks, faServer, faChartLine} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { faJava, faNodeJs, faPython, faJsSquare, faGitAlt, faReact, faAngular, faCss3Alt, faDocker, faPhp } from "@fortawesome/free-brands-svg-icons";
+import { faDatabase, faChartLine, faNetworkWired, faServer, faRobot, faMagnifyingGlassChart, faBrain, faLayerGroup, faPlug, faRocket, faListCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLanguage } from '../contexts/LanguageContext';
+import { trackPointer } from "../hooks/motion";
+
+/* title : nom universel · titleKey : titre traduit · tools : outils cités dans le CV */
+export const SKILLS = [
+    { id: 'Python',   cat: 'skCatData',     icon: faPython,               title: "Python",               tools: ['Pandas', 'NumPy', 'FastAPI'] },
+    { id: 'Etl',      cat: 'skCatData',     icon: faNetworkWired,         titleKey: 'skEtlTitle',        tools: ['Talend', 'SSIS', 'Apache Airflow'] },
+    { id: 'Bigdata',  cat: 'skCatData',     icon: faServer,               title: "Big Data",             tools: ['Apache Spark'] },
+    { id: 'Scraping', cat: 'skCatData',     icon: faRobot,                title: "Web scraping",         tools: ['BeautifulSoup', 'Spring Boot'] },
+
+    { id: 'Powerbi',  cat: 'skCatBi',       icon: faChartLine,            title: "Power BI & reporting", tools: ['Power BI', 'Power Query', 'Excel'] },
+    { id: 'Analysis', cat: 'skCatBi',       icon: faMagnifyingGlassChart, titleKey: 'skAnalysisTitle',   tools: ['Pandas', 'Matplotlib'] },
+    { id: 'Ml',       cat: 'skCatBi',       icon: faBrain,                title: "Machine Learning",     tools: ['Scikit-Learn', 'Streamlit'] },
+
+    { id: 'Sql',      cat: 'skCatDb',       icon: faDatabase,             titleKey: 'skSqlTitle',        tools: ['PostgreSQL', 'SQL Server', 'MySQL', 'T-SQL'] },
+    { id: 'Nosql',    cat: 'skCatDb',       icon: faLayerGroup,           title: "NoSQL",                tools: ['MongoDB'] },
+
+    { id: 'Node',     cat: 'skCatBackend',  icon: faNodeJs,               title: "Node.js",              tools: ['NestJS', 'Express', 'Socket.io', 'Prisma'] },
+    { id: 'Java',     cat: 'skCatBackend',  icon: faJava,                 title: "Java & Spring Boot",   tools: ['Spring Boot'] },
+    { id: 'Symfony',  cat: 'skCatBackend',  icon: faPhp,                  title: "PHP & Symfony",        tools: ['Symfony', 'EasyAdmin'] },
+    { id: 'Api',      cat: 'skCatBackend',  icon: faPlug,                 titleKey: 'skApiTitle',        tools: ['REST', 'GraphQL'] },
+
+    { id: 'React',    cat: 'skCatFrontend', icon: faReact,                title: "React / Next.js",      tools: ['React', 'Next.js'] },
+    { id: 'Ts',       cat: 'skCatFrontend', icon: faJsSquare,             title: "JavaScript / TypeScript", tools: ['ES6+', 'TypeScript'] },
+    { id: 'Angular',  cat: 'skCatFrontend', icon: faAngular,              title: "Angular",              tools: ['Angular'] },
+    { id: 'Ui',       cat: 'skCatFrontend', icon: faCss3Alt,              titleKey: 'skUiTitle',         tools: ['Tailwind CSS', 'Bootstrap', 'CSS3'] },
+
+    { id: 'Docker',   cat: 'skCatDevops',   icon: faDocker,               title: "Docker",               tools: ['Docker', 'Docker Compose'] },
+    { id: 'Git',      cat: 'skCatDevops',   icon: faGitAlt,               title: "Git & GitHub",         tools: ['Git', 'GitHub'] },
+    { id: 'Cicd',     cat: 'skCatDevops',   icon: faRocket,               title: "CI/CD & cloud",        tools: ['CI/CD', 'GCP', 'AWS'] },
+    { id: 'Agile',    cat: 'skCatDevops',   icon: faListCheck,            title: "Agile & Scrum",        tools: ['Scrum', 'Kanban'] },
+];
+
+const CATEGORIES = ['skCatData', 'skCatBi', 'skCatDb', 'skCatBackend', 'skCatFrontend', 'skCatDevops'];
 
 export default function SkillsSection() {
     const { t } = useLanguage();
+    const [filter, setFilter] = useState("all");
 
-    const skills = [
-        { icon: faDatabase, title: "SQL/T-SQL", desc: t('skillSqlDesc'), category: t('categoryData') },
-        { icon: faPython, title: "Python", desc: t('skillPythonDesc'), category: t('categoryData') },
-        { icon: faJava, title: "Java & Spring Boot", desc: t('skillJavaDesc'), category: t('categoryBackend') },
-        { icon: faNodeJs, title: "Node.js", desc: t('skillNodeDesc'), category: t('categoryBackend') },
-        { icon: faCode, title: "Symfony", desc: t('skillSymfonyDesc'), category: t('categoryBackend') },
-        { icon: faJsSquare, title: "JavaScript", desc: t('skillJsDesc'), category: t('categoryFrontend') },
-        { icon: faCode, title: t('apiDevelopment'), desc: t('skillApiDesc'), category: t('categoryBackend') },
-        { icon: faServer, title: "DevOps", desc: t('skillDevOpsDesc'), category: t('categoryDevOps') },
-        { icon: faGitAlt, title: "Git", desc: t('skillGitDesc'), category: t('categoryDevOps') },
-        { icon: faDocker, title: "Docker", desc: t('skillDockerDesc'), category: t('categoryDevOps') },
-        { icon: faTasks, title: "Agile & Scrum", desc: t('skillAgileDesc'), category: t('categoryDevOps') },
-        { icon: faReact, title: "React / Next.js", desc: t('skillReactDesc'), category: t('categoryFrontend') },
-        { icon: faAngular, title: "Angular", desc: t('skillAngularDesc'), category: t('categoryFrontend') },
-        { icon: faBootstrap, title: "Bootstrap", desc: t('skillBootstrapDesc'), category: t('categoryFrontend') },
-        { icon: faCss3Alt, title: "Tailwind CSS", desc: t('skillTailwindDesc'), category: t('categoryFrontend') },
-        { icon: faCode, title: t('etlPipelines'), desc: t('skillEtlDesc'), category: t('categoryData') },
-        { icon: faChartLine, title: t('dataVisualization'), desc: t('skillDataVizDesc'), category: t('categoryData') },
+    const filters = [
+        { key: "all", label: t('all'), count: SKILLS.length },
+        ...CATEGORIES.map((c) => ({ key: c, label: t(c), count: SKILLS.filter((s) => s.cat === c).length })),
     ];
+    const visible = filter === "all" ? SKILLS : SKILLS.filter((s) => s.cat === filter);
 
     return (
-        <main id="skills" className="bg-white pt-10 border-1rem">
-            <div className="mx-auto">
-                <h1 className="text-3xl font-bold mb-2 text-center">{t('skillsExpertise')}</h1>
-                <p className="text-center text-gray-700 mb-1rem">{t('skillsSubtitle')}</p>
+        <>
+            <div className="filter-bar" role="tablist" aria-label={t('skills')}>
+                {filters.map((f) => (
+                    <button
+                        key={f.key}
+                        role="tab"
+                        aria-selected={filter === f.key}
+                        className={`filter-chip ${filter === f.key ? "is-active" : ""}`}
+                        onClick={() => setFilter(f.key)}
+                    >
+                        {f.label}
+                        <span className="count">{f.count}</span>
+                    </button>
+                ))}
+            </div>
 
-                {Object.entries(
-                    skills.reduce((acc, skill) => {
-                        (acc[skill.category] = acc[skill.category] || []).push(skill);
-                        return acc;
-                    }, {})
-                ).map(([category, categorySkills], idx) => (
-                    <div key={idx} className="mb-8">
-                        <h2 className="text-2xl font-semibold text-gray-800 mb-4 badge-skill">{category}</h2>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-                            {categorySkills.map((skill, index) => (
-                                <div 
-                                    key={index} 
-                                    className="skill-card p-5 border border-gray-200 rounded-lg hover:shadow-xl hover:border-blue-400 transition-all duration-300 bg-gray-50"
-                                >
-                                    <div className="flex items-start gap-4 justify-center">
-                                        <div className="flex-1">
-                                            <h3 className="font-bold text-lg text-gray-800 mb-2 flex items-center justify-center">
-                                                <FontAwesomeIcon icon={skill.icon} className="text-2xl fgColorTheme" /> 
-                                                <span className="ml-3">{skill.title}</span>
-                                            </h3>
-                                            <p className="text-gray-600 text-sm leading-relaxed">{skill.desc}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+            {/* key={filter} : la grille est recréée pour rejouer la cascade */}
+            <div key={filter} className="skills-grid stagger" role="tabpanel">
+                {visible.map((skill, index) => (
+                    <div
+                        key={skill.id}
+                        className="skill-card"
+                        style={{ "--i": index }}
+                        onPointerMove={trackPointer}
+                    >
+                        <span className="icon-tile icon-tile-sm">
+                            <FontAwesomeIcon icon={skill.icon} />
+                        </span>
+                        <div className="skill-body">
+                            {filter === "all" && <span className="skill-cat">{t(skill.cat)}</span>}
+                            <h3>{skill.titleKey ? t(skill.titleKey) : skill.title}</h3>
+                            <p>{t(`sk${skill.id}Desc`)}</p>
+                            <div className="tech-tags">
+                                {skill.tools.map((tool) => <span key={tool} className="tech-tag">{tool}</span>)}
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
-        </main>
+        </>
     );
 }

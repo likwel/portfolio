@@ -1,62 +1,67 @@
-import { faCode, faLaptopCode, faDatabase, faNetworkWired, faSearch, faUsersCog, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faLaptopCode, faPlug, faCartShopping, faNetworkWired, faChartLine, faRobot, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ServiceItem from "./ServiceItem";
 import { useLanguage } from '../contexts/LanguageContext';
 
+/* Stack et réalisations : identiques dans les deux langues */
+const GROUPS = [
+  {
+    key: 'servicesGroupDev',
+    services: [
+      { id: 'Web',  icon: faLaptopCode,   tech: ['React', 'Next.js', 'Node.js', 'Symfony'],     projects: ['Factura.mg', 'WorldFeeds', 'ItadImmo'] },
+      { id: 'Api',  icon: faPlug,         tech: ['NestJS', 'Express', 'Spring Boot', 'PostgreSQL'], projects: ['MailFlow', 'Glink', 'GPS Tracking'] },
+      { id: 'Shop', icon: faCartShopping, tech: ['Symfony', 'EasyAdmin'],                        projects: ['SmartShop'] },
+    ],
+  },
+  {
+    key: 'servicesGroupData',
+    services: [
+      { id: 'Etl',   icon: faNetworkWired, tech: ['Python', 'Airflow', 'Talend', 'SQL'] },
+      { id: 'Bi',    icon: faChartLine,    tech: ['Power BI', 'Python', 'Pandas', 'Streamlit'],  projects: ['Sales Forecast 2.0'] },
+      { id: 'Scrap', icon: faRobot,        tech: ['Python', 'Spring Boot', 'SQL'] },
+    ],
+  },
+];
 
-export default function Services() {
-
+export default function Services({ onContact }) {
   const { t } = useLanguage();
-
-  const services = [
-    {
-      icon: faNetworkWired,
-      title: t('dataEngineering'),
-      description: t('dataEngineeringDesc'),
-    },
-    {
-      icon: faDatabase,
-      title: t('dataAnalysis'),
-      description: t('dataAnalysisDesc'),
-    },
-    {
-      icon: faSearch,
-      title: t('webScraping'),
-      description: t('webScrapingDesc'),
-    },
-    {
-      icon: faCode,
-      title: t('webDevelopmentService'),
-      description: t('webDevelopmentDesc'),
-    },
-    {
-      icon: faLaptopCode,
-      title: t('softwareDevelopment'),
-      description: t('softwareDevelopmentDesc'),
-    },
-    {
-      icon: faShoppingCart,
-      title: t('ecommerce'),
-      description: t('ecommerceDesc'),
-    }
-  ];
+  let index = 0;
 
   return (
-    <main id="services" className="bg-white pt-10 border-1rem">
-      <div className="mx-auto">
-        <h1 className="text-2xl font-bold mb-2 text-center">{t('myServices')}</h1>
-        <p className="text-center text-gray-700 mb-6">{t('servicesSubtitle')}</p>
+    <>
+      {GROUPS.map((group) => (
+        <section key={group.key} className="service-group">
+          <h3 className="group-title">{t(group.key)}</h3>
+          <div className="services-grid stagger">
+            {group.services.map((s) => (
+              <ServiceItem
+                key={s.id}
+                index={index++}
+                icon={s.icon}
+                title={t(`svc${s.id}Title`)}
+                description={t(`svc${s.id}Desc`)}
+                points={t(`svc${s.id}Points`)}
+                tech={s.tech}
+                projects={s.projects}
+                projectsLabel={t('servicesBuilt')}
+              />
+            ))}
+          </div>
+        </section>
+      ))}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 experience">
-          {services.map((service, idx) => (
-            <ServiceItem
-              key={idx}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-            />
-          ))}
+      {onContact && (
+        <div className="services-cta">
+          <div>
+            <strong>{t('servicesCtaTitle')}</strong>
+            <p>{t('servicesCtaText')}</p>
+          </div>
+          <button className="btn btn-primary btn-sm" onClick={onContact}>
+            {t('contactMe')}
+            <FontAwesomeIcon icon={faArrowRight} className="icon-shift" />
+          </button>
         </div>
-      </div>
-    </main>
+      )}
+    </>
   );
 }

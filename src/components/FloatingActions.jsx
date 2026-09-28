@@ -1,43 +1,31 @@
-import { useEffect, useState } from "react";
 import { faArrowUp, faMessage } from "@fortawesome/free-solid-svg-icons";
-import DuotoneIcon from "./DuotoneIcon";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLanguage } from "../contexts/LanguageContext";
 
+/*
+ * La visibilité du bouton "haut de page" et son anneau de progression
+ * sont pilotés en CSS par data-scrolled-far et --scroll (voir useScrollVars).
+ */
 export default function FloatingActions({ onMessageClick }) {
-  const [showTop, setShowTop] = useState(false);
+  const { t } = useLanguage();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowTop(window.scrollY > 200);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
-      {showTop && (
-        <div
-          onClick={scrollToTop}
-          className="cursor-pointer w-12 h-12 rounded-full bg-white border text-white flex items-center justify-center shadow-lg hover:bg-blue-200 transition-all hover:-translate-y-1"
-        >
-          <DuotoneIcon icon={faArrowUp} size={'text-sm'}/>
-        </div>
-      )}
+    <div className="fab-stack">
+      <button className="fab fab-top" onClick={scrollToTop} aria-label={t("backToTop")}>
+        <svg className="fab-ring" viewBox="0 0 46 46" aria-hidden="true">
+          <circle className="track" cx="23" cy="23" r="20" />
+          <circle className="bar" cx="23" cy="23" r="20" />
+        </svg>
+        <FontAwesomeIcon icon={faArrowUp} />
+        <span className="fab-tip">{t("backToTop")}</span>
+      </button>
 
-      <div
-        onClick={onMessageClick}
-        className="cursor-pointer w-12 h-12 rounded-full bg-green-200 text-white flex items-center justify-center shadow-lg hover:bg-green-300 transition-all hover:-translate-y-1 animate-pulse"
-      >
-        <DuotoneIcon icon={faMessage} size={'text-xl'} />
-      </div>
+      <button className="fab fab-chat" onClick={onMessageClick} aria-label={t("chatWithMe")}>
+        <FontAwesomeIcon icon={faMessage} />
+        <span className="fab-tip">{t("chatWithMe")}</span>
+      </button>
     </div>
   );
 }

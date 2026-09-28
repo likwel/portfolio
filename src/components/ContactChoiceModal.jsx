@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import DOMPurify from "dompurify";
 import { useLanguage } from '../contexts/LanguageContext';
+import { CERTIFICATIONS } from '../data/certifications';
 
 // SVG Icons as components (identiques)
 const RobotIcon = () => (
@@ -55,7 +56,7 @@ export default function ContactChoiceModal({ isOpen, onClose }) {
   const inputRef = useRef(null);
 
   // Couleurs du thème
-  const themeColor = '#007b8b';
+  const themeColor = '#17736a';
 
   // 📋 CV DATA - Traduit selon la langue
   // 📋 CV DATA - Traduit selon la langue
@@ -164,7 +165,7 @@ export default function ContactChoiceModal({ isOpen, onClose }) {
             "company": "ISITM – Institut Supérieur",
             "position": "Instructeur en Informatique",
             "start_date": "Janvier 2020",
-            "end_date": "Mars 2020",
+            "end_date": "Juillet 2022",
             "missions": [
               "Enseignement des bases de données, algorithmes, Java et Machine Learning"
             ]
@@ -308,7 +309,7 @@ export default function ContactChoiceModal({ isOpen, onClose }) {
             "company": "ISITM – Institut Supérieur",
             "position": "Computer Science Instructor",
             "start_date": "January 2020",
-            "end_date": "March 2020",
+            "end_date": "July 2022",
             "missions": [
               "Teaching databases, algorithms, Java, and Machine Learning"
             ]
@@ -352,7 +353,11 @@ export default function ContactChoiceModal({ isOpen, onClose }) {
 
   // 🤖 System prompt adapté à la langue
   const getSystemPrompt = () => {
-    const cvData = getCvData();
+    // Certifications : même source que la section Formation
+    const cvData = {
+      ...getCvData(),
+      certifications: CERTIFICATIONS.map(({ name, issuer, platform, date, url }) => ({ name, issuer, platform, date, url })),
+    };
 
     if (language === 'fr') {
       return `Vous êtes un assistant IA représentant ${cvData.personal_info.full_name}, un ${cvData.personal_info.title}.
@@ -368,10 +373,10 @@ INSTRUCTIONS IMPORTANTES :
 5. Il est ouvert à tous projets et opportunités. Ne mentionnez son poste actuel chez GEOMADAGASCAR que si l'utilisateur demande spécifiquement son emploi actuel
 6. Si on vous interroge sur l'analyse de données, mentionnez son expérience précédente chez MGBI et son Master en Data et Modélisation
 7. IMPORTANT - FORMAT DES LIENS : Utilisez toujours du HTML pour les liens, jamais de markdown (**), numéro whatsapp et adresse mail toujours affichés. Format obligatoire :
-  - Portfolio : <a href="https://elie-fenohasina.onrender.com" style="color: #007b8b; font-weight: bold; text-decoration: underline;">portfolio</a>
-  - GitHub : <a href="https://github.com/likwel" style="color: #007b8b; font-weight: bold; text-decoration: underline;">GitHub</a>
-  - WhatsApp : <a href="https://wa.me/261348523479" style="color: #007b8b; font-weight: bold; text-decoration: underline;">+261 34 85 234 79</a>
-  - Email : <a href="mailto:eliefenohasina@gmail.com" style="color: #007b8b; font-weight: bold; text-decoration: underline;">eliefenohasina@gmail.com</a>
+  - Portfolio : <a href="https://elie-fenohasina.onrender.com" style="color: #17736a; font-weight: bold; text-decoration: underline;">portfolio</a>
+  - GitHub : <a href="https://github.com/likwel" style="color: #17736a; font-weight: bold; text-decoration: underline;">GitHub</a>
+  - WhatsApp : <a href="https://wa.me/261348523479" style="color: #17736a; font-weight: bold; text-decoration: underline;">+261 34 85 234 79</a>
+  - Email : <a href="mailto:eliefenohasina@gmail.com" style="color: #17736a; font-weight: bold; text-decoration: underline;">eliefenohasina@gmail.com</a>
   N'utilisez JAMAIS les symboles ** pour le gras. Utilisez uniquement le HTML.
 
 8. Soyez concis mais informatif - visez 2-4 phrases sauf si plus de détails sont demandés
@@ -388,7 +393,7 @@ POINTS FORTS À METTRE EN AVANT :
 - Ouvert à toutes opportunités et projets
 
 EXEMPLE DE MESSAGE D'ACCUEIL (à utiliser au premier contact) :
-Bonjour ! Je suis l'assistant IA représentant Elie Fenohasina Andriatsitohaina, un Développeur Fullstack et Ingénieur Data passionné et expérimenté. Je suis là pour vous aider à en savoir plus sur ses compétences, son expérience et ses réalisations. Vous pouvez visiter son <a href="https://elie-fenohasina.onrender.com" style="color: #007b8b; font-weight: bold; text-decoration: underline;">portfolio</a> pour découvrir plus sur son travail. Vous pouvez également le suivre sur <a href="https://github.com/likwel" style="color: #007b8b; font-weight: bold; text-decoration: underline;">GitHub</a> ou le contacter directement via <a href="https://wa.me/261348523479" style="color: #007b8b; font-weight: bold; text-decoration: underline;">WhatsApp</a> ou <a href="mailto:eliefenohasina@gmail.com" style="color: #007b8b; font-weight: bold; text-decoration: underline;">email</a>. N'hésitez pas à me poser vos questions !
+Bonjour ! Je suis l'assistant IA représentant Elie Fenohasina Andriatsitohaina, un Développeur Fullstack et Ingénieur Data passionné et expérimenté. Je suis là pour vous aider à en savoir plus sur ses compétences, son expérience et ses réalisations. Vous pouvez visiter son <a href="https://elie-fenohasina.onrender.com" style="color: #17736a; font-weight: bold; text-decoration: underline;">portfolio</a> pour découvrir plus sur son travail. Vous pouvez également le suivre sur <a href="https://github.com/likwel" style="color: #17736a; font-weight: bold; text-decoration: underline;">GitHub</a> ou le contacter directement via <a href="https://wa.me/261348523479" style="color: #17736a; font-weight: bold; text-decoration: underline;">WhatsApp</a> ou <a href="mailto:eliefenohasina@gmail.com" style="color: #17736a; font-weight: bold; text-decoration: underline;">email</a>. N'hésitez pas à me poser vos questions !
 
 Soyez naturel, engageant et utile !`;
     } else {
@@ -405,10 +410,10 @@ IMPORTANT INSTRUCTIONS:
 5. He is open to all projects and opportunities. Only mention his current position at GEOMADAGASCAR if the user specifically asks about his current job
 6. If asked about data analysis, mention his previous experience at MGBI and his Master's degree in Data and Modeling
 7. IMPORTANT - LINK FORMATTING: Always use HTML for links, never markdown (**), WhatsApp number and email address always displayed. Required format:
-  - Portfolio: <a href="https://elie-fenohasina.onrender.com" style="color: #007b8b; font-weight: bold; text-decoration: underline;">portfolio</a>
-  - GitHub: <a href="https://github.com/likwel" style="color: #007b8b; font-weight: bold; text-decoration: underline;">GitHub</a>
-  - WhatsApp: <a href="https://wa.me/261348523479" style="color: #007b8b; font-weight: bold; text-decoration: underline;">+261 34 85 234 79</a>
-  - Email: <a href="mailto:eliefenohasina@gmail.com" style="color: #007b8b; font-weight: bold; text-decoration: underline;">eliefenohasina@gmail.com</a>
+  - Portfolio: <a href="https://elie-fenohasina.onrender.com" style="color: #17736a; font-weight: bold; text-decoration: underline;">portfolio</a>
+  - GitHub: <a href="https://github.com/likwel" style="color: #17736a; font-weight: bold; text-decoration: underline;">GitHub</a>
+  - WhatsApp: <a href="https://wa.me/261348523479" style="color: #17736a; font-weight: bold; text-decoration: underline;">+261 34 85 234 79</a>
+  - Email: <a href="mailto:eliefenohasina@gmail.com" style="color: #17736a; font-weight: bold; text-decoration: underline;">eliefenohasina@gmail.com</a>
   NEVER use ** symbols for bold. Only use HTML.
 
 8. Be concise but informative - aim for 2-4 sentences unless more detail is requested
@@ -425,7 +430,7 @@ KEY STRENGTHS TO HIGHLIGHT:
 - Open to all opportunities and projects
 
 WELCOME MESSAGE EXAMPLE (use on first contact):
-Hello! I'm the AI assistant representing Elie Fenohasina Andriatsitohaina, a passionate and experienced Fullstack Developer and Data Engineer. I'm here to help you learn more about his skills, experience, and achievements. You can visit his <a href="https://elie-fenohasina.onrender.com" style="color: #007b8b; font-weight: bold; text-decoration: underline;">portfolio</a> to discover more about his work. You can also follow him on <a href="https://github.com/likwel" style="color: #007b8b; font-weight: bold; text-decoration: underline;">GitHub</a> or contact him directly via <a href="https://wa.me/261348523479" style="color: #007b8b; font-weight: bold; text-decoration: underline;">WhatsApp</a> or <a href="mailto:eliefenohasina@gmail.com" style="color: #007b8b; font-weight: bold; text-decoration: underline;">email</a>. Feel free to ask me any questions!
+Hello! I'm the AI assistant representing Elie Fenohasina Andriatsitohaina, a passionate and experienced Fullstack Developer and Data Engineer. I'm here to help you learn more about his skills, experience, and achievements. You can visit his <a href="https://elie-fenohasina.onrender.com" style="color: #17736a; font-weight: bold; text-decoration: underline;">portfolio</a> to discover more about his work. You can also follow him on <a href="https://github.com/likwel" style="color: #17736a; font-weight: bold; text-decoration: underline;">GitHub</a> or contact him directly via <a href="https://wa.me/261348523479" style="color: #17736a; font-weight: bold; text-decoration: underline;">WhatsApp</a> or <a href="mailto:eliefenohasina@gmail.com" style="color: #17736a; font-weight: bold; text-decoration: underline;">email</a>. Feel free to ask me any questions!
 
 Be natural, engaging, and helpful!`;
     }
@@ -679,7 +684,7 @@ Be natural, engaging, and helpful!`;
             <input
               ref={inputRef}
               type="text"
-              className="w-full flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 transition-all"
+              className="w-full flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-verdigris/40 focus:border-verdigris transition-all"
               style={{
                 focusRingColor: themeColor,
               }}
