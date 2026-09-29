@@ -8,9 +8,17 @@
  *   date         "AAAA-MM" (date de délivrance)
  *   credentialId identifiant (optionnel)
  *   url          lien de vérification (optionnel)
+ *   kind         "certificate" (PDF), "badge" (Open Badge) ou "achievement" (Microsoft Learn)
+ *   domain       "meal", "data" ou "language" (sert aux filtres et à la couleur)
+ *   image        aperçu du certificat ou image officielle du badge (optionnel)
  *   skills       compétences associées : { fr: [...], en: [...] } (optionnel)
  */
 import cert from "../assets/meal-cert.pdf";
+import kayaMe from "../assets/certs/kaya-me.jpg";
+import disasterReady from "../assets/certs/disasterready-meal.jpg";
+import fieldBadge from "../assets/certs/field-meal-badge.png";
+import openBadge from "../assets/certs/open-stem-badge.png";
+
 export const CERTIFICATIONS = [
   {
     name: "Qualitative Data Management and Analysis for Monitoring and Evaluation (M&E)",
@@ -19,6 +27,9 @@ export const CERTIFICATIONS = [
     date: "2026-09",
     credentialId: "5520601211EA",
     url: "https://kayaconnect.org/pluginfile.php/1/tool_certificate/issues/1790522431/5520601211EA.pdf",
+    kind: "certificate",
+    domain: "meal",
+    image: kayaMe,
     skills: {
       fr: ["Analyse qualitative", "Suivi-évaluation (M&E)"],
       en: ["Qualitative analysis", "Monitoring & Evaluation"],
@@ -30,28 +41,36 @@ export const CERTIFICATIONS = [
     platform: "Kaya",
     date: "2026-09",
     url: "https://openbadgefactory.com/obv3/credentials/ff2afe8634286360a75c96c91a00e6c607c7281b",
+    kind: "badge",
+    domain: "meal",
+    image: fieldBadge,
     skills: {
       fr: ["MEAL", "Suivi", "Évaluation", "Redevabilité"],
       en: ["MEAL", "Monitoring", "Evaluation", "Accountability"],
     },
   },
   {
-    name: "Suivi, évaluation, redevabilité et apprentissage (MEAL) dans les situations d\'urgence",
-    issuer: "DisasterReady",
-    platform: "disasterready.org",
-    date: "2024-09",
-    url: `${cert}`,
+    name: "Suivi, évaluation, redevabilité et apprentissage (MEAL) dans les situations d'urgence",
+    issuer: "Save the Children",
+    platform: "DisasterReady",
+    date: "2026-09",
+    url: cert,
+    kind: "certificate",
+    domain: "meal",
+    image: disasterReady,
     skills: {
-      fr: ["MEAL", "Suivi", "Évaluation", "Redevabilité"],
-      en: ["MEAL", "Monitoring", "Evaluation", "Accountability"],
+      fr: ["MEAL", "Action humanitaire", "Situations d'urgence"],
+      en: ["MEAL", "Humanitarian action", "Emergencies"],
     },
   },
   {
     name: "Préparer et visualiser des données avec Microsoft Power BI",
-    issuer: "Microsoft Fabric, Power BI",
+    issuer: "Microsoft",
     platform: "Microsoft Learn",
     date: "2024-09",
-    url: "https://learn.microsoft.com/fr-fr/users/eliefenohasinaandriatsitohaina-7376/achievements/wml3bbln?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+    url: "https://learn.microsoft.com/fr-fr/users/eliefenohasinaandriatsitohaina-7376/achievements/wml3bbln",
+    kind: "achievement",
+    domain: "data",
     skills: {
       fr: ["Analytique des données", "Visualisation des données", "Power BI", "Microsoft Fabric"],
       en: ["Data Analytics", "Data Visualization", "Power BI", "Microsoft Fabric"],
@@ -63,10 +82,12 @@ export const CERTIFICATIONS = [
     platform: "FHI 360",
     date: "2024-03",
     url: "https://badges.parchment.com/public/assertions/P6Az-wGXTFCJIcxKqkeaLw",
+    kind: "badge",
+    domain: "language",
+    image: openBadge,
     skills: {
       fr: ["Anglais professionnel", "STEM"],
       en: ["Professional English", "STEM"],
     },
   },
-  
 ];

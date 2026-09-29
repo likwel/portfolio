@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import DOMPurify from "dompurify";
 import { useLanguage } from '../contexts/LanguageContext';
 import { CERTIFICATIONS } from '../data/certifications';
@@ -436,45 +436,75 @@ Be natural, engaging, and helpful!`;
     }
   };
 
+  // ─── Interface ────────────────────────────────────────────────
+  const [mounted, setMounted] = useState(isOpen);
+  const [closing, setClosing] = useState(false);
+  const [lastFailed, setLastFailed] = useState(null);
+  const tabsRef = useRef(null);
+  const [pill, setPill] = useState({ x: 0, w: 0 });
+
+  /* Montage / démontage avec animation de sortie */
   useEffect(() => {
-    if (isOpen && activeTab === "ia") {
-      inputRef.current?.focus();
-    }
+    if (isOpen) { setMounted(true); setClosing(false); return; }
+    if (!mounted) return;
+    setClosing(true);
+    const id = setTimeout(() => { setMounted(false); setClosing(false); }, 260);
+    return () => clearTimeout(id);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
+    if (isOpen) setTimeout(() => inputRef.current?.focus(), 280);
   }, [isOpen, activeTab]);
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [chatHistory, isTyping]);
 
-  if (!isOpen) return null;
+  /* Pastille qui glisse sous l'onglet actif */
+  useLayoutEffect(() => {
+    const btn = tabsRef.current?.querySelector(`[data-tab="${activeTab}"]`);
+    if (btn) setPill({ x: btn.offsetLeft, w: btn.offsetWidth });
+  }, [activeTab, mounted, language]);
+
+  /* Zone de saisie qui s'agrandit avec le texte */
+  useEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, 120)}px`;
+  }, [message, activeTab]);
+
+  if (!mounted) return null;
 
   const tabs = [
-    { id: "ia", label: t('agentIA'), icon: <RobotIcon /> },
-    { id: "whatsapp", label: "WhatsApp", icon: <WhatsAppIcon /> },
-    { id: "discord", label: "Discord", icon: <DiscordIcon /> },
-    { id: "mail", label: "Email", icon: <EmailIcon /> },
+    { id: "ia",       label: t('agentIA'), icon: <RobotIcon />,    color: "var(--primary)" },
+    { id: "whatsapp", label: "WhatsApp",   icon: <WhatsAppIcon />, color: "#1FAF5A" },
+    { id: "discord",  label: "Discord",    icon: <DiscordIcon />,  color: "#5865F2" },
+    { id: "mail",     label: "Email",      icon: <EmailIcon />,    color: "var(--copper-deep)" },
   ];
+  const currentTab = tabs.find((tab) => tab.id === activeTab);
 
-  const callGroqAPI = async (userMessage) => {
+  const callGroqAPI = async (userMessage, history) => {
     setIsTyping(true);
     setError("");
+    setLastFailed(null);
 
     try {
       const GROQ_API_KEY = import.meta.env.VITE_GROQ_TOKEN;
 
       const conversationHistory = [
-        {
-          role: "system",
-          content: getSystemPrompt()
-        },
-        ...chatHistory.map(msg => ({
+        { role: "system", content: getSystemPrompt() },
+        ...history.map((msg) => ({
           role: msg.sender === "user" ? "user" : "assistant",
-          content: msg.text
+          content: msg.text,
         })),
-        {
-          role: "user",
-          content: userMessage
-        }
       ];
 
       const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
@@ -491,261 +521,220 @@ Be natural, engaging, and helpful!`;
         }),
       });
 
-      if (!response.ok) {
-        throw new Error(`API Error: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`API Error: ${response.status}`);
 
       const data = await response.json();
       const aiResponse = data.choices[0]?.message?.content || t('noResponse');
-
-      setChatHistory(prev => [...prev, {
-        text: aiResponse,
-        sender: "ia",
-        timestamp: new Date()
-      }]);
+      setChatHistory((prev) => [...prev, { text: aiResponse, sender: "ia", timestamp: new Date() }]);
     } catch (err) {
       console.error("API Error:", err);
-      setError(t('connectionError'));
-
-      setChatHistory(prev => [...prev, {
-        text: t('technicalDifficulties'),
-        sender: "ia",
-        timestamp: new Date()
-      }]);
+      setError(t('technicalDifficulties'));
+      setLastFailed(history);
     } finally {
       setIsTyping(false);
     }
   };
 
+  const askAI = (text) => {
+    const content = text.trim();
+    if (!content || isTyping) return;
+    const history = [...chatHistory, { text: content, sender: "user", timestamp: new Date() }];
+    setChatHistory(history);
+    setMessage("");
+    callGroqAPI(content, history);
+  };
+
   const handleSend = () => {
-    if (!message.trim()) return;
+    if (activeTab === "ia") { askAI(message); return; }
 
-    if (activeTab === "ia") {
-      const newMessage = {
-        text: message,
-        sender: "user",
-        timestamp: new Date()
-      };
-      setChatHistory([...chatHistory, newMessage]);
-      callGroqAPI(message);
-    } else if (activeTab === "whatsapp") {
-      window.open(`https://wa.me/261348523479?text=${encodeURIComponent(message)}`, "_blank");
+    const text = message.trim();
+    if (activeTab === "whatsapp") {
+      window.open(`https://wa.me/261348523479${text ? `?text=${encodeURIComponent(text)}` : ""}`, "_blank", "noopener");
     } else if (activeTab === "discord") {
-      window.open("https://discord.com/channels/@me/1014430541589786664", "_blank");
+      window.open("https://discord.com/channels/@me/1014430541589786664", "_blank", "noopener");
     } else if (activeTab === "mail") {
-      window.location.href = `mailto:eliefenohasina@gmail.com?subject=Contact&body=${encodeURIComponent(message)}`;
+      window.location.href = `mailto:eliefenohasina@gmail.com?subject=Contact${text ? `&body=${encodeURIComponent(text)}` : ""}`;
     }
-
     setMessage("");
   };
 
-  const currentTab = tabs.find(t => t.id === activeTab);
+  const onKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+
+  const resetChat = () => {
+    setChatHistory([]);
+    setError("");
+    setLastFailed(null);
+    inputRef.current?.focus();
+  };
+
+  const formatTime = (date) =>
+    date.toLocaleTimeString(language === "fr" ? "fr-FR" : "en-GB", { hour: "2-digit", minute: "2-digit" });
+
+  const suggestions = t('chatSuggestions');
+  const channelCta = { whatsapp: t('openWhatsapp'), discord: t('openDiscord'), mail: t('openEmail') };
+  const channelDesc = { whatsapp: t('whatsappDesc'), discord: t('discordDesc'), mail: t('emailDesc') };
 
   return (
     <>
-      {/* Overlay */}
-      <div
-        className="fixed inset-0 bg-black bg-opacity-30 z-40 backdrop-blur-sm transition-opacity mt-0"
-        onClick={onClose}
-      />
+      <div className={`chat-overlay ${closing ? "is-closing" : ""}`} onClick={onClose} />
 
-      {/* Modal */}
-      <div
-        className="border rounded-lg fixed bottom-5 right-20 md:right-20 z-50 w-[calc(100%-2.5rem)] md:w-96 rounded-xl shadow-2xl flex flex-col overflow-hidden animate-slideIn chat-open max-h-60vh"
-        style={{ backgroundColor: themeColor }}
+      <section
+        className={`chat-panel ${closing ? "is-closing" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('chatTitle')}
       >
-
-        {/* Header */}
-        <div className="px-4 py-3 text-white">
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="font-semibold text-lg flex items-center gap-2 w-full text-white">
-              {currentTab?.icon}
-              {t('contactMeVia')}
-            </h3>
-            <button
-              onClick={onClose}
-              className="hover:bg-white/20 rounded-xl transition-all p-1"
-              aria-label="Close"
-            >
+        {/* ── En-tête ── */}
+        <header className="chat-head">
+          <div className="chat-identity">
+            <span className="chat-avatar">
+              <img src="/favicon.png" alt="" />
+              <span className="chat-online" />
+            </span>
+            <span>
+              <strong>{t('chatTitle')}</strong>
+              <small>{activeTab === "ia" ? t('chatStatus') : `${t('contactMeVia')} ${currentTab.label}`}</small>
+            </span>
+          </div>
+          <div className="chat-head-tools">
+            {activeTab === "ia" && chatHistory.length > 0 && (
+              <button className="chat-icon-btn" onClick={resetChat} aria-label={t('chatClear')} title={t('chatClear')}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              </button>
+            )}
+            <button className="chat-icon-btn" onClick={onClose} aria-label="Close">
               <CloseIcon />
             </button>
           </div>
 
-          {/* Tabs */}
-          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-hide justify-between items-center">
+          <div ref={tabsRef} className="chat-tabs" role="tablist">
+            <span className="chat-tabs-pill" style={{ width: pill.w, transform: `translateX(${pill.x}px)` }} />
             {tabs.map((tab) => (
               <button
                 key={tab.id}
+                data-tab={tab.id}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                className={`chat-tab ${activeTab === tab.id ? "is-active" : ""}`}
                 onClick={() => setActiveTab(tab.id)}
-                className={`btn-tab w-full text-center flex flex-col items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${activeTab === tab.id
-                    ? "bg-white shadow-md active-tab"
-                    : "bg-white/20 text-white hover:bg-white/30"
-                  }`}
-                style={activeTab === tab.id ? { color: themeColor } : {}}
               >
-                <div className={activeTab === tab.id ? '' : 'text-white'}>
-                  {tab.icon}
-                </div>
-                <span className="text-xs">{tab.label}</span>
+                {tab.icon}
+                <span>{tab.label}</span>
               </button>
             ))}
           </div>
-        </div>
+        </header>
 
-        {/* Chat Content */}
-        <div className="flex-1 p-4 bg-gray-50 overflow-y-auto space-y-3 h-80">
+        {/* ── Contenu ── */}
+        <div className="chat-body">
           {activeTab === "ia" ? (
             <>
-              {chatHistory.length === 0 ? (
-                <div className="flex flex-col items-center justify-center h-full text-center">
-                  <div className="p-4 rounded-full mb-3" style={{ backgroundColor: `${themeColor}20` }}>
-                    <div style={{ color: themeColor }}>
-                      <RobotIcon />
-                    </div>
+              {chatHistory.length === 0 && (
+                <div className="chat-welcome">
+                  <span className="chat-welcome-icon"><RobotIcon /></span>
+                  <p className="chat-welcome-title">{t('chatWelcome')}</p>
+                  <p className="chat-welcome-text">{t('chatDescription')}</p>
+                  <div className="chat-suggestions">
+                    {Array.isArray(suggestions) && suggestions.map((s, i) => (
+                      <button key={s} className="chat-suggestion" style={{ "--i": i }} onClick={() => askAI(s)}>
+                        {s}
+                      </button>
+                    ))}
                   </div>
-                  <p className="text-gray-600 font-medium">{t('chatWelcome')}</p>
-                  <p className="text-gray-400 text-sm mt-1 px-4">
-                    {t('chatDescription')}
-                  </p>
                 </div>
-              ) : (
-                <>
-                  {chatHistory.map((msg, i) => (
+              )}
+
+              {chatHistory.map((msg, i) => (
+                <div key={i} className={`chat-row ${msg.sender === "user" ? "is-user" : "is-ai"}`}>
+                  {msg.sender !== "user" && <img className="chat-row-avatar" src="/favicon.png" alt="" />}
+                  <div className="chat-bubble">
                     <div
-                      key={i}
-                      className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"} animate-fadeIn`}
-                    >
-                      <div
-                        className={`max-w-[80%] px-4 py-2 rounded-2xl ${msg.sender === "user"
-                            ? "text-white rounded-br-sm"
-                            : "bg-white text-gray-800 shadow-sm rounded-bl-sm"
-                          }`}
-                        style={msg.sender === "user" ? { backgroundColor: themeColor } : {}}
-                      >
-                        <p
-                          className="text-sm whitespace-pre-wrap py-1"
-                          dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(msg.text),
-                          }}
-                        />
-                        <p className={`text-xs mt-1 ${msg.sender === "user" ? "text-white opacity-70" : "text-gray-400"}`}>
-                          {msg.timestamp.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                      className="chat-text"
+                      dangerouslySetInnerHTML={{ __html: renderMessage(msg.text) }}
+                    />
+                    <time>{formatTime(msg.timestamp)}</time>
+                  </div>
+                </div>
+              ))}
 
-                  {isTyping && (
-                    <div className="flex justify-start animate-fadeIn">
-                      <div className="bg-white px-4 py-3 rounded-2xl rounded-bl-sm shadow-sm">
-                        <div className="flex gap-1">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }}></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }}></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+              {isTyping && (
+                <div className="chat-row is-ai">
+                  <img className="chat-row-avatar" src="/favicon.png" alt="" />
+                  <div className="chat-bubble chat-typing" aria-label="…">
+                    <span /><span /><span />
+                  </div>
+                </div>
+              )}
 
-                  {error && (
-                    <div className="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded text-sm">
-                      {error}
-                    </div>
+              {error && (
+                <div className="chat-error" role="alert">
+                  <span>{error}</span>
+                  {lastFailed && (
+                    <button onClick={() => callGroqAPI(lastFailed[lastFailed.length - 1].text, lastFailed)}>
+                      {t('chatRetry')}
+                    </button>
                   )}
-                </>
+                </div>
               )}
               <div ref={chatEndRef} />
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center h-full text-center px-4">
-              <div
-                className="p-4 rounded-full mb-3"
-                style={{ backgroundColor: `${themeColor}20` }}
-              >
-                <div style={{ color: themeColor }}>
-                  {currentTab?.icon}
-                </div>
-              </div>
-              <p className="text-gray-700 font-medium mb-2">
-                {t('contactMeVia')} {currentTab?.label}
-              </p>
-              <p className="text-gray-500 text-sm">
-                {activeTab === "whatsapp" && t('whatsappDesc')}
-                {activeTab === "discord" && t('discordDesc')}
-                {activeTab === "mail" && t('emailDesc')}
-              </p>
+            <div className="chat-channel" style={{ "--brand": currentTab.color }} key={activeTab}>
+              <span className="chat-channel-icon">{currentTab.icon}</span>
+              <p className="chat-welcome-title">{t('contactMeVia')} {currentTab.label}</p>
+              <p className="chat-welcome-text">{channelDesc[activeTab]}</p>
+              <button className="chat-channel-btn" onClick={handleSend}>
+                {channelCta[activeTab]}
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+              </button>
             </div>
           )}
         </div>
 
-        {/* Input Area */}
-        <div className="border-t bg-white p-3">
-          <div className="flex gap-2 items-center justify-between">
-            <input
+        {/* ── Saisie ── */}
+        <footer className="chat-foot">
+          <div className="chat-input">
+            <textarea
               ref={inputRef}
-              type="text"
-              className="w-full flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-verdigris/40 focus:border-verdigris transition-all"
-              style={{
-                focusRingColor: themeColor,
-              }}
+              rows={1}
               placeholder={activeTab === "ia" ? t('askAnything') : t('yourMessageOptional')}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+              onKeyDown={onKeyDown}
+              aria-label={activeTab === "ia" ? t('askAnything') : t('yourMessageOptional')}
             />
             <button
+              className="chat-send"
               onClick={handleSend}
-              disabled={activeTab === "ia" && !message.trim()}
-              className="text-white p-2 rounded-full transition-all transform hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:transform-none shadow-md disabled:opacity-50"
-              style={{ backgroundColor: themeColor }}
+              disabled={activeTab === "ia" && (!message.trim() || isTyping)}
               aria-label="Send"
+              style={{ "--brand": currentTab.color }}
             >
               <SendIcon />
             </button>
           </div>
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes slideIn {
-          from {
-            transform: translateY(100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-slideIn {
-          animation: slideIn 0.3s ease-out;
-        }
-        
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
-        
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
+          <p className="chat-hint">{activeTab === "ia" ? t('chatDisclaimer') : t('chatInputHint')}</p>
+        </footer>
+      </section>
     </>
   );
+}
+
+/* Texte de l'IA : **gras**, liens ouverts dans un nouvel onglet, HTML nettoyé */
+DOMPurify.addHook("afterSanitizeAttributes", (node) => {
+  if (node.tagName === "A") {
+    node.setAttribute("target", "_blank");
+    node.setAttribute("rel", "noopener noreferrer");
+    node.removeAttribute("style");
+  }
+});
+
+function renderMessage(text) {
+  const html = String(text).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  return DOMPurify.sanitize(html);
 }
