@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="Inter, Arial, sans-serif">
+  <!-- Couverture illustrée du projet Enrich (schéma du pipeline, remplaçable par une capture) -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#082015"/>
+      <stop offset="1" stop-color="#0f3a2e"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#259d91" opacity=".18"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#259d91"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#dots)"/>
+  <circle cx="1480" cy="90" r="220" fill="#259d91" opacity=".16"/>
+  <circle cx="120" cy="960" r="180" fill="#d6503f" opacity=".14"/>
+
+  <!-- Titre -->
+  <text x="90" y="130" fill="#c9e1e1" font-size="30" font-weight="600" letter-spacing="6">PIPELINE PYTHON · SANS IA</text>
+  <text x="90" y="210" fill="#fcfcfc" font-size="82" font-weight="700" font-family="Poppins, Arial, sans-serif">Enrich</text>
+  <text x="410" y="210" fill="#f08a7c" font-size="40" font-style="italic" font-family="Georgia, serif">site web officiel des restaurants</text>
+
+  <!-- Entrée : lignes sans site web -->
+  <g transform="translate(90 290)">
+    <rect width="380" height="600" rx="28" fill="#fcfcfc" opacity=".06" stroke="#c9e1e1" stroke-opacity=".25"/>
+    <text x="32" y="58" fill="#8fb3ab" font-size="22" font-weight="600" letter-spacing="3">ENTRÉE</text>
+    <text x="32" y="98" fill="#fcfcfc" font-size="28" font-weight="600">bdd_resto</text>
+    <g fill="#c9e1e1">
+      <rect x="32" y="140" width="190" height="20" rx="10" opacity=".55"/><rect x="250" y="140" width="96" height="20" rx="10" fill="#d6503f" opacity=".45"/>
+      <rect x="32" y="210" width="150" height="20" rx="10" opacity=".55"/><rect x="250" y="210" width="96" height="20" rx="10" fill="#d6503f" opacity=".45"/>
+      <rect x="32" y="280" width="210" height="20" rx="10" opacity=".55"/><rect x="250" y="280" width="96" height="20" rx="10" fill="#d6503f" opacity=".45"/>
+      <rect x="32" y="350" width="170" height="20" rx="10" opacity=".55"/><rect x="250" y="350" width="96" height="20" rx="10" fill="#d6503f" opacity=".45"/>
+      <rect x="32" y="420" width="130" height="20" rx="10" opacity=".55"/><rect x="250" y="420" width="96" height="20" rx="10" fill="#d6503f" opacity=".45"/>
+    </g>
+    <text x="32" y="520" fill="#8fb3ab" font-size="22">nom · latitude · longitude</text>
+    <text x="32" y="556" fill="#f08a7c" font-size="22" font-weight="600">website : vide</text>
+  </g>
+
+  <!-- Passes -->
+  <g font-size="24" font-weight="600">
+    <g transform="translate(580 300)">
+      <rect width="440" height="84" rx="42" fill="#17736a"/><text x="36" y="53" fill="#fcfcfc">1 · OpenStreetMap</text>
+    </g>
+    <g transform="translate(580 408)">
+      <rect width="440" height="84" rx="42" fill="#17736a"/><text x="36" y="53" fill="#fcfcfc">2 · Wikidata</text>
+    </g>
+    <g transform="translate(580 516)">
+      <rect width="440" height="84" rx="42" fill="#17736a"/><text x="36" y="53" fill="#fcfcfc">3 · Overture · Foursquare</text>
+    </g>
+    <g transform="translate(580 624)">
+      <rect width="440" height="84" rx="42" fill="#b34233"/><text x="36" y="53" fill="#fcfcfc">4 · URL devinée + vérifiée</text>
+    </g>
+    <g transform="translate(580 760)">
+      <rect width="440" height="110" rx="24" fill="#fcfcfc" opacity=".06" stroke="#c9e1e1" stroke-opacity=".25"/>
+      <text x="32" y="48" fill="#c9e1e1" font-size="22">matching flou nom + distance GPS</text>
+      <text x="32" y="86" fill="#8fb3ab" font-size="20" font-weight="400">RapidFuzz · cache SQLite · reprise</text>
+    </g>
+  </g>
+  <g stroke="#259d91" stroke-width="4" fill="none" marker-end="url(#arrow)" opacity=".85">
+    <path d="M480 590 C 530 590, 530 342, 570 342"/>
+    <path d="M1030 590 C 1080 590, 1080 590, 1120 590"/>
+  </g>
+
+  <!-- Sortie : site web + score de confiance -->
+  <g transform="translate(1130 290)">
+    <rect width="380" height="600" rx="28" fill="#fcfcfc" opacity=".06" stroke="#c9e1e1" stroke-opacity=".25"/>
+    <text x="32" y="58" fill="#8fb3ab" font-size="22" font-weight="600" letter-spacing="3">SORTIE</text>
+    <text x="32" y="98" fill="#fcfcfc" font-size="28" font-weight="600">website + confiance</text>
+    <g font-size="20" font-weight="700" fill="#082015">
+      <rect x="32" y="140" width="200" height="20" rx="10" fill="#259d91"/><rect x="262" y="128" width="84" height="44" rx="22" fill="#c9e1e1"/><text x="286" y="157">95</text>
+      <rect x="32" y="210" width="170" height="20" rx="10" fill="#259d91"/><rect x="262" y="198" width="84" height="44" rx="22" fill="#c9e1e1"/><text x="286" y="227">88</text>
+      <rect x="32" y="280" width="220" height="20" rx="10" fill="#259d91"/><rect x="262" y="268" width="84" height="44" rx="22" fill="#c9e1e1"/><text x="286" y="297">80</text>
+      <rect x="32" y="350" width="150" height="20" rx="10" fill="#259d91" opacity=".6"/><rect x="262" y="338" width="84" height="44" rx="22" fill="#f08a7c"/><text x="286" y="367">72</text>
+      <rect x="32" y="420" width="120" height="20" rx="10" fill="#c9e1e1" opacity=".25"/><rect x="262" y="408" width="84" height="44" rx="22" fill="#f08a7c" opacity=".7"/><text x="286" y="437">60</text>
+    </g>
+    <text x="32" y="520" fill="#8fb3ab" font-size="22">≥ 80 : exploitable</text>
+    <text x="32" y="556" fill="#f08a7c" font-size="22" font-weight="600">&lt; 72 : revue manuelle</text>
+  </g>
+</svg>
